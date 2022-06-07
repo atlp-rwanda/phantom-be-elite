@@ -1,10 +1,10 @@
 # Phantom
 
-This project has built by ELITE team in ATLP Program.
+This project has been built by ELITE team in ATLP Program.
 
 ## Description
 
-It's all about api for phantom app
+Phantom is a web application that allows a passenger to simulate bus movements and also cab track buses's locations & movements.p
 
 ## Getting Started
 
@@ -35,5 +35,6 @@ npm run start:dev
 
 Contributors names and contact info
 
-Elite team
-[Salim_smith54](https://twitter.com/Salim_Smith54)
+Elite team:
+
+-[Dodo](#https://github.com/mukunzidd) -[PatrickNiyogitare](#https://github.com/PatrickNiyogitare28) -[NDAYISABYE Salim](#https://github.com/Salim-54) -[Axel Divin](#https://github.com/Xldivin) -[Epaphrodis](#https://github.com/) -[Prince Niyonshuti](#https://github.com/PrinceNiyonshuti) -[AKIMANA Rachel](#https://github.com/) -[SHYAKA Benjamin](#https://github.com/) -[NIYONKURU Sylvain](#https://github.com/) -[Hodal MUHETO](#https://github.com/)
