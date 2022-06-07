@@ -1,0 +1,48 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Phantom",
+        "description": "Documentation of Phantom backend ready for frontend consumption!!",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Elite team",
+            "email": "elite@andela.com",
+            "url": "https://github.com/atlp-rwanda/phantom-fe-elite"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "servers": [{
+        "url": "http://localhost:3000",
+        "name": "DEV"
+    }],
+
+    "paths": {
+        "/": {
+            "get": {
+                "tags": ["Welcome"],
+                "summary": "welcome message",
+                "description": "message",
+                "operationId": "message",
+                "responses": {
+                    "201": {
+                        "description": "message"
+                    }
+                },
+
+                "security": [{
+                    "Bearer": []
+                }]
+            }
+        }
+    }
+}
