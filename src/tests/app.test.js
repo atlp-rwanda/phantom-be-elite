@@ -1,23 +1,24 @@
 
-import app from "../index";
+import app from "../app";
 import chai from 'chai';
 import chaiHttp from "chai-http";
 
+const port = 3000
+app.listen(app.listen(port, () => { console.log("Server listening on port " + port) }))
 
-const should = chai.should();
+let should = chai.should();
 chai.use(chaiHttp);
+const expect = require('chai').expect;
 
-
-describe.only("homepage Check Test", function () {
-  describe("/GET homepage", () => {
-    it("it should GET the homepage status", (done) => {
-      chai
-        .request(app)
-        .get("/")
-        .end((error, res) => {
-          res.should.have.status(200);
-          done();
-        });
-    });
+chai.use(chaiHttp);
+  describe('/GET book', () => {
+      it('it should GET the homepage', (done) => {
+        chai.request(app)
+            .get('/')
+            .end((err, res) => {
+              res.should.have.status(200);
+              // res.status.should.be.equal(200);
+              done();
+            });
+      });
   });
-});
