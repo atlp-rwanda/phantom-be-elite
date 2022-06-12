@@ -9,8 +9,12 @@ server.use(i18n.init);
 
 // default route
 server.get('/', (req, res) => {
-    res.status(200).json({ success: true, message: res.__("welcome")})
+    res.status(200).json({ success: true, message: res.__("welcome here all")})
 });
+
+server.get("/test", (req,res) => {
+  res.send("<h1>hello there men and women gents and gentlemen<h1>");
+})
 
 server.get('/language-test', (req, res) => {
   res.status(200).json({ success: true, message: res.__("language")})
