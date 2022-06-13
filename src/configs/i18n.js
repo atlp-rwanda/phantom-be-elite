@@ -5,7 +5,7 @@ const __dirname = path.resolve();
 
 
     i18n.configure({
-      locales: ["en","fr"],
+      locales: ["en","fr","sw","kiny"],
       directory: path.join(__dirname, "locales"),
       defaultLocale: "en",
       headers: "Accept-Language"

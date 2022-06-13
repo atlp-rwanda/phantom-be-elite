@@ -1,5 +1,7 @@
 {
 	"welcome": "Bienvenue au fantôme API",
 	"ServerError": "serveur introuvable",
-    "language": "La traduction fonctionne"
+    "language": "La traduction fonctionne",
+	"other":"autre contenu",
+	"true":"vrai"
 }
