@@ -1,10 +1,6 @@
-
 import app from "../app";
 import chai from 'chai';
 import chaiHttp from "chai-http";
-
-const port = 3000
-app.listen(app.listen(port, () => { console.log("Server listening on port " + port) }))
 
 let should = chai.should();
 chai.use(chaiHttp);
