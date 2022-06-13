@@ -1,6 +1,6 @@
 name: Running Code Coverage
 
-on: ["develop"]
+on: [develop]
 
 jobs:
   build:
