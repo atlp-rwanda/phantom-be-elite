@@ -9,11 +9,11 @@ server.use(i18n.init);
 
 // default route
 server.get('/', (req, res) => {
-    res.status(200).json({ success: true, message: res.__("welcome")})
+    res.status(200).json({ success:  res.__(true) , message: res.__("welcome")})
 });
 
 server.get('/language-test', (req, res) => {
-  res.status(200).json({ success: true, message: res.__("language")})
+  res.status(200).json({ success: res.__(true) , message: res.__("language")})
 });
 
 server.use(express.json());
