@@ -1,5 +1,3 @@
-[![Build Status](https://app.travis-ci.com/atlp-rwanda/phantom-be-elite.svg?branch=develop)](https://app.travis-ci.com/atlp-rwanda/phantom-be-elite)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/maintainability)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/test_coverage)
