@@ -1,6 +1,6 @@
 import express from 'express';
 import swaggerUi from "swagger-ui-express";
-import swaggerDoc from "./api.json";
+import swaggerDoc from "../api.json";
 import i18n from './configs/i18n.js';
 
 

@@ -2,6 +2,10 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/test_coverage)
 
+[![Build](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/node.js.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/node.js.yml)
+
+[![Coverage](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/coverage.js.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/coverage.js.yml)
+
 # Phantom
 
 This project has been built by ELITE team in ATLP Program.
@@ -42,3 +46,8 @@ Contributors names and contact info
 Elite team:
 
 -[Dodo](#https://github.com/mukunzidd) -[PatrickNiyogitare](#https://github.com/PatrickNiyogitare28) -[NDAYISABYE Salim](#https://github.com/Salim-54) -[Axel Divin](#https://github.com/Xldivin) -[Epaphrodis](#https://github.com/) -[Prince Niyonshuti](#https://github.com/PrinceNiyonshuti) -[AKIMANA Rachel](#https://github.com/) -[SHYAKA Benjamin](#https://github.com/) -[NIYONKURU Sylvain](#https://github.com/) -[Hodal MUHETO](#https://github.com/)
+
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
