@@ -3,16 +3,23 @@
     "version": "1.0.0",
     "description": "phantom rest api",
     "main": "index.js",
+    "jest": {
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageReporters": ["lcov"],
+        "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+        "reporters": ["default", ["jest-tesults-reporter", {"tesults-target": "token"}]]
+      },
     "author": "elite team",
     "scripts": {
         "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
         "start": "cross-env NODE_ENV=prod node dist/index.js",
         "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 30000",
         "build": "babel src --out-dir dist",
-        "coverage": "nyc npm run test",
         "seed": "npx sequelize-cli db:seed:all",
         "down": "npx sequelize-cli db:migrate:undo:all",
-        "migration": "npx sequelize-cli db:migrate"
+        "migration": "npx sequelize-cli db:migrate",
+        "coverage": "nyc npm run test --caverage"
     },
     "license": "MIT",
     "dependencies": {
