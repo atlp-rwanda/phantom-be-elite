@@ -3,6 +3,13 @@
     "version": "1.0.0",
     "description": "phantom rest api",
     "main": "index.js",
+    "jest": {
+        "verbose": true,
+        "collectCoverage": true,
+        "coverageReporters": ["lcov"],
+        "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+        "reporters": ["default", ["jest-tesults-reporter", {"tesults-target": "token"}]]
+      },
     "author": "elite team",
     "scripts": {
         "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
