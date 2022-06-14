@@ -3,6 +3,8 @@ name: Coverage
 on:
   push:
     branches: [develop, ch-setup-integrations-18]
+  pull_request:
+    branches: [ develop, ch-setup-integrations-18]
 
 jobs:
   coverage:
@@ -19,7 +21,7 @@ jobs:
       - uses: paambaati/codeclimate-action@v2.5.0
         env:
           CI: "true"
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+          CC_TEST_REPORTER_ID: 321ee8fd219aad6def946d2acd307cdaff1b215d53ae48dfea5c7ebce2ef875c
         with:
           debug: true
           coverageCommand: npm run coverage
