@@ -7,9 +7,12 @@
     "scripts": {
         "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
         "start": "cross-env NODE_ENV=prod node dist/index.js",
-        "test": "cross-env NODE_ENV=test nyc mocha --require @babel/register ./src/tests/ --recursive  --exit --timeout 30000",
+        "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 30000",
         "build": "babel src --out-dir dist",
-        "coverage": "nyc --reporter=lcov --reporter=text yarn test"
+        "coverage": "nyc npm run test",
+        "seed": "npx sequelize-cli db:seed:all",
+        "down": "npx sequelize-cli db:migrate:undo:all",
+        "migration": "npx sequelize-cli db:migrate"
     },
     "license": "MIT",
     "dependencies": {
@@ -23,7 +26,11 @@
         "path": "^0.12.7",
         "pg": "^8.7.3",
         "pg-hstore": "^2.3.4",
-        "sequelize": "^6.20.1"
+        "sequelize": "^6.20.1",
+        "i18n": "^0.15.0",
+        "i18next": "^21.8.9",
+        "swagger-ui-express": "^4.3.0",
+        "sinon": "^14.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.6",
@@ -36,11 +43,10 @@
         "eslint": "^8.17.0",
         "eslint-plugin-react": "^7.30.0",
         "jest": "^27.5.1",
-        "mocha": "^9.2.1",
+        "mocha": "^9.2.2",
         "nodemon": "^2.0.15",
         "nyc": "^15.1.0",
-        "swagger": "^0.0.1",
-        "swagger-jsdoc": "^6.1.0",
-        "swagger-ui-express": "^4.3.0"
+        "swagger": "^0.7.5",
+        "swagger-jsdoc": "^6.1.0"
     }
 }
