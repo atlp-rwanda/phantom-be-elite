@@ -20,4 +20,4 @@ ENV PORT 3001
 EXPOSE $PORT
 
 # command to be run as "npm start" to start the server inside the image
-CMD ["npm", "start"]
+CMD ["npm","run","dev"]

@@ -1,0 +1,27 @@
+name: Coverage
+
+on:
+  push:
+    branches: [develop, ch-setup-integrations-18]
+  pull_request:
+    branches: [ develop, ch-setup-integrations-18]
+
+jobs:
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm i
+      - uses: paambaati/codeclimate-action@v2.5.0
+        env:
+          CI: "true"
+          CC_TEST_REPORTER_ID: 321ee8fd219aad6def946d2acd307cdaff1b215d53ae48dfea5c7ebce2ef875c
+        with:
+          debug: true
+          coverageCommand: npm run coverage
