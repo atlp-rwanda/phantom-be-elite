@@ -47,7 +47,17 @@ Elite team:
 
 -[Dodo](#https://github.com/mukunzidd) -[PatrickNiyogitare](#https://github.com/PatrickNiyogitare28) -[NDAYISABYE Salim](#https://github.com/Salim-54) -[Axel Divin](#https://github.com/Xldivin) -[Epaphrodis](#https://github.com/) -[Prince Niyonshuti](#https://github.com/PrinceNiyonshuti) -[AKIMANA Rachel](#https://github.com/) -[SHYAKA Benjamin](#https://github.com/) -[NIYONKURU Sylvain](#https://github.com/) -[Hodal MUHETO](#https://github.com/)
 
-
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+## Sequelize
+
+create model
+sequelize model:generate --name User --attributes name:string,email:string
+
+migration
+sequelize db:migrate && npm run migration
+
+seeding
+sequelize db:seed:all && npm run seed
