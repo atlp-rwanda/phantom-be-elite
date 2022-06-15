@@ -2,6 +2,7 @@ import express from 'express';
 import swaggerUi from "swagger-ui-express";
 import swaggerDoc from "../api.json";
 import i18n from './configs/i18n.js';
+const db = require("./postgres-queries");
 
 
 const server = express();
@@ -11,6 +12,8 @@ server.use(i18n.init);
 server.get('/', (req, res) => {
     res.status(200).json({ success:  res.__(true) , message: res.__("welcome")})
 });
+
+server.get("/users", db.createUser);
 
 server.get("/test", (req,res) => {
   res.send("<h1>hello there men and women gents and gentlemen<h1>");

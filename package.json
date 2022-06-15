@@ -6,10 +6,22 @@
     "jest": {
         "verbose": true,
         "collectCoverage": true,
-        "coverageReporters": ["lcov"],
-        "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
-        "reporters": ["default", ["jest-tesults-reporter", {"tesults-target": "token"}]]
-      },
+        "coverageReporters": [
+            "lcov"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}"
+        ],
+        "reporters": [
+            "default",
+            [
+                "jest-tesults-reporter",
+                {
+                    "tesults-target": "token"
+                }
+            ]
+        ]
+    },
     "author": "elite team",
     "scripts": {
         "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
@@ -26,8 +38,9 @@
         "i18next": "^21.8.9",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.2.3",
-        "swagger-ui-express": "^4.3.0",
-        "sinon": "^14.0.0"
+        "pg": "^8.7.3",
+        "sinon": "^14.0.0",
+        "swagger-ui-express": "^4.3.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.6",
