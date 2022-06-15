@@ -1,0 +1,50 @@
+# in the yml file, spacing matter. so make sure you respect the spacing because it defines which belongs to what
+# ============================================================================================================== #
+
+# the version is picked randomly
+version: "3.9"
+
+# the containers are called "services" in the compose file
+services:
+  # the node-app is the name of the container to be created when this docker-compose file is invoked/runned
+  node-app:
+    # first build the image from which container will made. this dot { . } refer to path to the docker file.
+    # dot which follows build means Dockerfile belongs to the same directory as the docker-compose.yml
+    build: .
+    # ports to open connection to the container from outside work either from browser or localhost.
+    ports:
+      # dash signifies a list and this string "3001:4000" means the actual server on the express app is listening
+      # on port 5000. so 3001 is the port to send request to in the browser or localhost
+      # so when traffic reach localhost:3001 it directs those traffic to the port 5000 because it is what our express app is listening on
+      - "3001:5000"
+    # volumes are the way to persist some sort of data while creating the containers or extend the function or behaviour
+    # of the app running in those container
+    volumes:
+      # this concept is called bindmount. it is a technique of syncying the files of the projects locally to the files which are copied
+      # into docker containers so that they are always same. when one file or many files  is changed locally, that change is reflected
+      # in the files inside docker container so that no restarting docker image build and container required while any file is modified
+      #  "./:/app" means make files of the current folder where the this docker-compose belongs ALWAYS SAME WITH
+      # all files of the folder in the container called /app directory.
+      # "ro" means read only. the docker container can not modify our local files
+      - ./:/app:ro
+
+      # prevent syncying to override the node_modules
+      - /app/node_modules
+
+    # setting environment variables on the creation of container
+    environment:
+      - PORT=5000
+    # or alternatively we can use .env file to load those environment instead of passing during creation of container
+    # env_file:
+    #   - ./.env
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: elite
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  

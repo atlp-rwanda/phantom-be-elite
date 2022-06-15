@@ -6,14 +6,27 @@
     "jest": {
         "verbose": true,
         "collectCoverage": true,
-        "coverageReporters": ["lcov"],
-        "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
-        "reporters": ["default", ["jest-tesults-reporter", {"tesults-target": "token"}]]
-      },
+        "coverageReporters": [
+            "lcov"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}"
+        ],
+        "reporters": [
+            "default",
+            [
+                "jest-tesults-reporter",
+                {
+                    "tesults-target": "token"
+                }
+            ]
+        ]
+    },
     "author": "elite team",
     "scripts": {
         "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
         "start": "cross-env NODE_ENV=prod node dist/index.js",
+        "dev": "nodemon -L --exec babel-node src/index.js",
         "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 30000",
         "build": "babel src --out-dir dist",
         "seed": "npx sequelize-cli db:seed:all",
@@ -23,9 +36,6 @@
     },
     "license": "MIT",
     "dependencies": {
-        "argon2": "^0.28.5",
-        "cross-env": "^7.0.3",
-        "dotenv": "^16.0.0",
         "express": "^4.17.3",
         "fs": "^0.0.1-security",
         "jsonwebtoken": "^8.5.1",
