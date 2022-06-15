@@ -6,7 +6,7 @@
     "jest": {
         "verbose": true,
         "collectCoverage": true,
-        "coverageReporters": ["lcov"],
+        "coverageReporters": ["clover", "json", "lcov", ["text", {"skipFull": true}]],
         "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
         "reporters": ["default", ["jest-tesults-reporter", {"tesults-target": "token"}]]
       },
@@ -16,7 +16,7 @@
         "start": "cross-env NODE_ENV=prod node dist/index.js",
         "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 30000",
         "build": "babel src --out-dir dist",
-        "coverage": "nyc npm run test --caverage"
+        "coverage": "nyc npm run test --coverage"
     },
     "license": "MIT",
     "dependencies": {
