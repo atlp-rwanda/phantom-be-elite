@@ -7,6 +7,11 @@ jobs:
     steps:
     - name: checkout code
       uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
 
     - name: install dependencies
       run: npm install
@@ -25,3 +30,4 @@ jobs:
       with:
         debug: true
         coverageCommand: npm run coverage
+        coverageLocations: ${{github.workspace}}/client/coverage/lcov.info:lcov
