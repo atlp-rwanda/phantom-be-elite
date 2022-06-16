@@ -30,4 +30,4 @@ jobs:
       with:
         debug: true
         coverageCommand: npm run coverage
-        coverageLocations: ${{github.workspace}}/client/coverage/lcov.info:lcov
+        
