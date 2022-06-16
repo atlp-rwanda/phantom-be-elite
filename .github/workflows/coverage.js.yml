@@ -1,27 +1,20 @@
-name: "Coverage"
-on: [pull_request, push]
+name: Coverage
+
+on:
+  push:
+    branches: [develop, ch-setup-integration-18]
 
 jobs:
-  check_pr:
+  coverage:
+    name: coverage
     runs-on: ubuntu-latest
     steps:
-    - name: checkout code
-      uses: actions/checkout@v3
-
-    - name: install dependencies
-      run: npm install
-
-    - name: build typescript
-      run: npm run build
-
-    - name: run tests and instrument coverage
-      run: npm run test
-
-    - name: publish code coverage to code-climate (duh)
-      uses: paambaati/codeclimate-action@v2.7.1
-      env:
-        CI: "true"
-        CC_TEST_REPORTER_ID: 321ee8fd219aad6def946d2acd307cdaff1b215d53ae48dfea5c7ebce2ef875c
-      with:
-        debug: true
-        coverageCommand: npm run coverage
+      - uses: actions/checkout@v3
+      - run: npm i
+      - uses: paambaati/codeclimate-action@v2.5.0
+        env:
+          CI: "true"
+          CC_TEST_REPORTER_ID: 321ee8fd219aad6def946d2acd307cdaff1b215d53ae48dfea5c7ebce2ef875c
+        with:
+          debug: true
+          coverageCommand: npm run coverage
