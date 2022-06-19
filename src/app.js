@@ -6,7 +6,10 @@ import swaggerDoc from "../api.json";
 import i18n from "./configs/i18n.js";
 import databaserouter from "./Routes/database.route";
 import profileRouter from "./Routes/updateProfile.route";
+import cors from "cors";
+
 const server = express();
+server.use(cors());
 server.use(i18n.init);
 // default route
 

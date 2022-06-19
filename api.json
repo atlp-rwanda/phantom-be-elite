@@ -27,22 +27,95 @@
     }],
 
     "paths": {
-        "/": {
-            "get": {
-                "tags": ["Welcome"],
-                "summary": "welcome message",
-                "description": "message",
-                "operationId": "message",
-                "responses": {
-                    "201": {
-                        "description": "message"
-                    }
-                },
+			"/": {
+				"get": {
+					"tags": ["Welcome"],
+					"summary": "welcome message",
+					"description": "message",
+					"operationId": "message",
+					"responses": {
+						"201": {
+							"description": "message"
+						}
+					},
 
-                "security": [{
-                    "Bearer": []
-                }]
-            }
-        }
-    }
+					"security": [
+						{
+							"Bearer": []
+						}
+					]
+				}
+			},
+			"/api/v1/profile/{id}": {
+				"get": {
+					"tags": ["Profile Update"],
+					"summary": "get single profile of the driver and operator",
+					"description": "get single profile of the driver and operator",
+					"operationId": "get single profile of the driver and operator",
+					"parameters": [
+						{
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "User Id",
+							"required": true
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				}
+			},
+			"/api/v1/profile/update/{id}": {
+				"put": {
+					"tags": ["Profile Update"],
+					"summary": "Update user profile",
+					"description": "Update user profile of the operator and driver information about their own profile.",
+					"operationId": "send quey",
+					"parameters": [
+						{
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "User Id",
+							"required": true
+						},
+						{
+							"in": "body",
+							"name": "body",
+							"description": "Resource payload",
+							"required": true,
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									},
+									"id_number": {
+										"type": "string"
+									},
+									"permit_id": {
+										"type": "string"
+									},
+									"phone": {
+										"type": "number"
+									}
+								},
+								"required": ["name", "email", "subject", "content"]
+							}
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				}
+			}
+		}
 }

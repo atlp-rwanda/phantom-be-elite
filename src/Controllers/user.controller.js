@@ -38,7 +38,7 @@ export const updateUser = async (req, res) => {
 			`UPDATE public."Users" SET name = $1 ,email=$2,id_number= $3 , permit_id=$4, phone=$5 WHERE id = $6 `,
 			[name, email, id_number, permit_id, phone, id]
 		);
-		if (!user.rowCount) {
+		if (!updates.rowCount) {
 			return res
 				.status(400)
 				.send({ success: false, message: `Something went wrong` });
