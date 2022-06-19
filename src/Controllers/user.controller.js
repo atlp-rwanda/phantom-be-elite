@@ -1,78 +1,51 @@
 /** @format */
 
 import client from "../Database/database";
+import { profileValidation } from "../validations/index";
 
-// export const getUser = async (req, res) => {
-// 	client.connect();
-// 	const id = req.params.id;
-// 	client.query(
-// 		`SELECT * FROM public."Users" where id = ${id} `,
-// 		(err, result) => {
-// 			if (!err) {
-// 				res.send(result.rows);
-// 			} else {
-// 				console.log(err.message);
-// 			}
-// 			client.end();
-// 		}
-// 	);
-// };
-
-const getUser = async (req, res) => {
+export const getUser = async (req, res) => {
 	const { id } = req.params;
 	client.connect();
 	const user = await client.query(
 		`SELECT * FROM public."Users" where id = ${id} `
 	);
 	if (!user.rowCount) {
-		return res.status(400).send({
-			message: `No user profile found`,
-		});
+		return res
+			.status(400)
+			.send({ success: false, message: `No user profile found` });
 	}
 	return res.status(200).send({
+		success: true,
 		data: user.rows,
 	});
 };
 
-const updateUser = async (req, res) => {
-	const { name, email, phone, password } = req.body;
+export const updateUser = async (req, res) => {
+	const { error } = profileValidation(req.body);
+	if (error) return res.status(400).send({ message: error.details[0].message });
+	const { name, email, id_number, permit_id, phone } = req.body;
 	const { id } = req.params;
-
-	const user = await User.findOne({
-		where: {
-			id,
-		},
-	});
-
-	if (!user) {
-		return res.status(400).send({
-			message: `No user found with the id ${id}`,
-		});
-	}
-
-	try {
-		if (name) {
-			user.name = name;
+	client.connect();
+	const user = await client.query(
+		`SELECT * FROM public."Users" where id = ${id} `
+	);
+	if (!user.rowCount) {
+		return res
+			.status(400)
+			.send({ success: false, message: `No user profile found` });
+	} else {
+		const updates = await client.query(
+			`UPDATE public."Users" SET name = $1 ,email=$2,id_number= $3 , permit_id=$4, phone=$5 WHERE id = $6 `,
+			[name, email, id_number, permit_id, phone, id]
+		);
+		if (!user.rowCount) {
+			return res
+				.status(400)
+				.send({ success: false, message: `Something went wrong` });
 		}
-
-		if (email) {
-			user.email = email;
-		}
-		if (phone) {
-			user.phone = phone;
-		}
-		if (password) {
-			user.password = password;
-		}
-
-		user.save();
-		return res.send({
-			message: `Profile updated`,
-		});
-	} catch (err) {
-		return res.status(500).send({
-			message: `Error: ${err.message}`,
+		return res.status(200).send({
+			success: true,
+			message: `Profile Updated Successfully`,
 		});
 	}
 };
-export { getUser, updateUser };

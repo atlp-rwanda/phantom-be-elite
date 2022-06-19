@@ -1,11 +1,11 @@
 /** @format */
 
 import express from "express";
-import { getUser} from "../controllers/user.controller";
+import { getUser, updateUser } from "../controllers/user.controller";
 
 const router = express.Router();
 
-
-router.get("/profile/:id", getUser);
+router.get("/:id", getUser);
+router.put("/update/:id", updateUser);
 
 export default router;

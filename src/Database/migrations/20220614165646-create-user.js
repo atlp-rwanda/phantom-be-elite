@@ -16,10 +16,10 @@ module.exports = {
 			email: {
 				type: Sequelize.STRING,
 			},
-			idNumber: {
+			id_number: {
 				type: Sequelize.STRING,
 			},
-			permitId: {
+			permit_id: {
 				type: Sequelize.STRING,
 			},
 			phone: {

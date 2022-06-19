@@ -37,8 +37,8 @@ module.exports = {
 				{
 					name: "prince",
 					email: "prince@gmail.com",
-					idNumber: "1111111111111111",
-					permitId: "1111111111111111",
+					id_number: "1111111111111111",
+					permit_id: "1111111111111111",
 					phone: "0780000000",
 					password: await hash("password@123", 12),
 					role: "driver",
@@ -48,8 +48,8 @@ module.exports = {
 				{
 					name: "axel",
 					email: "axel@gmail.com",
-					idNumber: "1111111111111112",
-					permitId: "1111111111111113",
+					id_number: "1111111111111112",
+					permit_id: "1111111111111113",
 					phone: "0780000001",
 					password: await hash("password@123", 12),
 					role: "operator",
@@ -59,8 +59,8 @@ module.exports = {
 				{
 					name: "salim",
 					email: "salim@gmail.com",
-					idNumber: "1111111111111114",
-					permitId: "1111111111111115",
+					id_number: "1111111111111114",
+					permit_id: "1111111111111115",
 					phone: "0780000002",
 					password: await hash("password@123", 12),
 					role: "admin",
@@ -70,8 +70,8 @@ module.exports = {
 				{
 					name: "ben",
 					email: "ben@gmail.com",
-					idNumber: "1111111111111116",
-					permitId: "1111111111111117",
+					id_number: "1111111111111116",
+					permit_id: "1111111111111117",
 					phone: "0780000004",
 					password: await hash("password@123", 12),
 					role: "client",
