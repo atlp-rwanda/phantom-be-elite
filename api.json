@@ -73,7 +73,7 @@
 					"tags": ["Profile Update"],
 					"summary": "Update user profile",
 					"description": "Update user profile of the operator and driver information about their own profile.",
-					"operationId": "send quey",
+					"operationId": "Update user profile",
 					"parameters": [
 						{
 							"name": "id",
