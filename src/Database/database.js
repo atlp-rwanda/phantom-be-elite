@@ -1,10 +1,12 @@
-import { Client } from "pg";
+/** @format */
 
- const client = new Client({
-    host: "localhost",
-    user: "postgres",
-    port: "5000",
-    password: "elite",
-    database: "postgres"
-})
-export default client
+import { Pool } from "pg";
+
+const pool = new Pool({
+	host: "localhost",
+	user: "postgres",
+	port: "5432",
+	password: "lucifer",
+	database: "postgres",
+});
+export default pool;
