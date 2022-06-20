@@ -3,16 +3,16 @@ module.exports = {
     'Users',
     [
       {
-        id: 1,
-        name: 'Jon Doe',
-        email: 'jondoe@example.com',
+        name: 'Jane Doe',
+        email: 'janedoe@example.com',
+        password: '12345',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        id: 2,
-        name: 'Doe',
-        email: 'doe@example.com',
+        name: 'Jon Doe',
+        email: 'jondoe@example.com',
+        password: '12345',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
