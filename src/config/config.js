@@ -1,0 +1,17 @@
+require('dotenv').config();
+
+export const development = {
+  url: process.env.DEV_DATABASE_URL,
+  logging: false,
+  dialect: 'postgres',
+};
+export const test = {
+  url: process.env.TEST_DATABASE_URL,
+  logging: false,
+  dialect: 'postgres',
+};
+export const production = {
+  url: process.env.DATABASE_URL,
+  logging: false,
+  dialect: 'postgres',
+};

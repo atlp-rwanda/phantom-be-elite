@@ -34,20 +34,27 @@
     "scripts": {
         "start:dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
         "start": "cross-env NODE_ENV=prod node dist/index.js",
+        "dev": "nodemon -L --exec babel-node src/index.js",
         "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 30000",
         "build": "babel src --out-dir dist",
-        "coverage": "nyc npm run test --reporter=lcov --reporter=text-summary"
+        "coverage": "nyc npm run test --reporter=lcov --reporter=text-summary",
+        "seed": "npx sequelize-cli db:seed:all",
+        "down": "npx sequelize-cli db:migrate:undo:all",
+        "migration": "npx sequelize-cli db:migrate"
     },
     "license": "MIT",
     "dependencies": {
-        "argon2": "^0.28.5",
-        "cross-env": "^7.0.3",
-        "dotenv": "^16.0.0",
+        "dotenv": "^16.0.1",
         "express": "^4.17.3",
+        "fs": "^0.0.1-security",
         "i18n": "^0.15.0",
         "i18next": "^21.8.9",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.2.3",
+        "path": "^0.12.7",
+        "pg": "^8.7.3",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.20.1",
         "sinon": "^14.0.0",
         "swagger-ui-express": "^4.3.0"
     },
