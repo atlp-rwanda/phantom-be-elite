@@ -19,8 +19,8 @@ jobs:
     - name: run tests and instrument coverage
       run: npm run test
 
-    - name: publish code coverage to code-climate (duh)
-      uses: paambaati/codeclimate-action@v2.5.0
+   - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
       env:
         CI: "true"
         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
