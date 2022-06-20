@@ -1,11 +1,9 @@
 /** @format */
 import index from "../app";
-// import "dotenv/config";
 import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
 
 chai.use(chaiHttp);
-let userId = 4;
 
 // Get profile
 describe("GET API /api/v1/profile/{:id}", () => {

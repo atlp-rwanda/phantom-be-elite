@@ -1,13 +1,12 @@
 /** @format */
 
-import client from "../Database/database";
+import pool from "../Database/database";
 import { profileValidation } from "../validations/index";
 
 export const getUser = async (req, res) => {
 	const { id } = req.params;
-	client.connect();
-	const user = await client.query(
-		`SELECT * FROM public."Users" where id = ${id} `
+	const user = await pool.query(
+		`SELECT id,name,email,id_number,permit_id,phone,role FROM public."Users" where id = ${id} `
 	);
 	if (!user.rowCount) {
 		return res
@@ -25,8 +24,7 @@ export const updateUser = async (req, res) => {
 	if (error) return res.status(400).send({ message: error.details[0].message });
 	const { name, email, id_number, permit_id, phone } = req.body;
 	const { id } = req.params;
-	client.connect();
-	const user = await client.query(
+	const user = await pool.query(
 		`SELECT * FROM public."Users" where id = ${id} `
 	);
 	if (!user.rowCount) {
@@ -34,7 +32,7 @@ export const updateUser = async (req, res) => {
 			.status(400)
 			.send({ success: false, message: `No user profile found` });
 	} else {
-		const updates = await client.query(
+		const updates = await pool.query(
 			`UPDATE public."Users" SET name = $1 ,email=$2,id_number= $3 , permit_id=$4, phone=$5 WHERE id = $6 `,
 			[name, email, id_number, permit_id, phone, id]
 		);
