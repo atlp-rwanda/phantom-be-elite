@@ -2,7 +2,7 @@ name: Coverage
 
 on:
   push:
-    branches: ["fx-setup-integration-15"]
+    branches: ["develop,fx-setup-integration-15"]
  
 jobs:
   build:
