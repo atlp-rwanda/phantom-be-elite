@@ -1,13 +1,13 @@
-import pool from "../Database/database"
+/** @format */
+
+import pool from "../Database/database";
 
 export const database = async (req, res) => {
-    pool.query(`Select * from  Posts`,(err,result)=>{
-        if(!err){
-            res.send(result.rows)
-        }else{
-            return res.status(200).send({
-                success: true,
-            });
-        }
-    })
+	pool.query(`SELECT * FROM public."Users"`, (err, result) => {
+		if (!err) {
+			res.send(result.rows);
+		} else {
+			console.log(err.message);
+		}
+	});
 };
