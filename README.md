@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/maintainability) ![Codecov](https://img.shields.io/codecov/c/github/atlp-rwanda/phantom-be-elite)  [![Build](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/build.js.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/build.js.yml) [![Coverage](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/coverage.js.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/coverage.js.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/maintainability) ![Codecov](https://img.shields.io/codecov/c/github/atlp-rwanda/phantom-be-elite)  [![CI/CD](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/build.js.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/build.js.yml) 
 
 # Phantom
 
