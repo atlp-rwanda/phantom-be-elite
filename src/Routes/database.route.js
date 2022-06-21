@@ -1,9 +1,9 @@
 import express from "express";
-import { database } from "../controllers/database.controller";
+import { database } from "../Controllers/database.controller"
 
 const router = express.Router();
 
-router.get('/user', database);
+router.get('/', database);
 
 export default router
 

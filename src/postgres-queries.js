@@ -44,6 +44,6 @@ const createUser = (req, res) => {
   });
 };
 
-module.exports = {
+export default {
   createUser,
 };

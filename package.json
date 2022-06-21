@@ -7,7 +7,15 @@
         "verbose": true,
         "collectCoverage": true,
         "coverageReporters": [
-            "lcov"
+            "clover",
+            "json",
+            "lcov",
+            [
+                "text",
+                {
+                    "skipFull": true
+                }
+            ]
         ],
         "collectCoverageFrom": [
             "src/**/*.{js,jsx,ts,tsx}"
@@ -29,10 +37,10 @@
         "dev": "nodemon -L --exec babel-node src/index.js",
         "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 30000",
         "build": "babel src --out-dir dist",
+        "coverage": "nyc npm run test --reporter=lcov --reporter=text-summary",
         "seed": "npx sequelize-cli db:seed:all",
         "down": "npx sequelize-cli db:migrate:undo:all",
-        "migration": "npx sequelize-cli db:migrate",
-        "coverage": "nyc npm run test --caverage"
+        "migration": "npx sequelize-cli db:migrate"
     },
     "license": "MIT",
     "dependencies": {
@@ -61,6 +69,8 @@
         "@babel/node": "^7.16.8",
         "@babel/preset-env": "^7.16.11",
         "@babel/register": "^7.17.0",
+        "@istanbuljs/nyc-config-babel": "^3.0.0",
+        "babel-plugin-istanbul": "^6.1.1",
         "chai": "^4.3.6",
         "chai-http": "^4.3.0",
         "cross-env": "^7.0.3",

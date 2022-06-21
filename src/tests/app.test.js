@@ -4,7 +4,6 @@ import app from "../app";
 import chai from "chai";
 import chaiHttp from "chai-http";
 
-let should = chai.should();
 chai.use(chaiHttp);
 const expect = require("chai").expect;
 
