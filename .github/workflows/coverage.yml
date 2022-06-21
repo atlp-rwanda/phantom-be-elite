@@ -1,11 +1,9 @@
-name: Coverage
+name: CI/CD
 
 on:
   push:
-    branches: [ "fx-setup-integration-15"]
-  pull_request:
-    branches: [ "fx-setup-integration-15"]
-
+    branches: [ fx-setup-integration-15 ]
+ 
 jobs:
   build:
 
@@ -16,13 +14,19 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm run coverage
-  - name: Upload coverage to Codecov
-    uses: codecov/codecov-action@v1
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run the tests and generate coverage report
+      run: npm run coverage
+   
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
