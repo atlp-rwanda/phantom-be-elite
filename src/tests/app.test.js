@@ -1,20 +1,21 @@
-import app from "../app";
-import chai from 'chai';
+import index from "../app";
+import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
 
-let should = chai.should();
 chai.use(chaiHttp);
-const expect = require('chai').expect;
 
-chai.use(chaiHttp);
-  describe('/GET book', () => {
-      it('it should GET the homepage', (done) => {
-        chai.request(app)
-            .get('/')
-            .end((err, res) => {
-              res.should.have.status(200);
-              // res.status.should.be.equal(200);
-              done();
-            });
-      });
-  });
+// Get profile
+describe("GET API /api/v1/post", () => {
+	it("Should return all single user profile ", (done) => {
+		chai
+			.request(index)
+			.get("/api/v1/post")
+			.send()
+			.end((err, res) => {
+				if (err) return done(err);
+				expect(res).to.have.status([200]);
+				expect(res.body).to.have.property("success");
+				return done();
+			});
+	});
+})

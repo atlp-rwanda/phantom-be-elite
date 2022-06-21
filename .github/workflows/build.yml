@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "develop,fx-setup-integration-15"]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ "develop,fx-setup-integration-15"]
 
 jobs:
   build:
