@@ -14,7 +14,7 @@ server.get("/test", (req,res) => {
 server.get('/language-test', (req, res) => {
   res.status(200).json({ success: res.__(true) , message: res.__("language")})
 });
-server.use('/api/v1/', databaserouter)
+server.use('/api/v1/post', databaserouter)
 
 
 server.use(express.json());

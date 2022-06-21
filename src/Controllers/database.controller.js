@@ -1,13 +1,13 @@
-import client from "../Database/database";
+import pool from "../Database/database"
 
 export const database = async (req, res) => {
-    client.connect()
-    client.query(`Select * from  users`,(err,result)=>{
+    pool.query(`Select * from  Posts`,(err,result)=>{
         if(!err){
             res.send(result.rows)
         }else{
-            console.log(err.message)
+            return res.status(200).send({
+                success: true,
+            });
         }
-        client.end()
     })
 };
