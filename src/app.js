@@ -11,6 +11,7 @@ import driverRouter from './Routes/driver.route';
 import cors from "cors";
 
 const server = express();
+server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 server.use(i18n.init);
 // default route
