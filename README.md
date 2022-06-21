@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a19ae61085b817267dc5/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-be-elite/maintainability)[![Build](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/build.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-be-elite/actions/workflows/build.yml)
 
 # Phantom
 
