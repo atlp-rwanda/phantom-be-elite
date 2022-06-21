@@ -27,95 +27,170 @@
     }],
 
     "paths": {
-			"/": {
-				"get": {
-					"tags": ["Welcome"],
-					"summary": "welcome message",
-					"description": "message",
-					"operationId": "message",
-					"responses": {
-						"201": {
-							"description": "message"
-						}
-					},
+        "/": {
+            "get": {
+                "tags": ["Welcome"],
+                "summary": "welcome message",
+                "description": "message",
+                "operationId": "message",
+                "responses": {
+                    "201": {
+                        "description": "message"
+                    }
+                },
 
-					"security": [
-						{
-							"Bearer": []
-						}
-					]
-				}
-			},
-			"/api/v1/profile/{id}": {
-				"get": {
-					"tags": ["Profile Update"],
-					"summary": "get single profile of the driver and operator",
-					"description": "get single profile of the driver and operator",
-					"operationId": "get single profile of the driver and operator",
-					"parameters": [
-						{
-							"name": "id",
-							"in": "path",
-							"type": "string",
-							"description": "User Id",
-							"required": true
-						}
-					],
-					"responses": {
-						"201": {
-							"description": "success"
-						}
-					}
-				}
-			},
-			"/api/v1/profile/update/{id}": {
-				"put": {
-					"tags": ["Profile Update"],
-					"summary": "Update user profile",
-					"description": "Update user profile of the operator and driver information about their own profile.",
-					"operationId": "Update user profile",
-					"parameters": [
-						{
-							"name": "id",
-							"in": "path",
-							"type": "string",
-							"description": "User Id",
-							"required": true
-						},
-						{
-							"in": "body",
-							"name": "body",
-							"description": "Resource payload",
-							"required": true,
-							"schema": {
-								"type": "object",
-								"properties": {
-									"name": {
-										"type": "string"
-									},
-									"email": {
-										"type": "string"
-									},
-									"id_number": {
-										"type": "string"
-									},
-									"permit_id": {
-										"type": "string"
-									},
-									"phone": {
-										"type": "number"
-									}
-								},
-								"required": ["name", "email", "subject", "content"]
-							}
-						}
-					],
-					"responses": {
-						"201": {
-							"description": "success"
-						}
-					}
-				}
-			}
-		}
+                "security": [{
+                    "Bearer": []
+                }]
+            }
+        },
+        "/api/v1/profile/{id}": {
+            "get": {
+                "tags": ["Profile Update"],
+                "summary": "get single profile of the driver and operator",
+                "description": "get single profile of the driver and operator",
+                "operationId": "get single profile of the driver and operator",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "type": "string",
+                    "description": "User Id",
+                    "required": true
+                }],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/update/{id}": {
+            "put": {
+                "tags": ["Profile Update"],
+                "summary": "Update user profile",
+                "description": "Update user profile of the operator and driver information about their own profile.",
+                "operationId": "Update user profile",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "User Id",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Resource payload",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "id_number": {
+                                    "type": "string"
+                                },
+                                "permit_id": {
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": ["name", "email", "subject", "content"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/operators": {
+            "post": {
+                "tags": ["Create a new operator"],
+                "summary": "Create a new operator",
+                "description": "Create a new user as operator with his/her valid information and send a random password to his/her email.",
+                "operationId": "Craete a new operator",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Resource payload",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "id_number": {
+                                "type": "string"
+                            },
+                            "permit_id": {
+                                "type": "string"
+                            },
+                            "phone": {
+                                "type": "number"
+                            }
+                        },
+                        "required": ["name", "email", "password"]
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/drivers": {
+            "post": {
+                "tags": ["Create a new driver"],
+                "summary": "Create a new driver",
+                "description": "Create a new user as driver with his/her valid information and send a random password to his/her email.",
+                "operationId": "Craete a new driver",
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Resource payload",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "id_number": {
+                                "type": "string"
+                            },
+                            "permit_id": {
+                                "type": "string"
+                            },
+                            "phone": {
+                                "type": "number"
+                            }
+                        },
+                        "required": ["name", "email", "id_number", "permit_id", "phone"]
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        }
+    }
 }
