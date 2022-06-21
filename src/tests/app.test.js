@@ -1,20 +1,22 @@
-// import app from "../app";
-// import chai from 'chai';
-// import chaiHttp from "chai-http";
+/** @format */
 
-// let should = chai.should();
-// chai.use(chaiHttp);
-// const expect = require('chai').expect;
+import app from "../app";
+import chai from "chai";
+import chaiHttp from "chai-http";
 
-// chai.use(chaiHttp);
-//   describe('/GET book', () => {
-//       it('it should GET the homepage', (done) => {
-//         chai.request(app)
-//             .get('/')
-//             .end((err, res) => {
-//               res.should.have.status(200);
-//               // res.status.should.be.equal(200);
-//               done();
-//             });
-//       });
-//   });
+let should = chai.should();
+chai.use(chaiHttp);
+const expect = require("chai").expect;
+
+chai.use(chaiHttp);
+describe("/GET book", () => {
+	it("it should GET the homepage", (done) => {
+		chai
+			.request(app)
+			.get("/test")
+			.end((err, res) => {
+				res.should.have.status(200);
+				done();
+			});
+	});
+});
