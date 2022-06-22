@@ -1,7 +1,6 @@
 import pool from "../Database/database"
 import nodemailer from "nodemailer";
 import "dotenv/config"
-import jwt from 'jsonwebtoken'
 
 
 const transporter = nodemailer.createTransport({
@@ -18,9 +17,6 @@ const transporter = nodemailer.createTransport({
 
 export const getUser = async (req, res) => {
 	const { email } = req.body;
-    const resetToken = jwt.sign({email}, process.env.RESET_PASSWORD_SECRET, {
-        expiresIn : process.env.RESET_EXPIRE_TIME
-    })
 	const user = await pool.query(
 		`SELECT * FROM public."Users" WHERE email LIKE '%${email}%' `
 	);

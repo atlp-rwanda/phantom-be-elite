@@ -66,18 +66,6 @@ describe("PUT API /api/v1/resetpassword/", () => {
 				return done();
 			});
 	});
-    // it("Should return User Profile not found", (done) => {
-	// 	chai
-	// 		.request(index)
-	// 		.put("/api/v1/resetpassword")
-	// 		.send(userData)
-	// 		.end((err, res) => {
-	// 			if (err) return done(err);
-	// 			expect(res).to.have.status([200]);
-	// 			expect(res.body).to.have.property("message");
-	// 			return done();
-	// 		});
-	// });
     it("Should return that the password does not match", (done) => {
 		chai
 			.request(index)
