@@ -22,7 +22,7 @@ server.use(
 server.get('/language-test', (req, res) => {
   res.status(200).json({ success: res.__(true) , message: res.__("language")})
 });
-server.use('/api/v1/', databaserouter)
+server.use('/api/v1', databaserouter)
 server.use('/api/v1', authroutes)
 
 export default server;

@@ -43,6 +43,75 @@
                     "Bearer": []
                 }]
             }
+        },
+        "/api/v1/password": {
+            "post": {
+                "tags": ["Reset Password"],
+                "summary": "get user you want to update and send email with the link to update",
+                "description": "get user you want to update and send email with the link to update",
+                "operationId": "get user you want to update and send email with the link to update",
+                "parameters": [
+                    {
+                        "name": "Email",
+                        "in": "body",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [ "email"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/resetpassword/:token": {
+            "put": {
+                "tags": ["Reset Password"],
+                "summary": "Use the email you have got to update the password",
+                "description": "Use the email you have got to update the password",
+                "operationId": "Use the email you have got to update the password",
+                "parameters": [
+                    {
+                        "name": "Email",
+                        "in": "body",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "number"
+                                },
+                                "confirmPassword": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [ "email","password","confirmPassword"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
         }
+
     }
 }

@@ -1,9 +1,10 @@
 import express from "express";
 import { getUser, updateUser } from "../Controllers/forgot.password.controller "
+import  resetAuth  from "../middleware/resetPass"
 
 const router = express.Router();
 
-router.get('/password', getUser);
-router.put('/resetpassword', updateUser);
+router.post('/password', getUser);
+router.put('/resetpassword/:token',resetAuth, updateUser);
 
 export default router
