@@ -114,7 +114,7 @@
         },
         "/api/v1/operators": {
             "post": {
-                "tags": ["Create a new operator"],
+                "tags": ["OPERATOR"],
                 "summary": "Create a new operator",
                 "description": "Create a new user as operator with his/her valid information and send a random password to his/her email.",
                 "operationId": "Craete a new operator",
@@ -150,11 +150,26 @@
                         "description": "success"
                     }
                 }
+            },
+            "get": {
+                "tags": ["OPERATOR"],
+                "summary": "GET all operators",
+                "description": "GET all operators",
+                "operationId": "GET all operators",
+                "responses": {
+                    "201": {
+                        "description": "message"
+                    }
+                },
+
+                "security": [{
+                    "Bearer": []
+                }]
             }
         },
         "/api/v1/drivers": {
             "post": {
-                "tags": ["Create a new driver"],
+                "tags": ["DRIVER"],
                 "summary": "Create a new driver",
                 "description": "Create a new user as driver with his/her valid information and send a random password to his/her email.",
                 "operationId": "Craete a new driver",
@@ -190,6 +205,21 @@
                         "description": "success"
                     }
                 }
+            },
+            "get": {
+                "tags": ["DRIVER"],
+                "summary": "GET all drivers",
+                "description": "GET all drivers",
+                "operationId": "GET all drivers",
+                "responses": {
+                    "201": {
+                        "description": "message"
+                    }
+                },
+
+                "security": [{
+                    "Bearer": []
+                }]
             }
         }
     }
