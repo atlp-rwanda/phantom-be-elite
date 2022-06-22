@@ -2,5 +2,9 @@
 	"welcome": "Karibu kwenye API ya phantom",
 	"ServerError": "Seva Haijapatikana!",
 	"language": "Utafsiri unafanya kazi",
-	"other": "maudhui mengine"
+	"other": "maudhui mengine",
+	"Login first": "lazima uingie kwanza",
+	"Logout successfully": "kuingia kwako kumefanywa kwa mafanikio",
+	"Invalid Token": "Ishara yako si halali",
+	"successfully logged in": "successfully logged in"
 }

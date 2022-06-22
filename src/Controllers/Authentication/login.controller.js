@@ -4,8 +4,7 @@ import pool from "../../Database/database";
 import { verify } from "../../middleware/hash-password";
 import { signToken } from "../../middleware/jwt";
 import jwt from "jsonwebtoken";
-import handleResponse from "../handleResponse";
-import Token from "../../models/token";
+//import Token from "../../models/token";
 
 export const login = async (req, res) => {
   const { password, email } = req.body;
@@ -22,7 +21,7 @@ export const login = async (req, res) => {
       createdAt: new Date(),
       id: 1,
     };
-    // const token = signToken(JSON.stringify(userData));
+     const token = signToken(JSON.stringify(userData));
     // const TokenInDatabase =await Token.create({token_content:token, userId:userData.id});
     // console.log(TokenInDatabase);
     return res.status(200).json({
@@ -51,7 +50,7 @@ export const login = async (req, res) => {
     const token = signToken(JSON.stringify(userData));
     return res.status(200).json({
       success: true,
-      message: "successfully logged in",
+      message: res.__("successfully logged in") ,
       token,
     });
   }
@@ -63,7 +62,12 @@ export const logOut = async (req, res) => {
   const accessToken = req.headers.authorization;
 
   if (!accessToken) {
-    return handleResponse(res, 400, { message: res.__("Login first") });
+    return res.status(400).json({
+      success: false,
+      message: res.__("Login first"),
+     
+    });
+    
   }
   const cleanAccessToken = accessToken.replace("Bearer ", "");
 
@@ -71,14 +75,18 @@ export const logOut = async (req, res) => {
   //
 try {
 	const logedInUser = jwt.verify(cleanAccessToken, private_key);
-	return handleResponse(res, 200, { message: res.__("Logout successfully") });
+  return res.status(200).json({
+    success: true,
+    message: res.__("Logout successfully"),
+   
+  });
+	
 	
   } catch (error) {
-	return handleResponse(res, 200, { message: res.__("Invalid Token") });
+ return res.status(401).json({
+    success: false,
+    message:res.__("Invalid Token") ,
+   
+  });
   }
-  
-
-    
-
-  // return handleResponse(res, 200, { message: res.__('logout successful') });
 };

@@ -2,6 +2,9 @@
 	"welcome": "Murakaza neza kuri fantom API",
 	"ServerError": "Seriveri Ntabonetse!",
 	"language": "Guhinduranya birakora",
-	"other": "ibindi bikubiyemo"
-
+	"other": "ibindi bikubiyemo",
+	"Login first": "ugomba kubanza kwinjira",
+	"Logout successfully": "gusohoka kwawe birarangiye",
+	"Invalid Token": "Token yawe ntabwo yemewe",
+	"successfully logged in": "successfully logged in"
 }

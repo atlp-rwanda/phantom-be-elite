@@ -24,21 +24,7 @@ describe("POST API /api/v1/auth/login", () => {
 		email: "admin@gmail.com",
 		password: "password",
 	};
-	it("it should successfully login and return 200 and get token", (done) => {
-		chai
-			.request(index)
-			.post("/api/v1/auth/login")
-			.send(user)
-			.end((err, res) => {
-				if (err) return done(err);
-				token = res.body.token;
-				expect(res.status).to.be.equal(200);
-				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("message");
-				expect(res.body).to.have.property("token");
-				return done();
-			});
-	});
+	
 	it("Admin should successfully login and return 200 and get token", (done) => {
 		chai
 			.request(index)
@@ -80,4 +66,20 @@ describe("POST API /api/v1/auth/login", () => {
 				return done();
 			});
 	});
+	it("it should successfully login and return 200 and get token", (done) => {
+		chai
+			.request(index)
+			.post("/api/v1/auth/login")
+			.send(user)
+			.end((err, res) => {
+				if (err) return done(err);
+				token = res.body.token;
+				expect(res.status).to.be.equal(200);
+				expect(res.body).to.have.property("success");
+				expect(res.body).to.have.property("message");
+				expect(res.body).to.have.property("token");
+				return done();
+			});
+	});
+
 });

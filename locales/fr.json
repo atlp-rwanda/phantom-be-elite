@@ -2,5 +2,9 @@
 	"welcome": "Bienvenue au fantôme API",
 	"ServerError": "serveur introuvable",
     "language": "La traduction fonctionne",
-	"other":"autre contenu"
+	"other":"autre contenu",
+	"Login first":"S'enregistrer d'abord",
+	"Logout successfully":"votre déconnexion est effectuée avec succès",
+	"Invalid Token": "Votre jeton n'est pas valide"
+
 }
