@@ -3,5 +3,12 @@
 	"ServerError": "Server Not found!",
 	"language": "Transilation is working",
 	"other": "other content",
-	"true": true
+	"true": true,
+	"logout successful": "logout successful",
+	"success": "success",
+	"Authorization Fail": "Authorization Fail",
+	"fail": "fail",
+	"Login first": "Login first",
+	"Logout successfully": "Logout successfully",
+	"Invalid Token": "Invalid Token"
 }
