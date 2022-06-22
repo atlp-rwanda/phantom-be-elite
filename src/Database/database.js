@@ -9,4 +9,11 @@ const pool = new Pool({
 	password: "lucifer",
 	database: "postgres",
 });
+// function to precreate table if not exists
+const createTable = async () => {
+	await pool.query(
+    "CREATE TABLE IF NOT EXISTS Routes (origin VARCHAR(40), destination VARCHAR(40), id SERIAL, PRIMARY KEY ( origin, destination ) )"
+  );
+}
+createTable();
 export default pool;
