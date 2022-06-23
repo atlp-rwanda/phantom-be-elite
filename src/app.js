@@ -7,6 +7,8 @@ import i18n from "./configs/i18n.js";
 import databaserouter from "./Routes/database.route";
 import profileRouter from "./Routes/updateProfile.route";
 import signInRouter from "./Routes/signin.route";
+import logOutRouter from "./Routes/logout.route";
+
 import cors from "cors";
 
 const server = express();
@@ -30,6 +32,6 @@ server.get("/language-test", (req, res) => {
 });
 server.use("/api/v1/", databaserouter);
 server.use("/api/v1/profile", profileRouter);
-server.use("/api/v1/auth", signInRouter);
+server.use("/api/v1/auth", signInRouter,logOutRouter);
 
 export default server;

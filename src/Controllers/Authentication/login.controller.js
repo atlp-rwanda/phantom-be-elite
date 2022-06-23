@@ -3,7 +3,7 @@
 import pool from "../../Database/database";
 import { verify } from "../../middleware/hash-password";
 import { signToken } from "../../middleware/jwt";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 //import Token from "../../models/token";
 
 export const login = async (req, res) => {
@@ -56,37 +56,30 @@ export const login = async (req, res) => {
   }
 };
 
-export const logOut = async (req, res) => {
-  const { cookies } = req;
+// export const logOut = async (req, res) => {
 
-  const accessToken = req.headers.authorization;
+//   const accessToken = req.headers.authorization;
 
-  if (!accessToken) {
-    return res.status(400).json({
-      success: false,
-      message: res.__("Login first"),
+//   if (!accessToken) {
+//     return res.status(400).json({
+//       success: false,
+//       message: res.__("Login first"),
      
-    });
+//     });
     
-  }
-  const cleanAccessToken = accessToken.replace("Bearer ", "");
-
-  const private_key = process.env.PRIVATE_KEY;
-  //
-try {
-	const logedInUser = jwt.verify(cleanAccessToken, private_key);
-  return res.status(200).json({
-    success: true,
-    message: res.__("Logout successfully"),
-   
-  });
-	
-	
-  } catch (error) {
- return res.status(401).json({
-    success: false,
-    message:res.__("Invalid Token") ,
-   
-  });
-  }
-};
+//   }
+//   const cleanAccessToken = accessToken.replace("Bearer ", "");
+//   const private_key = process.env.PRIVATE_KEY;
+// try {
+// 	const logedInUser = jwt.verify(cleanAccessToken, private_key);
+//   return res.status(200).json({
+//     success: true,
+//     message: res.__("Logout successfully"), 
+//   });
+//   } catch (error) {
+//  return res.status(401).json({
+//     success: false,
+//     message:res.__("Invalid Token") , 
+//   });
+//   }
+// };

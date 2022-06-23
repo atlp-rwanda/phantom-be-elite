@@ -14,7 +14,7 @@ describe("/GET book", () => {
 			.request(app)
 			.get("/test")
 			.end((err, res) => {
-				res.should.have.status(200);
+				expect(res.status).to.be.equal(200);
 				done();
 			});
 	});

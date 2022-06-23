@@ -7,6 +7,7 @@
 	"success": "success",
 	"Authorization Fail": "Authorization Fail",
 	"Login first": "you must login first",
-	"Logout successfully":"your log out is successfully done",
-	"Invalid Token": "Your Token is  not valid "
+	"Logout successfully": "your log out is successfully done",
+	"Invalid Token": "Your Token is  not valid ",
+	"successfully logged in": "successfully logged in"
 }
