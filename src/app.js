@@ -4,7 +4,6 @@ import express from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerDoc from "../api.json";
 import i18n from "./configs/i18n.js";
-import databaserouter from "./Routes/database.route";
 import profileRouter from "./Routes/updateProfile.route";
 import operatorRouter from './Routes/operator.route'
 import driverRouter from './Routes/driver.route';
@@ -30,7 +29,6 @@ server.use(
 server.get("/language-test", (req, res) => {
     res.status(200).json({ success: res.__(true), message: res.__("language") });
 });
-server.use("/api/v1/", databaserouter);
 server.use("/api/v1/", driverRouter);
 server.use("/api/v1/", operatorRouter);
 server.use("/api/v1/profile", profileRouter);
