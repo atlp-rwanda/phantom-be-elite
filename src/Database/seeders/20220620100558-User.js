@@ -21,7 +21,7 @@ module.exports = {
 				},
 				{
 					name: "axel",
-					email: "axel@gmail.com",
+					email: "xldivin@gmail.com",
 					id_number: "1111111111111112",
 					permit_id: "1111111111111113",
 					phone: "0780000001",

@@ -40,7 +40,7 @@ export const createRoute = async (req, res) => {
     }
     const { origin, destination, description } = req.body;
     const route = await pool.query(
-      "INSERT INTO Routes (origin, destination, Description) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO Routes (origin, destination, description) VALUES ($1, $2, $3) RETURNING *",
       [origin, destination, description]
     );
 
