@@ -7,7 +7,9 @@ import i18n from "./configs/i18n.js";
 import profileRouter from "./Routes/updateProfile.route";
 import operatorRouter from './Routes/operator.route'
 import driverRouter from './Routes/driver.route';
+import signInRouter from "./Routes/signin.route";
 import cors from "cors";
+import authroutes from "./Routes/auth.route"
 
 const server = express();
 server.use(express.urlencoded({ extended: true }));
@@ -17,7 +19,7 @@ server.use(i18n.init);
 
 server.get("/test", (req, res) => {
     res.send("<h1>hello there men and women gents and gentlemen<h1>");
-});
+})
 
 server.use(express.json());
 server.use(
@@ -32,6 +34,6 @@ server.get("/language-test", (req, res) => {
 server.use("/api/v1/", driverRouter);
 server.use("/api/v1/", operatorRouter);
 server.use("/api/v1/profile", profileRouter);
-
-
+server.use("/api/v1/auth", signInRouter);
+server.use('/api/v1', authroutes)
 export default server;

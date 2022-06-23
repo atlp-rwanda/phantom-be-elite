@@ -48,7 +48,7 @@ export const createDriver = async(req, res) => {
         });
     transporter.sendMail({
         from: process.env.USER_EMAIL,
-        to: 'ndayisabyesalim7254@gmail.com',
+        to: email,
         subject: "REGISTERED DRIVER PASSWORD",
         html: `
             

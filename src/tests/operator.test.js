@@ -28,7 +28,7 @@ describe("GET API /api/v1/operators", () => {
 describe("POST API /api/v1/operators", () => {
     const userData = {
         name: "Testing names",
-        email: "sazzy@gmail.com",
+        email: "sussy@gmail.com",
         id_number: "1111111111111112",
         permit_id: "1111111111111113",
         phone: "780000001",

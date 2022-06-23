@@ -7,7 +7,15 @@
         "verbose": true,
         "collectCoverage": true,
         "coverageReporters": [
-            "lcov"
+            "clover",
+            "json",
+            "lcov",
+            [
+                "text",
+                {
+                    "skipFull": true
+                }
+            ]
         ],
         "collectCoverageFrom": [
             "src/**/*.{js,jsx,ts,tsx}"
@@ -32,10 +40,12 @@
         "seed": "npx sequelize-cli db:seed:all",
         "down": "npx sequelize-cli db:migrate:undo:all",
         "migration": "npx sequelize-cli db:migrate",
-        "coverage": "nyc npm run test --caverage"
+        "coverage": "nyc npm run test --caverage",
+        "seed:undo": "sequelize db:seed:undo:all"
     },
     "license": "MIT",
     "dependencies": {
+        "argon2": "^0.28.5",
         "bcryptjs": "^2.4.3",
         "cors": "^2.8.5",
         "dotenv": "^16.0.1",
@@ -62,6 +72,8 @@
         "@babel/node": "^7.16.8",
         "@babel/preset-env": "^7.16.11",
         "@babel/register": "^7.17.0",
+        "@istanbuljs/nyc-config-babel": "^3.0.0",
+        "babel-plugin-istanbul": "^6.1.1",
         "chai": "^4.3.6",
         "chai-http": "^4.3.0",
         "cross-env": "^7.0.3",
