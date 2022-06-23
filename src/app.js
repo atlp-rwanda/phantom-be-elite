@@ -6,6 +6,7 @@ import swaggerDoc from "../api.json";
 import i18n from "./configs/i18n.js";
 import profileRouter from "./Routes/updateProfile.route";
 import signInRouter from "./Routes/signin.route";
+import busRouter from "./Routes/bus.route";
 import cors from "cors";
 import authroutes from "./Routes/auth.route"
 
@@ -30,5 +31,6 @@ server.get("/language-test", (req, res) => {
 });
 server.use("/api/v1/profile", profileRouter);
 server.use("/api/v1/auth", signInRouter);
+server.use("/api/v1/bus", busRouter);
 server.use('/api/v1', authroutes)
 export default server;

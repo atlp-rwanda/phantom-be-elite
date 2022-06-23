@@ -214,6 +214,159 @@
 						"description": "success"
 					}
 				}
+			},
+			"/api/v1/bus": {
+				"get": {
+					"tags": ["Bus"],
+					"summary": "Get all buses",
+					"description": "get all buses",
+					"operationId": "get all buses",
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				},
+				"post": {
+					"tags": ["Bus"],
+					"summary": "Create a new bus",
+					"description": "New bus",
+					"operationId": "New bus",
+					"parameters": [
+						{
+							"in": "body",
+							"name": "body",
+							"description": "Resource payload",
+							"required": true,
+							"schema": {
+								"type": "object",
+								"properties": {
+									"bus_number": {
+										"type": "string"
+									},
+									"plate_number": {
+										"type": "string"
+									},
+									"route": {
+										"type": "string"
+									}
+								},
+								"required": ["bus_number", "plate_number", "route"]
+							}
+						}
+					],
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				}
+			},
+			"/api/v1/bus/{id}": {
+				"get": {
+					"tags": ["Bus"],
+					"summary": "Get Single bus",
+					"description": "get single bus",
+					"operationId": "get single bus",
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"produces": ["application/json"],
+					"parameters": [
+						{
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "Article Id",
+							"required": true
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "Article Sent Successfully"
+						}
+					}
+				},
+				"put": {
+					"tags": ["Bus"],
+					"summary": "Update Bus details",
+					"description": "Update bus",
+					"operationId": "Update bus",
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"produces": ["application/json"],
+					"parameters": [
+						{
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "Bus Id",
+							"required": true
+						},
+						{
+							"in": "body",
+							"name": "body",
+							"description": "Resource payload",
+							"required": true,
+							"schema": {
+								"type": "object",
+								"properties": {
+									"bus_number": {
+										"type": "string"
+									},
+									"plate_number": {
+										"type": "string"
+									},
+									"route": {
+										"type": "string"
+									}
+								},
+								"required": ["bus_number", "plate_number", "route"]
+							}
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				},
+				"delete": {
+					"tags": ["Bus"],
+					"summary": "Delete Bus",
+					"description": "delete bus",
+					"operationId": "delete bus",
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"produces": ["application/json"],
+					"parameters": [
+						{
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "Bus Id",
+							"required": true
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				}
 			}
 		}
     }
