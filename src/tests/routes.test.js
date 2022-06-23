@@ -5,22 +5,28 @@ import chaiHttp from "chai-http";
 
 chai.use(chaiHttp);
 let token = "";
-let busId = 1;
-let testBus = 2;
+let route_id = 1;
 
-// Buses
-describe("POST API /api/v1/bus/", () => {
+describe("delete all before testing", () => {
+})
+describe("POST API /api/v1/route/", () => {
   const route = {
-    origin: "ndera",
-    destination: "kayonza",
+    origin: "kayonza",
+    destination: "ndera",
     description: "welcome urwanda ruragendwa",
   };
    const route2 = {
      origin: "kayonza",
-     destination: "remera",
+     destination: "ndera",
      description: "welcome to the most futuristic place",
    };
-  it("Should return Bus validation", (done) => {
+   const route_update = {
+     origin: "nyanza",
+     destination: "karuruma",
+     description: "welcome to the most futuristic place",
+   };
+
+  it("Should return Route validation", (done) => {
     const fakeRoute = {
       origin: " ",
       destination: " ",
@@ -28,7 +34,7 @@ describe("POST API /api/v1/bus/", () => {
     };
     chai
       .request(index)
-      .post("/api/v1/bus/")
+      .post("/api/v1/route/")
       .send(fakeRoute)
       .end((err, res) => {
         if (err) return done(err);
@@ -37,141 +43,104 @@ describe("POST API /api/v1/bus/", () => {
         return done();
       });
   });
-  it("Should return success and Bus data", (done) => {
+  it("Should check duplicate routes created", (done) => {
     chai
       .request(index)
-      .post("/api/v1/bus/")
-      .send(bus)
+      .post("/api/v1/route/")
+      .send(route2)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("message");
-        return done();
-      });
-  });
-  it("Should return Plate Number is already in use", (done) => {
-    chai
-      .request(index)
-      .post("/api/v1/bus/")
-      .send(bus_2)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("success");
+        expect(res).to.have.status([404]);
+        expect(res.body).to.have.property("status");
         expect(res.body).to.have.property("message");
         return done();
       });
   });
 });
-
-describe("GET API /api/v1/bus", () => {
-  it("Should return all buses", (done) => {
+describe("GET API /api/v1/route", () => {
+   it("Should return error message route", (done) => {
+     chai
+       .request(index)
+       .get(`/api/v1/routes`)
+       .send()
+       .end((err, res) => {
+         if (err) return done(err);
+         expect(res).to.have.status([404]);
+         return done();
+       });
+   });
+  it("Should return all routes", (done) => {
     chai
       .request(index)
-      .get("/api/v1/bus")
+      .get("/api/v1/route")
       .send()
       .end((err, res) => {
         if (err) return done(err);
         expect(res).to.have.status([200]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("data");
+        expect(res.body).to.have.property("status");
+        expect(res.body).to.have.property("routes");
+        expect(res.body).to.have.property("results");
         return done();
       });
   });
 });
 
-describe("GET API /api/v1/bus/{:id}", () => {
-  it("Should return single bus", (done) => {
+describe("GET API /api/v1/route/{:id}", () => {
+    it("Should return error message route", (done) => {
+      chai
+        .request(index)
+        .get(`/api/v1/route/${"num"}`)
+        .send()
+        .end((err, res) => {
+          if (err) return done(err);
+          expect(res).to.have.status([400]);
+          expect(res.body).to.have.property("status");
+          return done();
+        });
+    });
+  it("Should return single route", (done) => {
     chai
       .request(index)
-      .get("/api/v1/bus/" + busId)
+      .get(`/api/v1/route/${route_id}`)
       .send()
       .end((err, res) => {
         if (err) return done(err);
         expect(res).to.have.status([200]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("data");
-        return done();
-      });
-  });
-
-  it("Should return bus not found", (done) => {
-    const fakeId = 100;
-    chai
-      .request(index)
-      .get("/api/v1/bus/" + fakeId)
-      .send()
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("message");
+        expect(res.body).to.have.property("route");
         return done();
       });
   });
 });
 
 describe("PUT API /api/v1/bus/update/{:id}", () => {
-  const bus = {
-    bus_number: "Bus-152",
-    plate_number: "RAD447C",
-    route: "D-302",
-  };
-
-  it("Should return Bus not found", (done) => {
-    const fakeId = 100;
+ const route_update = {
+   origin: "nyanza",
+   destination: "karuruma",
+   description: "welcome to the most futuristic place",
+ };
+  it("Should return Route updated successfully", (done) => {
     chai
       .request(index)
-      .put("/api/v1/bus/" + fakeId)
-      .send(bus)
+      .put("/api/v1/route/" + route_id)
+      .send(route_update)
       .end((err, res) => {
         if (err) return done(err);
-        expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("message");
-        return done();
-      });
-  });
-  it("Should return Bus updated successfully", (done) => {
-    chai
-      .request(index)
-      .put("/api/v1/bus/" + busId)
-      .send(bus)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status([200]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("message");
+        expect(res).to.have.status([202]);
+        expect(res.body).to.have.property("route");
         return done();
       });
   });
 });
 
-describe("DELETE API /api/v1/bus/{:id}", () => {
-  it("Should return No Bus not found", (done) => {
-    const fakeId = 100;
+describe("DELETE API /api/v1/route/{:id}", () => {
+  it("Should return Route Deleted Successfully", (done) => {
     chai
       .request(index)
-      .delete("/api/v1/bus/" + fakeId)
+      .delete("/api/v1/route/" + route_id)
       .send()
       .end((err, res) => {
         if (err) return done(err);
-        expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("success");
-        expect(res.body).to.have.property("message");
-        return done();
-      });
-  });
-  it("Should return Bus Deleted Successfully", (done) => {
-    chai
-      .request(index)
-      .delete("/api/v1/bus/" + testBus)
-      .send()
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("success");
+        expect(res).to.have.status([202]);
         expect(res.body).to.have.property("message");
         return done();
       });

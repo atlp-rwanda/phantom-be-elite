@@ -14,3 +14,14 @@ export const profileValidation = (data) => {
 
 	return schema.validate(data);
 };
+
+// New route validation
+export const routeValidation = (data) => {
+  const schema = Joi.object({
+    origin: Joi.string().min(3).required(),
+    destination: Joi.string().min(3).required(),
+    description: Joi.string().min(3).required(),
+  });
+
+  return schema.validate(data);
+};
