@@ -39,116 +39,182 @@
 						}
 					},
 
-					"security": [
-						{
-							"Bearer": []
-						}
-					]
-				}
-			},
-			"/api/v1/profile/{id}": {
-				"get": {
-					"tags": ["Profile Update"],
-					"summary": "get single profile of the driver and operator",
-					"description": "get single profile of the driver and operator",
-					"operationId": "get single profile of the driver and operator",
-					"parameters": [
-						{
-							"name": "id",
-							"in": "path",
-							"type": "string",
-							"description": "User Id",
-							"required": true
-						}
-					],
-					"responses": {
-						"201": {
-							"description": "success"
-						}
+                "security": [{
+                    "Bearer": []
+                }]
+            }
+        },
+        "/api/v1/password": {
+            "post": {
+                "tags": ["Reset Password"],
+                "summary": "get user you want to update and send email with the link to update",
+                "description": "get user you want to update and send email with the link to update",
+                "operationId": "get user you want to update and send email with the link to update",
+                "parameters": [
+                    {
+                        "name": "Email",
+                        "in": "body",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [ "email"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/resetpassword": {
+            "put": {
+                "tags": ["Reset Password"],
+                "summary": "Use the email you have got to update the password",
+                "description": "Use the email you have got to update the password",
+                "operationId": "Use the email you have got to update the password",
+                "parameters": [
+                    {
+                        "name": "Email",
+                        "in": "body",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "number"
+                                },
+                                "confirmPassword": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [ "email","password","confirmPassword"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+		"/api/v1/profile/{id}": {
+			"get": {
+				"tags": ["Profile Update"],
+				"summary": "get single profile of the driver and operator",
+				"description": "get single profile of the driver and operator",
+				"operationId": "get single profile of the driver and operator",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"type": "string",
+						"description": "User Id",
+						"required": true
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "success"
 					}
 				}
-			},
-			"/api/v1/profile/update/{id}": {
-				"put": {
-					"tags": ["Profile Update"],
-					"summary": "Update user profile",
-					"description": "Update user profile of the operator and driver information about their own profile.",
-					"operationId": "Update user profile",
-					"parameters": [
-						{
-							"name": "id",
-							"in": "path",
-							"type": "string",
-							"description": "User Id",
-							"required": true
-						},
-						{
-							"in": "body",
-							"name": "body",
-							"description": "Resource payload",
-							"required": true,
-							"schema": {
-								"type": "object",
-								"properties": {
-									"name": {
-										"type": "string"
-									},
-									"email": {
-										"type": "string"
-									},
-									"id_number": {
-										"type": "string"
-									},
-									"permit_id": {
-										"type": "string"
-									},
-									"phone": {
-										"type": "number"
-									}
+			}
+		},
+		"/api/v1/profile/update/{id}": {
+			"put": {
+				"tags": ["Profile Update"],
+				"summary": "Update user profile",
+				"description": "Update user profile of the operator and driver information about their own profile.",
+				"operationId": "Update user profile",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"type": "string",
+						"description": "User Id",
+						"required": true
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Resource payload",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"name": {
+									"type": "string"
 								},
-								"required": ["name", "email", "subject", "content"]
-							}
-						}
-					],
-					"responses": {
-						"201": {
-							"description": "success"
+								"email": {
+									"type": "string"
+								},
+								"id_number": {
+									"type": "string"
+								},
+								"permit_id": {
+									"type": "string"
+								},
+								"phone": {
+									"type": "number"
+								}
+							},
+							"required": ["name", "email", "subject", "content"]
 						}
 					}
+				],
+				"responses": {
+					"201": {
+						"description": "success"
+					}
 				}
-			},
-			"/api/v1/auth/login": {
-				"post": {
-					"tags": ["Authentication"],
-					"summary": "User Login | Admin | Driver | Operator",
-					"description": "user's login either Admin , Driver or Operator",
-					"operationId": "userLogin",
-					"parameters": [
-						{
-							"in": "body",
-							"name": "body",
-							"description": "Resource payload",
-							"required": true,
-							"schema": {
-								"type": "object",
-								"properties": {
-									"email": {
-										"type": "string"
-									},
-									"password": {
-										"type": "string"
-									}
+			}
+		},
+		"/api/v1/auth/login": {
+			"post": {
+				"tags": ["Authentication"],
+				"summary": "User Login | Admin | Driver | Operator",
+				"description": "user's login either Admin , Driver or Operator",
+				"operationId": "userLogin",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Resource payload",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"email": {
+									"type": "string"
 								},
-								"required": ["email", "password"]
-							}
+								"password": {
+									"type": "string"
+								}
+							},
+							"required": ["email", "password"]
 						}
-					],
-					"responses": {
-						"201": {
-							"description": "success"
-						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "success"
 					}
 				}
 			}
 		}
+    }
 }
