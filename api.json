@@ -39,26 +39,225 @@
 						}
 					},
 
+                "security": [{
+                    "Bearer": []
+                }]
+            }
+        },
+        "/api/v1/password": {
+            "post": {
+                "tags": ["Reset Password"],
+                "summary": "get user you want to update and send email with the link to update",
+                "description": "get user you want to update and send email with the link to update",
+                "operationId": "get user you want to update and send email with the link to update",
+                "parameters": [
+                    {
+                        "name": "Email",
+                        "in": "body",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [ "email"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/resetpassword": {
+            "put": {
+                "tags": ["Reset Password"],
+                "summary": "Use the email you have got to update the password",
+                "description": "Use the email you have got to update the password",
+                "operationId": "Use the email you have got to update the password",
+                "parameters": [
+                    {
+                        "name": "Email",
+                        "in": "body",
+                        "type": "string",
+                        "description": "Email",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "number"
+                                },
+                                "confirmPassword": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [ "email","password","confirmPassword"]
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+		"/api/v1/profile/{id}": {
+			"get": {
+				"tags": ["Profile Update"],
+				"summary": "get single profile of the driver and operator",
+				"description": "get single profile of the driver and operator",
+				"operationId": "get single profile of the driver and operator",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"type": "string",
+						"description": "User Id",
+						"required": true
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/api/v1/profile/update/{id}": {
+			"put": {
+				"tags": ["Profile Update"],
+				"summary": "Update user profile",
+				"description": "Update user profile of the operator and driver information about their own profile.",
+				"operationId": "Update user profile",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"type": "string",
+						"description": "User Id",
+						"required": true
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Resource payload",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"name": {
+									"type": "string"
+								},
+								"email": {
+									"type": "string"
+								},
+								"id_number": {
+									"type": "string"
+								},
+								"permit_id": {
+									"type": "string"
+								},
+								"phone": {
+									"type": "number"
+								}
+							},
+							"required": ["name", "email", "subject", "content"]
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "success"
+					}
+				}
+			}
+		},
+		"/api/v1/auth/login": {
+			"post": {
+				"tags": ["Authentication"],
+				"summary": "User Login | Admin | Driver | Operator",
+				"description": "user's login either Admin , Driver or Operator",
+				"operationId": "userLogin",
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Resource payload",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"email": {
+									"type": "string"
+								},
+								"password": {
+									"type": "string"
+								}
+							},
+							"required": ["email", "password"]
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "success"
+					}
+				}
+			},
+			"/api/v1/bus": {
+				"get": {
+					"tags": ["Bus"],
+					"summary": "Get all buses",
+					"description": "get all buses",
+					"operationId": "get all buses",
+					"responses": {
+						"201": {
+							"description": "success"
+						}
+					}
+				},
+				"post": {
+					"tags": ["Bus"],
+					"summary": "Create a new bus",
+					"description": "New bus",
+					"operationId": "New bus",
+					"parameters": [
+						{
+							"in": "body",
+							"name": "body",
+							"description": "Resource payload",
+							"required": true,
+							"schema": {
+								"type": "object",
+								"properties": {
+									"bus_number": {
+										"type": "string"
+									},
+									"plate_number": {
+										"type": "string"
+									},
+									"route": {
+										"type": "string"
+									}
+								},
+								"required": ["bus_number", "plate_number", "route"]
+							}
+						}
+					],
 					"security": [
 						{
 							"Bearer": []
-						}
-					]
-				}
-			},
-			"/api/v1/profile/{id}": {
-				"get": {
-					"tags": ["Profile Update"],
-					"summary": "get single profile of the driver and operator",
-					"description": "get single profile of the driver and operator",
-					"operationId": "get single profile of the driver and operator",
-					"parameters": [
-						{
-							"name": "id",
-							"in": "path",
-							"type": "string",
-							"description": "User Id",
-							"required": true
 						}
 					],
 					"responses": {
@@ -68,18 +267,50 @@
 					}
 				}
 			},
-			"/api/v1/profile/update/{id}": {
-				"put": {
-					"tags": ["Profile Update"],
-					"summary": "Update user profile",
-					"description": "Update user profile of the operator and driver information about their own profile.",
-					"operationId": "Update user profile",
+			"/api/v1/bus/{id}": {
+				"get": {
+					"tags": ["Bus"],
+					"summary": "Get Single bus",
+					"description": "get single bus",
+					"operationId": "get single bus",
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"produces": ["application/json"],
 					"parameters": [
 						{
 							"name": "id",
 							"in": "path",
 							"type": "string",
-							"description": "User Id",
+							"description": "Article Id",
+							"required": true
+						}
+					],
+					"responses": {
+						"201": {
+							"description": "Article Sent Successfully"
+						}
+					}
+				},
+				"put": {
+					"tags": ["Bus"],
+					"summary": "Update Bus details",
+					"description": "Update bus",
+					"operationId": "Update bus",
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"produces": ["application/json"],
+					"parameters": [
+						{
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "Bus Id",
 							"required": true
 						},
 						{
@@ -90,23 +321,17 @@
 							"schema": {
 								"type": "object",
 								"properties": {
-									"name": {
+									"bus_number": {
 										"type": "string"
 									},
-									"email": {
+									"plate_number": {
 										"type": "string"
 									},
-									"id_number": {
+									"route": {
 										"type": "string"
-									},
-									"permit_id": {
-										"type": "string"
-									},
-									"phone": {
-										"type": "number"
 									}
 								},
-								"required": ["name", "email", "subject", "content"]
+								"required": ["bus_number", "plate_number", "route"]
 							}
 						}
 					],
@@ -115,32 +340,25 @@
 							"description": "success"
 						}
 					}
-				}
-			},
-			"/api/v1/auth/login": {
-				"post": {
-					"tags": ["Authentication"],
-					"summary": "User Login | Admin | Driver | Operator",
-					"description": "user's login either Admin , Driver or Operator",
-					"operationId": "userLogin",
+				},
+				"delete": {
+					"tags": ["Bus"],
+					"summary": "Delete Bus",
+					"description": "delete bus",
+					"operationId": "delete bus",
+					"security": [
+						{
+							"Bearer": []
+						}
+					],
+					"produces": ["application/json"],
 					"parameters": [
 						{
-							"in": "body",
-							"name": "body",
-							"description": "Resource payload",
-							"required": true,
-							"schema": {
-								"type": "object",
-								"properties": {
-									"email": {
-										"type": "string"
-									},
-									"password": {
-										"type": "string"
-									}
-								},
-								"required": ["email", "password"]
-							}
+							"name": "id",
+							"in": "path",
+							"type": "string",
+							"description": "Bus Id",
+							"required": true
 						}
 					],
 					"responses": {
@@ -151,4 +369,5 @@
 				}
 			}
 		}
+    }
 }

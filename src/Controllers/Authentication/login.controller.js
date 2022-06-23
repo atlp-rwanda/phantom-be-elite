@@ -20,6 +20,9 @@ export const login = async (req, res) => {
 			id: "1",
 		};
 		const token = signToken(JSON.stringify(userData));
+		
+		res.setHeader('token', token)
+
 		return res.status(200).json({
 			success: true,
 			message: "successfully Admin logged in",

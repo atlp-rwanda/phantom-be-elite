@@ -14,3 +14,14 @@ export const profileValidation = (data) => {
 
 	return schema.validate(data);
 };
+
+// New update bus validation
+export const busValidation = (data) => {
+	const schema = Joi.object({
+		bus_number: Joi.string().min(3).required(),
+		plate_number: Joi.string().min(6).required(),
+		route: Joi.string().min(3).required(),
+	});
+
+	return schema.validate(data);
+};

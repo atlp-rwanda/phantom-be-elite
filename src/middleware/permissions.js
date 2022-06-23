@@ -1,17 +1,19 @@
 const persmissions = {
     driver:{
-        crearte: true,
-        updated: true,
+        create: true,
+        update: true,
         delete: true
     },
     oparator:{
-        crearte: true,
-        updated: true,
+        create: true,
+        update: true,
         delete: true
     },
     admin:{
-        crearte: true,
-        updated: true,
+        create: true,
+        update: true,
         delete: true
     }
 }
+
+export default persmissions

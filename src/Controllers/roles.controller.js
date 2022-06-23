@@ -3,7 +3,7 @@ import pool from "../Database/database";
 export const getRole = async (req, res) => {
 	const { id } = req.params;
 	const user = await pool.query(
-		`SELECT id,name,email,role FROM public."users" where id = ${id} `
+		`SELECT id,name,email,role FROM public."Users" where id = ${id} `
 	);
 	if (!user.rowCount) {
 		return res
@@ -12,7 +12,7 @@ export const getRole = async (req, res) => {
 	} else if (user.rows[0].role == "admin"){
         return res.status(200).send({
             success: true,
-            data: user.rows,
+            data: user.rows[0],
         });
     } else {
         return res.status(200).send({
