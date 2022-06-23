@@ -1,9 +1,9 @@
 import pool from "../Database/database";
 
-export const userInfo = async (req, res) => {
+export const getRole = async (req, res) => {
 	const { id } = req.params;
 	const user = await pool.query(
-		`SELECT id,name,email,role FROM public."Users" where id = ${id} `
+		`SELECT id,name,email,role FROM public."users" where id = ${id} `
 	);
 	if (!user.rowCount) {
 		return res
