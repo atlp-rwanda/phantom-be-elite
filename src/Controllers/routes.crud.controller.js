@@ -4,7 +4,6 @@ import { routeValidation } from "../validations/index";
 export const getAllRoutes = async (req, res) => {
   try {
     const routes = await pool.query("SELECT * FROM Routes ORDER BY id ASC");
-
     res.status(200).json({
       status: "success",
       results: routes.rowCount,
@@ -40,10 +39,9 @@ export const createRoute = async (req, res) => {
     }
     const { origin, destination, description } = req.body;
     const route = await pool.query(
-      "INSERT INTO Routes (origin, destination, Description) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO Routes (origin, destination, description) VALUES ($1, $2, $3) RETURNING *",
       [origin, destination, description]
     );
-
     res.status(201).json({
       route: route.rows,
     });

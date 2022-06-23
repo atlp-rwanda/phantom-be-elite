@@ -1,7 +1,7 @@
 {
-	"welcome": "Murakaza neza kuri fantom API",
-	"ServerError": "Seriveri Ntabonetse!",
-	"language": "Guhinduranya birakora",
-	"other": "ibindi bikubiyemo"
-
+  "welcome": "Murakaza neza kuri fantom API",
+  "ServerError": "Seriveri Ntabonetse!",
+  "language": "Guhinduranya birakora",
+  "other": "ibindi bikubiyemo",
+  "description": "murakaza neza muri linye zimihanda"
 }
