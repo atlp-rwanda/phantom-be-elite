@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 const expect = require("chai").expect;
 
 chai.use(chaiHttp);
-describe("/GET book", () => {
+describe("/GET home page", () => {
 	it("it should GET the homepage", (done) => {
 		chai
 			.request(app)
