@@ -1,6 +1,11 @@
 {
-	"welcome": "Bienvenue au fantôme API",
-	"ServerError": "serveur introuvable",
+    "welcome": "Bienvenue au fantôme API",
+    "ServerError": "serveur introuvable",
+    "greeting": "Salut",
+    "emailSubjectDriver": "Mot de passe du chauffeur enregistré",
+    "emailSubjectOperator": "Mot de passe de l'opérateur enregistré",
+    "driverPasswordEmail": "Vous recevez cet e-mail car vous avez été enregistré en tant que chauffeur dans le système Phantom, considérez le mot de passe ci-dessous comme votre mot de passe par défaut pour pouvoir vous connecter à notre plateforme",
+    "operatorPasswordEmail": "Vous recevez cet e-mail car vous avez été enregistré en tant que opérateur dans le système Phantom, considérez le mot de passe ci-dessous comme votre mot de passe par défaut pour pouvoir vous connecter à notre plateforme",
     "language": "La traduction fonctionne",
-	"other":"autre contenu"
+    "other": "autre contenu"
 }

@@ -49,7 +49,7 @@ export const createOperator = async(req, res) => {
     transporter.sendMail({
         from: process.env.USER_EMAIL,
         to: email,
-        subject: "REGISTERED OPERATOR PASSWORD",
+        subject: `${req.__("emailSubjectOperator")}`,
         html: `
             
     <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -107,11 +107,11 @@ export const createOperator = async(req, res) => {
         <table role="presentation" align="center" bgcolor="#E4E4E4" border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr><td valign="top">
       <table role="presentation" class="faux-absolute reset" align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="position:relative; opacity:0.999;">
-      <tr><td valign="top"><table role="presentation" class="hero-textbox" border="0" cellpadding="0" cellspacing="0" width="80%" bgcolor="#FFFFFE" align="center">&nbsp;<tr><td valign="top" style="padding: 20px;"><h1 style="margin: 0; font-family:sans-serif; font-size:2em; color:#3366CC; mso-line-height-rule: exactly; line-height: 1.5; text-align:center;">PHANTOM APP</h1>
+      <tr><td valign="top"><table role="presentation" class="hero-textbox" border="0" cellpadding="0" cellspacing="0" width="80%" bgcolor="#FFFFFE" align="center">&nbsp;<tr><td valign="top" style="padding: 20px;"><h1 style="margin: 0; font-family:sans-serif; font-size:2em; color:#3366CC; mso-line-height-rule: exactly; line-height: 1.5; text-align:center;">PHANTOM</h1>
       <br>
       <br>
-      <h4 style="margin: 0; font-family:sans-serif; font-size:1.2em; color:black; mso-line-height-rule: exactly; line-height: 1.5; text-align:start;">Hi! ${name},</h4> 
-      <br><p class="left" style="margin: 0; font-family:sans-serif; font-size:1em; color:#222222; mso-line-height-rule: exactly; line-height: 1.5; text-align:center;">You are recieving this email because you have been registered as a operator in Phantom eco-system, consider the password below as your default one to be able to sign in into our platform : <em>https://phantom-fe-elite.vercel.app/login</em> </td></tr><tr><td valign="top"><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="80%" align="center"><tr><td height="38" align="center" bgcolor="#3366CC">	<p style = "color:white;font-family:sans-serif; font-size:18px;">${randomPassword}</p></td></tr></table></td></tr><tr><td height="30" style="margin: 0;font-size:0px; mso-line-height-rule: exactly; line-height: 1px; white-space-collapse:collapse; max-height:30px;" valign="top">&nbsp;</td></tr></table></td></tr></table><div style="height: 40px;"></div></td></tr></table></div></body></html>
+      <h4 style="margin: 0; font-family:sans-serif; font-size:1.2em; color:black; mso-line-height-rule: exactly; line-height: 1.5; text-align:start;">${req.__("greeting")} ${name},</h4> 
+      <br><p class="left" style="margin: 0; font-family:sans-serif; font-size:1em; color:#222222; mso-line-height-rule: exactly; line-height: 1.5; text-align:center;">${req.__("operatorPasswordEmail")} : <em>https://phantom-fe-elite.vercel.app/login</em> </td></tr><tr><td valign="top"><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="80%" align="center"><tr><td height="38" align="center" bgcolor="#3366CC">	<p style = "color:white;font-family:sans-serif; font-size:18px;">${randomPassword}</p></td></tr></table></td></tr><tr><td height="30" style="margin: 0;font-size:0px; mso-line-height-rule: exactly; line-height: 1px; white-space-collapse:collapse; max-height:30px;" valign="top">&nbsp;</td></tr></table></td></tr></table><div style="height: 40px;"></div></td></tr></table></div></body></html>
             `,
     })
 };
