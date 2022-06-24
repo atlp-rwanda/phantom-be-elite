@@ -25,9 +25,11 @@ export const getRole = async (req, res) => {
 
 
 export const updateRole = async (req, res, next) => {
-	const { Role} = req.body;
-    const { id } = req.params;
+	const Role = req.body.role;
+    const id = req.params.id;
     
+    console.log(Role, id)
+
 	const user = await pool.query(
 		`SELECT id,name,email,role FROM public."Users" where id = ${id} `
 	);
@@ -37,8 +39,7 @@ export const updateRole = async (req, res, next) => {
 			.send({ success: false, message: `No user role found` });
 	} else {
 		const updates = await pool.query(
-			`UPDATE public."Users" SET role = $1 WHERE id = $2`,
-			[Role, id]
+			`UPDATE public."Users" SET role = '${Role}'  WHERE id = '${id}' `
 		);
 		if (!updates.rowCount) {
 			return res

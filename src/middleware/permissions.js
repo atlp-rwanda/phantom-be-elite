@@ -4,7 +4,7 @@ const persmissions = {
         update: true,
         delete: true
     },
-    oparator:{
+    operator:{
         create: true,
         update: true,
         delete: true
