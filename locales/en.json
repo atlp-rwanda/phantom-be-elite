@@ -1,8 +1,12 @@
 {
-	"welcome": "Wellcome to phantom API",
-	"ServerError": "Server Not found!",
-	"language": "Transilation is working",
-	"other": "other content",
-	"true": true,
-	"description":"welcome to the routes"
+    "welcome": "Wellcome to phantom API",
+    "ServerError": "Server Not found!",
+    "greeting": "Hi",
+    "emailSubjectDriver": "Registered driver Password",
+    "emailSubjectOperator": "Registered operator Password",
+    "driverPasswordEmail": "You are receiving this email because you have been registered as a driver in the Phantom system, consider the password below as your default one to be able to sign in to our platform",
+    "operatorPasswordEmail": "You are receiving this email because you have been registered as an operator in the Phantom system, consider the password below as your default one to be able to sign in to our platform",
+    "language": "Transilation is working",
+    "other": "other content",
+    "true": true
 }

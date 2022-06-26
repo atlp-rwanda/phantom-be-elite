@@ -16,4 +16,5 @@ const createTable = async () => {
   );
 }
 createTable();
+
 export default pool;
