@@ -2,18 +2,12 @@ import pool from "../Database/database";
 import { routeValidation } from "../validations/index";
 
 export const getAllRoutes = async (req, res) => {
-  try {
-    const routes = await pool.query("SELECT * FROM Routes ORDER BY id ASC");
-    res.status(200).json({
-      status: "success",
-      results: routes.rowCount,
-      routes: routes.rows,
-    });
-  } catch (e) {
-    res.status(400).json({
-      status: "fail",
-    });
-  }
+  const routes = await pool.query("SELECT * FROM Routes ORDER BY id ASC");
+  res.status(200).json({
+    status: "success",
+    results: routes.rowCount,
+    routes: routes.rows,
+  });
 };
 
 export const getOneRoute = async (req, res) => {
@@ -78,15 +72,10 @@ export const updateRoute = async (req, res) => {
 
 export const deleteRoute = async (req, res) => {
   try {
-    if(req.params.id) {
-      await pool.query(`SELECT * FROM Routes where id = ${req.params.id} `);
-      const deleted = await pool.query("DELETE FROM Routes WHERE id = $1", [
-        req.params.id,
-      ]);
-    }
-    else {
-      const deleted = await pool.query("DELETE FROM Routes",);
-    }
+    await pool.query(`SELECT * FROM Routes where id = ${req.params.id} `);
+    const deleted = await pool.query("DELETE FROM Routes WHERE id = $1", [
+      req.params.id,
+    ]);
 
     res.status(202).json({
       message: "Route deleted successfully",
