@@ -8,5 +8,8 @@
     "operatorPasswordEmail": "You are receiving this email because you have been registered as an operator in the Phantom system, consider the password below as your default one to be able to sign in to our platform",
     "language": "Transilation is working",
     "other": "other content",
+    "noPermission": "You don't have permission",
+    "TokenInvalid": "Token may be invalid or expired",
+    "NoUserProfile": "No user profile found",
     "true": true
 }

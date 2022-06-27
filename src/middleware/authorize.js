@@ -18,7 +18,7 @@ const authadmin = async (req, res, next) =>{
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Invalid token"
+            message: "Token may be invalid or expired"
         });
     }
 }
@@ -38,7 +38,7 @@ const authdriver = async (req, res, next) =>{
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Invalid token"
+            message: "Token may be invalid or expired"
         });
     }
 }
@@ -58,7 +58,7 @@ const authoperator = async (req, res, next) =>{
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Invalid token"
+            message: "Token may be invalid or expired"
         });
     }  
 }
@@ -78,7 +78,7 @@ const authall = async (req, res, next) =>{
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Invalid token"
+            message: "Token may be invalid or expired"
         });
     }
 }
