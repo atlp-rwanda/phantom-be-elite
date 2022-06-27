@@ -8,7 +8,10 @@ const pool = new Pool({
 	port: "5432",
 	password: "lucifer",
 	database: "postgres",
+
 });
+// the oldest one
+// 	password: "elite",
 
 
 // function to precreate table if not exists

@@ -38,8 +38,16 @@ server.use("/api/v1/", driverRouter);
 server.use("/api/v1/", operatorRouter);
 server.use("/api/v1/profile", profileRouter);
 server.use("/api/v1/auth", signInRouter);
+<<<<<<< HEAD
 server.use("/api/v1/route", routesCrudRouter);
 server.use("/api/v1/roles", createRoles);
 server.use("/api/v1/bus", busRouter);
 server.use('/api/v1', authroutes)
+=======
+server.use("/api/v1/roles", createRoles);
+server.use("/api/v1/bus", busRouter);
+server.use('/api/v1', authroutes)
+server.use("/api/v1/route", routesCrudRouter);
+
+>>>>>>> 6bca282b788d32f1c20ac50d7da1aeee124fc0ca
 export default server;
