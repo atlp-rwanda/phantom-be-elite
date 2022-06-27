@@ -77,7 +77,7 @@ describe("GET API /api/v1/route", () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res).to.have.status([200]);
-        expect(res.body).to.have.property("status");
+        expect(res.body).to.have.property("status0");
         expect(res.body).to.have.property("routes");
         expect(res.body).to.have.property("results");
         return done();

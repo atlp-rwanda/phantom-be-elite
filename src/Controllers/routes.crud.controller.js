@@ -4,7 +4,7 @@ import { routeValidation } from "../validations/index";
 export const getAllRoutes = async (req, res) => {
   const routes = await pool.query("SELECT * FROM Routes ORDER BY id ASC");
   res.status(200).json({
-    status: "success",
+    status: res.__("status0"),
     results: routes.rowCount,
     routes: routes.rows,
   });
@@ -16,6 +16,7 @@ export const getOneRoute = async (req, res) => {
       req.params.id,
     ]);
     return res.status(200).json({
+      status: res.__("status1"),
       route: route.rows,
     });
   } catch (e) {
@@ -37,6 +38,7 @@ export const createRoute = async (req, res) => {
       [origin, destination, description]
     );
     res.status(201).json({
+      status: res.__("status2"),
       route: route.rows,
     });
   } catch (e) {
@@ -61,6 +63,7 @@ export const updateRoute = async (req, res) => {
     );
 
     res.status(202).json({
+      status: res.__("status3"),
       route: route.rows,
     });
   } catch (e) {
@@ -78,6 +81,7 @@ export const deleteRoute = async (req, res) => {
     ]);
 
     res.status(202).json({
+      status: res.__("status4"),
       message: "Route deleted successfully",
     });
   } catch (e) {

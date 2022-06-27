@@ -1,12 +1,16 @@
 {
-    "welcome": "Murakaza neza kuri fantom API",
-    "ServerError": "Seriveri Ntabonetse!",
-    "greeting": "Muraho",
-    "emailSubjectDriver": "Ijambobanga ryumushoferi wabaruwe",
-    "emailSubjectOperator": "Ijambobanga ryumukoresha wabaruwe",
-    "driverPasswordEmail": "Mwakiriye ubu butumwa kubera ko mwabaruwe nk' umushoferi muri sisitemu ya Phantom, fata irijambo ryibanga hepfo kugirango ubashe kwinjira kurubuga rwacu.",
-    "operatorPasswordEmail": "Mwakiriye ubu butumwa kubera ko mwabaruwe nk' umukoresha wa sisitemu ya Phantom, fata irijambo ryibanga hepfo kugirango ubashe kwinjira kurubuga rwacu.",
-    "language": "Guhinduranya birakora",
-    "other": "ibindi bikubiyemo"
-
+  "welcome": "Murakaza neza kuri fantom API",
+  "ServerError": "Seriveri Ntabonetse!",
+  "greeting": "Muraho",
+  "emailSubjectDriver": "Ijambobanga ryumushoferi wabaruwe",
+  "emailSubjectOperator": "Ijambobanga ryumukoresha wabaruwe",
+  "driverPasswordEmail": "Mwakiriye ubu butumwa kubera ko mwabaruwe nk' umushoferi muri sisitemu ya Phantom, fata irijambo ryibanga hepfo kugirango ubashe kwinjira kurubuga rwacu.",
+  "operatorPasswordEmail": "Mwakiriye ubu butumwa kubera ko mwabaruwe nk' umukoresha wa sisitemu ya Phantom, fata irijambo ryibanga hepfo kugirango ubashe kwinjira kurubuga rwacu.",
+  "language": "Guhinduranya birakora",
+  "other": "ibindi bikubiyemo",
+  "status0": "Kubona linye zose byagenze neza",
+  "status1": "Kubona linye imwe byagenze neza",
+  "status2": "Gushyira linye nshya muri systeme byagenze neza",
+  "status3": "Kwapudetinga linye byagenze neza",
+  "status4": "Gusiza linye imwe byagenze neza"
 }
