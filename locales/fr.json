@@ -1,11 +1,16 @@
 {
-    "welcome": "Bienvenue au fantôme API",
-    "ServerError": "serveur introuvable",
-    "greeting": "Salut",
-    "emailSubjectDriver": "Mot de passe du chauffeur enregistré",
-    "emailSubjectOperator": "Mot de passe de l'opérateur enregistré",
-    "driverPasswordEmail": "Vous recevez cet e-mail car vous avez été enregistré en tant que chauffeur dans le système Phantom, considérez le mot de passe ci-dessous comme votre mot de passe par défaut pour pouvoir vous connecter à notre plateforme",
-    "operatorPasswordEmail": "Vous recevez cet e-mail car vous avez été enregistré en tant que opérateur dans le système Phantom, considérez le mot de passe ci-dessous comme votre mot de passe par défaut pour pouvoir vous connecter à notre plateforme",
-    "language": "La traduction fonctionne",
-    "other": "autre contenu"
+  "welcome": "Bienvenue au fantôme API",
+  "ServerError": "serveur introuvable",
+  "greeting": "Salut",
+  "emailSubjectDriver": "Mot de passe du chauffeur enregistré",
+  "emailSubjectOperator": "Mot de passe de l'opérateur enregistré",
+  "driverPasswordEmail": "Vous recevez cet e-mail car vous avez été enregistré en tant que chauffeur dans le système Phantom, considérez le mot de passe ci-dessous comme votre mot de passe par défaut pour pouvoir vous connecter à notre plateforme",
+  "operatorPasswordEmail": "Vous recevez cet e-mail car vous avez été enregistré en tant que opérateur dans le système Phantom, considérez le mot de passe ci-dessous comme votre mot de passe par défaut pour pouvoir vous connecter à notre plateforme",
+  "language": "La traduction fonctionne",
+  "other": "autre contenu",
+  "status0": "Obtenir toutes les données du succès de la base de données",
+  "status1": "Obtenir une donnée du succès de la base de données",
+  "status2": "Publication d'une donnée dans la base de données",
+  "status3": "Mise à jour d'une donnée à partir du succès de la base de données",
+  "status4": "Suppression d'une donnée de la base de données réussie"
 }

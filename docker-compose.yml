@@ -8,6 +8,7 @@ version: "3.9"
 services:
   # the node-app is the name of the container to be created when this docker-compose file is invoked/runned
   node-app:
+    command: npm run dev
     # first build the image from which container will made. this dot { . } refer to path to the docker file.
     # dot which follows build means Dockerfile belongs to the same directory as the docker-compose.yml
     build: .
@@ -36,13 +37,15 @@ services:
       - PORT=5000
     # or alternatively we can use .env file to load those environment instead of passing during creation of container
     # env_file:
+    # jjj
     #   - ./.env
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: elite
+      POSTGRES_PASSWORD: lucifer
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
+      POSTGRES_HOST: localhost
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
