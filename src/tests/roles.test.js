@@ -1,5 +1,5 @@
 /** @format */
-import index from "../app";
+import index from "../index";
 import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
 

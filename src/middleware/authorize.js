@@ -12,13 +12,13 @@ const authadmin = async (req, res, next) =>{
         } else {
             res.status(400).send({
                 success: false,
-                message: "You don't have permission"
+                message: res.__("noPermission")
             });   
         }
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Token may be invalid or expired"
+            message: res.__("TokenInvalid")
         });
     }
 }
@@ -32,13 +32,13 @@ const authdriver = async (req, res, next) =>{
         } else {
             res.status(400).send({
                 success: false,
-                message: "You don't have permission"
+                message: res.__("noPermission")
             });   
         }
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Token may be invalid or expired"
+            message: res.__("TokenInvalid")
         });
     }
 }
@@ -52,13 +52,13 @@ const authoperator = async (req, res, next) =>{
         } else {
             res.status(400).send({
                 success: false,
-                message: "You don't have permission"
+                message: res.__("noPermission")
             });   
         }
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Token may be invalid or expired"
+            message: res.__("TokenInvalid")
         });
     }  
 }
@@ -72,13 +72,13 @@ const authall = async (req, res, next) =>{
         } else {
             res.status(400).send({
                 success: false,
-                message: "You don't have permission"
+                message: res.__("noPermission")
             });   
         }
     } catch(err) {
         res.status(400).send({
             success: false,
-            message: "Token may be invalid or expired"
+            message: res.__("TokenInvalid")
         });
     }
 }
