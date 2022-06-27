@@ -1,6 +1,12 @@
 {
-	"welcome": "Karibu kwenye API ya phantom",
-	"ServerError": "Seva Haijapatikana!",
-	"language": "Utafsiri unafanya kazi",
-	"other": "maudhui mengine"
+    "welcome": "Karibu kwenye API ya phantom",
+    "ServerError": "Seva Haijapatikana!",
+    "greeting": "Jambo",
+    "emailSubjectDriver": "Nenosiri la dereva aliyesajiliwa",
+    "emailSubjectOperator": "Nenosiri la mwendeshaji aliyesajiliwa",
+    "driverPasswordEmail": "Unapokea barua pepe hii kwa sababu umesajiliwa kama dereva katika mfumo wa Phantom, zingatia nenosiri lililo hapa chini kama chaguo-msingi lako ili kuweza kuingia kwenye mfumo wetu.",
+    "operatorPasswordEmail": "Unapokea barua pepe hii kwa sababu umesajiliwa kama mwendeshaji katika mfumo wa Phantom, zingatia nenosiri lililo hapa chini kama chaguo-msingi lako ili kuweza kuingia kwenye mfumo wetu.",
+    "language": "Utafsiri unafanya kazi",
+    "other": "maudhui mengine",
+    "true": true
 }
