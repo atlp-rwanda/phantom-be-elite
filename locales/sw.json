@@ -7,5 +7,10 @@
 	"Logout successfully": "kuingia kwako kumefanywa kwa mafanikio",
 	"Invalid Token": "Ishara yako si halali",
 	"successfully logged in": "successfully logged in",
-	"true": true
+    "greeting": "Jambo",
+    "emailSubjectDriver": "Nenosiri la dereva aliyesajiliwa",
+    "emailSubjectOperator": "Nenosiri la mwendeshaji aliyesajiliwa",
+    "driverPasswordEmail": "Unapokea barua pepe hii kwa sababu umesajiliwa kama dereva katika mfumo wa Phantom, zingatia nenosiri lililo hapa chini kama chaguo-msingi lako ili kuweza kuingia kwenye mfumo wetu.",
+    "operatorPasswordEmail": "Unapokea barua pepe hii kwa sababu umesajiliwa kama mwendeshaji katika mfumo wa Phantom, zingatia nenosiri lililo hapa chini kama chaguo-msingi lako ili kuweza kuingia kwenye mfumo wetu.",
+    "true": true
 }

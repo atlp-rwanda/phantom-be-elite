@@ -15,6 +15,16 @@ export const profileValidation = (data) => {
 	return schema.validate(data);
 };
 
+// New route validation
+export const routeValidation = (data) => {
+  const schema = Joi.object({
+    origin: Joi.string().min(3).required(),
+    destination: Joi.string().min(3).required(),
+    description: Joi.string().min(3).required(),
+  });
+
+  return schema.validate(data);
+}
 // New update bus validation
 export const busValidation = (data) => {
 	const schema = Joi.object({
@@ -22,6 +32,7 @@ export const busValidation = (data) => {
 		plate_number: Joi.string().min(6).required(),
 		route: Joi.string().min(3).required(),
 	});
+
 
 	return schema.validate(data);
 };
