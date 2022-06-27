@@ -65,7 +65,8 @@
         "sequelize-cli": "^6.4.1",
         "set-blocking": "^2.0.0",
         "sinon": "^14.0.0",
-        "swagger-ui-express": "^4.3.0"
+        "swagger-ui-express": "^4.3.0",
+        "typeorm": "^0.3.6"
     },
     "devDependencies": {
         "@babel/cli": "^7.17.6",
