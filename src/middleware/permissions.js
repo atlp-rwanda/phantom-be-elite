@@ -1,4 +1,4 @@
-const persmissions = {
+export const persmissions = {
     driver:{
         create: true,
         update: true,
@@ -15,5 +15,3 @@ const persmissions = {
         delete: true
     }
 }
-
-export default persmissions

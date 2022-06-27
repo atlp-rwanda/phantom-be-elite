@@ -3,82 +3,85 @@ const private_key = process.env.PRIVATE_KEY;
 import "dotenv/config";
 import jwt from "jsonwebtoken";
 
-export const checktoken = async (req, res) =>{
+const authadmin = async (req, res, next) =>{
     var jwtToken = req.header('token');
-    if (!jwtToken) {
-        res.status(200).send({
-            success: false,
-            message: "You are not logged in"
-        });
-        
-    } else if (jwtToken) {
-        try {
-            var jwtToken = req.header('token');
-    
-            const data = jwt.verify(jwtToken, private_key);
-            req.id_number = data.id;
-            req.role = data.role;
-
-            
-    
-            req.permissions = permissions.role
-            
-          } catch {
-            res.status(200).send({
+    try {
+        const data = await jwt.verify(jwtToken, private_key)
+        if (data.role == "admin"){
+            next(); 
+        } else {
+            res.status(400).send({
                 success: false,
-                message: "Invalid token"
-            });
-          }
-    }
-}
-
-
-
-
-export const authadmin = async (req, res, next) =>{
-
-    var jwtToken = req.header('token');
-    const data = jwt.verify(jwtToken, private_key);
-
-    if (data.role == "admin"){
-       return next(); 
-    } else {
-        return res.status(400).send({
+                message: "You don't have permission"
+            });   
+        }
+    } catch(err) {
+        res.status(400).send({
             success: false,
-            message: "You don't have permission"
-        });
-    }
-    
-}
-
-export const authdriver = async (req, res, next) =>{
-    var jwtToken = req.header('token');
-    const data = jwt.verify(jwtToken, private_key);
-
-    if (data.role == "driver"){
-       return next(); 
-    } else {
-        return res.status(400).send({
-            success: false,
-            message: "You don't have permission"
-        });
-    }
-    
-}
-
-export const authoparator = async (req, res, next) =>{
-    var jwtToken = req.header('token');
-    const data = jwt.verify(jwtToken, private_key);
-
-    if (data.role == "oparator"){
-       return next(); 
-    } else {
-        return res.status(400).send({
-            success: false,
-            message: "You don't have permission"
+            message: "Invalid token"
         });
     }
 }
 
+const authdriver = async (req, res, next) =>{
+    var jwtToken = req.header('token');
+    try {
+        const data = await jwt.verify(jwtToken, private_key)
+        if (data.role == "driver"){
+            next(); 
+        } else {
+            res.status(400).send({
+                success: false,
+                message: "You don't have permission"
+            });   
+        }
+    } catch(err) {
+        res.status(400).send({
+            success: false,
+            message: "Invalid token"
+        });
+    }
+}
 
+const authoperator = async (req, res, next) =>{
+    var jwtToken = req.header('token');
+    try {
+        const data = await jwt.verify(jwtToken, private_key)
+        if (data.role == "operator"){
+            next(); 
+        } else {
+            res.status(400).send({
+                success: false,
+                message: "You don't have permission"
+            });   
+        }
+    } catch(err) {
+        res.status(400).send({
+            success: false,
+            message: "Invalid token"
+        });
+    }  
+}
+
+const authall = async (req, res, next) =>{
+    var jwtToken = req.header('token');
+    try {
+        const data = await jwt.verify(jwtToken, private_key)
+        if (data.role == "operator" || data.role == "admin" || data.role == "driver"){
+            next(); 
+        } else {
+            res.status(400).send({
+                success: false,
+                message: "You don't have permission"
+            });   
+        }
+    } catch(err) {
+        res.status(400).send({
+            success: false,
+            message: "Invalid token"
+        });
+    }
+}
+
+module.exports = {authdriver, authoperator, authall, authadmin}
 
