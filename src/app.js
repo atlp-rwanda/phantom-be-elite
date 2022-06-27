@@ -8,6 +8,7 @@ import profileRouter from "./Routes/updateProfile.route";
 import operatorRouter from './Routes/operator.route'
 import driverRouter from './Routes/driver.route';
 import signInRouter from "./Routes/signin.route";
+import logOutRouter from "./routes/logout.route"
 import routesCrudRouter from "./Routes/routes.route"
 import busRouter from "./Routes/bus.route";
 import cors from "cors";
@@ -37,6 +38,7 @@ server.use("/api/v1/", driverRouter);
 server.use("/api/v1/", operatorRouter);
 server.use("/api/v1/profile", profileRouter);
 server.use("/api/v1/auth", signInRouter);
+server.use("/api/v1/auth", logOutRouter);
 server.use("/api/v1/route", routesCrudRouter);
 
 server.use("/api/v1/bus", busRouter);
