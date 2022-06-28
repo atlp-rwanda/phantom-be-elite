@@ -22,7 +22,16 @@ export const routeValidation = (data) => {
     destination: Joi.string().min(3).required(),
     description: Joi.string().min(3).required(),
   });
+  return schema.validate(data);
+}
 
+// New assign validation
+export const assignValidation = (data) => {
+  const schema = Joi.object({
+    route: Joi.string().min(3).required(),
+    driver_name: Joi.string().min(3).required(),
+    plate_number: Joi.string().min(3).required(),
+  });
   return schema.validate(data);
 }
 // New update bus validation
