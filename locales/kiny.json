@@ -16,5 +16,11 @@
   "status1": "Kubona linye imwe byagenze neza",
   "status2": "Gushyira linye nshya muri systeme byagenze neza",
   "status3": "Kwapudetinga linye byagenze neza",
-  "status4": "Gusiza linye imwe byagenze neza"
+  "status4": "Gusiza linye imwe byagenze neza",
+  "noPermission": "Nta ruhushya ufite",
+  "TokenInvalid": "Token ishobora kuba itemewe cyangwa yarangiye",
+  "NoUserProfile": "Nta mwirondoro w'abakoresha wabonetse",
+  "ProvideInfo": "Nyamuneka tanga uruhare rw'abakoresha na id",
+  "FailedAssign": "Kugena inshingano byakunze",
+  "successAssign": "Uruhare rwatanzwe neza"
 }
