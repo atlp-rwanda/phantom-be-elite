@@ -42,7 +42,11 @@ services:
   db:
     image: postgres
     environment:
+<<<<<<< HEAD
+      POSTGRES_PASSWORD: andela123
+=======
       POSTGRES_PASSWORD: lucifer
+>>>>>>> 4a6448227431abbb96089769b81b16a2b666d3c8
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_HOST: localhost

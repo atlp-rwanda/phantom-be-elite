@@ -14,6 +14,7 @@ describe("/GET home page", () => {
 			.request(app)
 			.get("/test")
 			.end((err, res) => {
+				expect(res.status).to.be.equal(200);
 				done();
 			});
 	});

@@ -1,10 +1,10 @@
 /** @format */
 
 import express from "express";
-import { login } from "../Controllers/Authentication/login.controller";
+import { logOut } from "../Controllers/Authentication/logout.controller"
 
 const router = express.Router();
 
-router.post("/login", login);
 
+router.post("/logout",logOut)
 export default router;

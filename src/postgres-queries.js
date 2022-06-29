@@ -2,9 +2,9 @@ import { Pool } from "pg";
 
 const pool = new Pool({
   user: "postgres",
-  host: "db",
+  host: "localhost",
   database: "postgres",
-  password: "elite",
+  password: "andela123",
   port: 5432,
 });
 
@@ -12,15 +12,6 @@ const user = {
   name: "sylvain",
   email: "sylvain45",
 };
-
-// table schema
-// ===================== //
-//     CREATE TABLE IF NOT EXISTS "users" (
-// 	    "id" SERIAL,
-// 	    "name" VARCHAR(100) NOT NULL,
-// 	    "email" VARCHAR(15) NOT NULL,
-// 	    PRIMARY KEY ("id")
-//     );`;
 
 const createUser = (req, res) => {
   const { name, email } = user;

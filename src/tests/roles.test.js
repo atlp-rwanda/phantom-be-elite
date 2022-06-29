@@ -11,6 +11,18 @@ let role = 'admin';
 let role2=""
 let id = 2;
 
+describe('API /documents', () => {
+    it('it should return an empty array', (done) => {
+      chai.request("http://localhost:3000")
+        .get('/api/v1/roles/2')
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.should.to.be.json;
+          done();
+        });
+    });
+  });
+
 // Get profile
 describe("GET API /api/v1/profile/{:id}", () => {
 	it("Should return all single user profile ", (done) => {
