@@ -12,5 +12,11 @@
   "status1": "Obtenir une donnée du succès de la base de données",
   "status2": "Publication d'une donnée dans la base de données",
   "status3": "Mise à jour d'une donnée à partir du succès de la base de données",
-  "status4": "Suppression d'une donnée de la base de données réussie"
+  "status4": "Suppression d'une donnée de la base de données réussie",
+  "noPermission": "Vous n'avez pas la permission",
+  "TokenInvalid": "Le jeton peut être invalide ou expiré",
+  "NoUserProfile": "Aucun profil utilisateur trouvé",
+  "ProvideInfo": "Veuillez fournir le rôle et l'identifiant de l'utilisateur",
+  "FailedAssign": "L'attribution du rôle a échoué",
+  "successAssign": "Rôle attribué avec succès"
 }

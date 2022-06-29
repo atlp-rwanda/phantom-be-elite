@@ -8,18 +8,13 @@ export const getRole = async (req, res) => {
 	if (!user.rowCount) {
 		res.status(400).send({ 
 			success: false, 
-			message: `No user profile found` });
-	} else if (user.rows[0].role == "admin"){
+			message: res.__("NoUserProfile")  });
+	} else {
         res.status(200).send({
             success: true,
             data: user.rows[0],
         });
-    } else {
-        res.status(200).send({
-            success: false,
-            message: "You don't have permission for this operation"
-        });
-    }
+    } 
 	
 };
 
@@ -31,23 +26,23 @@ export const updateRole = async (req, res, next) => {
 	if (id =="" || Role == "") {
 		res.status(400).send({ 
 			success: false, 
-			message: `Please provide user role and id` });
+			message: res.__("ProvideInfo")});
 	} else {
 		const user = await pool.query(`SELECT id,name,email,role FROM public."Users" where id = ${id}`);
 	if (user.rowCount == 0) {
 		res.status(400).send({ 
 			success: false, 
-			message: `No user role found` });
+			message: res.__("NoUserProfile") });
 	} else {
 		const updates = pool.query(`UPDATE public."Users" SET role = '${Role}'  WHERE id = '${id}' `);
 		if (updates.rowCount == 0) {
 			res.status(400).send({ 
 				success: false, 
-				message: `Assigning role failed` });
+				message: res.__("FailedAssign") });
 		} else {
 			res.status(200).send({
 				success: true,
-				message: `Role assigned Successfully`,
+				message: res.__("successAssign"),
 			});
 		}
 	}
