@@ -58,3 +58,5 @@ sequelize db:migrate && npm run migration
 
 seeding
 sequelize db:seed:all && npm run seed
+
+sequelize seed:generate --name User

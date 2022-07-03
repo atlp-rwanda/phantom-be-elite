@@ -13,6 +13,7 @@ import routesCrudRouter from "./Routes/routes.route"
 import busRouter from "./Routes/bus.route";
 import cors from "cors";
 import authroutes from "./Routes/auth.route"
+import businroad from "./Routes/busInRoad.route"
 
 const server = express();
 server.use(express.urlencoded({ extended: true }));
@@ -40,7 +41,10 @@ server.use("/api/v1/profile", profileRouter);
 server.use("/api/v1/auth", signInRouter);
 server.use("/api/v1/auth", logOutRouter);
 server.use("/api/v1/route", routesCrudRouter);
-
+server.use("/api/v1/bus/start", businroad);
+server.use("/api/v1/bus/stop", businroad);
+server.use("/api/v1/bus/update", businroad);
+server.use("/api/v1/bus/businroad", businroad);
 server.use("/api/v1/bus", busRouter);
 server.use('/api/v1', authroutes)
 export default server;

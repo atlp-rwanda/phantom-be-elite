@@ -12,18 +12,23 @@ module.exports = {
 			},
 			bus_number: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			plate_number: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			route: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			createdAt: {
 				type: Sequelize.DATE,
+				allowNull: false,
 			},
 			updatedAt: {
 				type: Sequelize.DATE,
+				allowNull: false,
 			},
 		});
 	},
