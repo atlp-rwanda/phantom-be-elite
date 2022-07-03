@@ -13,6 +13,28 @@ export const getAllBuses = async (req, res) => {
 	});
 };
 
+export const getSingleBusInfo =async(req, res)=>{
+	const {id} = req.params;
+	const bus = await pool.query(
+		`SELECT * FROM public."Buses" where id=${id}`
+	);
+	if(!bus.rowCount){
+		return res.status(400)
+		       .send({
+				   success: false,
+				   message:`No Info found`
+			   })
+	}
+	else{
+		return res.status(200)
+		       .send({
+				   success: true,
+				   data: bus.rows
+			   })
+	}
+}
+
+
 export const getSingleBus = async (req, res) => {
 	const { id } = req.params;
 	const bus = await pool.query(
