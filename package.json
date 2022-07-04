@@ -40,7 +40,7 @@
         "seed": "npx sequelize-cli db:seed:all",
         "down": "npx sequelize-cli db:migrate:undo:all",
         "migration": "npx sequelize-cli db:migrate",
-        "coverage": "nyc npm run test --caverage",
+        "coverage": "nyc npm run test --coverage",
         "seed:undo": "sequelize db:seed:undo:all"
     },
     "license": "MIT",
@@ -48,6 +48,7 @@
         "argon2": "^0.28.5",
         "bcryptjs": "^2.4.3",
         "cors": "^2.8.5",
+        "cross-env": "^7.0.3",
         "dotenv": "^16.0.1",
         "express": "^4.17.3",
         "fs": "^0.0.1-security",
@@ -62,7 +63,7 @@
         "pg": "^8.7.3",
         "pg-hstore": "^2.3.4",
         "sequelize": "^6.20.1",
-        "sequelize-cli": "^6.4.1",
+        "set-blocking": "^2.0.0",
         "sinon": "^14.0.0",
         "swagger-ui-express": "^4.3.0",
         "typeorm": "^0.3.6"
@@ -77,13 +78,13 @@
         "babel-plugin-istanbul": "^6.1.1",
         "chai": "^4.3.6",
         "chai-http": "^4.3.0",
-        "cross-env": "^7.0.3",
         "eslint": "^8.17.0",
         "eslint-plugin-react": "^7.30.0",
         "jest": "^27.5.1",
         "mocha": "^9.2.2",
         "nodemon": "^2.0.15",
         "nyc": "^15.1.0",
+        "sequelize-cli": "^6.4.1",
         "swagger": "^0.7.5",
         "swagger-jsdoc": "^6.1.0"
     }
