@@ -20,5 +20,11 @@
   "status1": "Getting one data from database success",
   "status2": "Posting one data into database success",
   "status3": "Updating one data from database success",
-  "status4": "Deletion of one data from database success"
+  "status4": "Deletion of one data from database success",
+  "noPermission": "You don't have permission",
+  "TokenInvalid": "Token may be invalid or expired",
+  "NoUserProfile": "No user profile found",
+  "ProvideInfo": "Please provide user role and id",
+  "FailedAssign": "Assigning role failed",
+  "successAssign": "Role assigned Successfully"
 }
