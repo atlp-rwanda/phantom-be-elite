@@ -2,7 +2,9 @@ import express from "express";
 import {
   getAllAssigned,
   createBusToRoute,
-  updateRouteToBus
+  updateRouteToBus,
+  BusOneAssign,
+  deleteBusAssign
 } from "../Controllers/assign.bus.to.route";
 
 const router = express.Router();
@@ -10,6 +12,7 @@ const router = express.Router();
 router.get("/", getAllAssigned);
 router.post("/", createBusToRoute);
 router.put("/:id", updateRouteToBus);
-// router.delete("/:id", deleteAssigned);
+router.get("/:id",  BusOneAssign)
+router.delete("/:id", deleteBusAssign);
 
 export default router;
