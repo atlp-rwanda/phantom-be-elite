@@ -12,6 +12,7 @@ import logOutRouter from "./routes/logout.route"
 import routesCrudRouter from "./Routes/routes.route"
 import assignedRouter from "./Routes/driver.bus.assign.route"
 import busRouter from "./Routes/bus.route";
+import createRoles from "./Routes/createRoles.route"
 import cors from "cors";
 import authroutes from "./Routes/auth.route"
 import assignBusToRoute from "./Routes/bus.assign.to.route"
@@ -40,6 +41,7 @@ server.use("/api/v1/", driverRouter);
 server.use("/api/v1/", operatorRouter);
 server.use("/api/v1/profile", profileRouter);
 server.use("/api/v1/auth", signInRouter);
+server.use("/api/v1/roles", createRoles);
 server.use("/api/v1/auth", logOutRouter);
 server.use("/api/v1/route", routesCrudRouter);
 server.use("/api/v1/assign", assignedRouter);
@@ -47,4 +49,6 @@ server.use("/api/v1/assign-route", assignBusToRoute )
 
 server.use("/api/v1/bus", busRouter);
 server.use('/api/v1', authroutes)
+server.use("/api/v1/route", routesCrudRouter);
+
 export default server;
