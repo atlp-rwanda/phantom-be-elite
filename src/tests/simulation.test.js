@@ -11,7 +11,8 @@ describe("POST API /api/v1/bus/start", () => {
         bus_number: "333",
         plate_number: "RAE457A",
         time_start: "12:00",
-        route: "Nyamirambo",
+        origin: "Nyamirambo",
+		destination: "Town",
         passengers: "52",
         speed: "30"
     }
@@ -19,7 +20,8 @@ describe("POST API /api/v1/bus/start", () => {
         bus_number: "333",
         plate_number: "RAE034A",
         time_start: "12:00",
-        route: "Nyamirambo",
+        origin: "Nyamirambo",
+		destination: "Town",
         passengers: "52",
         speed: "30"
     }
@@ -121,7 +123,7 @@ describe('PUT API /api/v1/bus/update', () => {
 })
 describe('GET /api/v1/bus/businroad',() =>{
 	const route = {
-        route:"12D"
+        destination:"Town"
     }
 	it("Should return that the bus have been found in route that have been specified", (done) => {
 	chai
@@ -133,6 +135,7 @@ describe('GET /api/v1/bus/businroad',() =>{
 		if (err) return done(err);
 		expect(res).to.have.status([200]);
 		expect(res.body).to.have.property("message");
+		return done();
 	})
   })
 })

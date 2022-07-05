@@ -5,8 +5,8 @@ import { Pool } from "pg";
  const pool = new Pool({
 		host: "localhost",
 		user: "postgres",
-		port: "5432",
-		password: "lucifer",
+		port: "5000",
+		password: "elite",
 		database: "postgres",
  });
 const createTable = async () => {

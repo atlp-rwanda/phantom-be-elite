@@ -23,7 +23,7 @@ describe("GET API /api/v1/profile/{:id}", () => {
 	});
 
 	it("Should return Article not found", (done) => {
-		const fakeId = 7;
+		const fakeId = 90;
 		chai
 			.request(index)
 			.get("/api/v1/profile/" + fakeId)
@@ -47,7 +47,7 @@ describe("PUT API /api/v1/profile/update/{:id}", () => {
 		phone: "0780000001",
 	};
 	it("Should return User Profile not found", (done) => {
-		const fakeId = 7;
+		const fakeId = 90;
 		chai
 			.request(index)
 			.put("/api/v1/profile/update/" + fakeId)

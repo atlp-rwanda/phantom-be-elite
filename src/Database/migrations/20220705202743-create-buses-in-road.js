@@ -9,28 +9,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       bus_number: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       plate_number: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       time_start: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
-      route: {
-        type: Sequelize.STRING,
-        allowNull: false
+      origin: {
+        type: Sequelize.STRING
+      },
+      destination: {
+        type: Sequelize.STRING
       },
       passengers: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.INTEGER
       },
       speed: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         type: Sequelize.DATE

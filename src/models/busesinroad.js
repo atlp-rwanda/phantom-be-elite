@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     bus_number: DataTypes.STRING,
     plate_number: DataTypes.STRING,
     time_start: DataTypes.STRING,
-    route: DataTypes.STRING,
+    origin: DataTypes.STRING,
+    destination: DataTypes.STRING,
     passengers: DataTypes.INTEGER,
     speed: DataTypes.INTEGER
   }, {

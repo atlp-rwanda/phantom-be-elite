@@ -40,7 +40,7 @@ describe("GET API /api/v1/profile/{:id}", () => {
 			});
 	});
 	it("Should not return all single user profile  ", (done) => {
-		const userId = 23;
+		const userId = 90;
 		chai
 			.request(index)
 			.get("/api/v1/roles/" + userId)

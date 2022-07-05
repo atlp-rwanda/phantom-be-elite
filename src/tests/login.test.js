@@ -9,7 +9,7 @@ let token = "";
 // Sign in
 describe("POST API /api/v1/auth/login", () => {
 	const user = {
-		email: "test@gmail.com",
+		email: "ben@gmail.com",
 		password: "password@123",
 	};
 	const user2 = {

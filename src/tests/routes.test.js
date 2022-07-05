@@ -48,6 +48,7 @@ describe("POST API /api/v1/route/", () => {
       .request(index)
       .post("/api/v1/route/")
       .send(route2)
+      .send(route)
       .end((err, res) => {
         if (err) return done(err);
         expect(res).to.have.status([404]);

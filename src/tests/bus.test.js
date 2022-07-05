@@ -12,12 +12,12 @@ let testBus = 2;
 describe("POST API /api/v1/bus/", () => {
 	const bus = {
 		bus_number: "Bus-152",
-		plate_number: "RAD447C",
+		plate_number: "RAD506C",
 		route: "D-302",
 	};
 	const bus_2 = {
 		bus_number: "Bus-152",
-		plate_number: "RAD547C",
+		plate_number: "RAD506C",
 		route: "D-302",
 	};
 	it("Should return Bus validation", (done) => {
@@ -61,7 +61,7 @@ describe("POST API /api/v1/bus/", () => {
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				return done();
-			});
+		});
 	});
 });
 
@@ -83,6 +83,7 @@ describe("GET API /api/v1/bus", () => {
 
 describe("GET API /api/v1/bus/{:id}", () => {
 	it("Should return single bus", (done) => {
+		const busId = 1;
 		chai
 			.request(index)
 			.get("/api/v1/bus/" + busId)
@@ -134,6 +135,7 @@ describe("PUT API /api/v1/bus/update/{:id}", () => {
 			});
 	});
 	it("Should return Bus updated successfully", (done) => {
+		const busId = 1;
 		chai
 			.request(index)
 			.put("/api/v1/bus/" + busId)
@@ -164,6 +166,7 @@ describe("DELETE API /api/v1/bus/{:id}", () => {
 			});
     });
     it("Should return Bus Deleted Successfully", (done) => {
+		const testBus = 3;
 			chai
 				.request(index)
 				.delete("/api/v1/bus/" + testBus)
