@@ -26,5 +26,16 @@
   "NoUserProfile": "No user profile found",
   "ProvideInfo": "Please provide user role and id",
   "FailedAssign": "Assigning role failed",
-  "successAssign": "Role assigned Successfully"
+  "successAssign": "Role assigned Successfully",
+  "DenyMessage": "Something went wrong",
+  "BusInMotion": "Bus in motion now",
+  "BusPlate": "wrong plate_number",
+  "BusToStop": "Bus have stopped",
+  "UpdateBus": "Bus have been updated",
+  "BusRoute": "No bus in this route of",
+  "BusRes": "Bus that are in road",
+  "Email": "Email have been sent",
+  "Password": "password does not match",
+  "UpdatedPass": "Profile Updated Successfully",
+  "PlateSame": "Bus With Same Plate Number is in the road"
 }

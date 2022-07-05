@@ -23,7 +23,7 @@ export const getUser = async (req, res) => {
 	if (!user.rowCount) {
 		return res
 			.status(400)
-			.send({ success: false, message: `No user profile found` });
+			.send({ success: false, message: res.__("NoUserProfile") });
 	}else{
         transporter.sendMail({
         from : process.env.USER_EMAIL,
@@ -44,8 +44,8 @@ export const updateUser = async (req, res) => {
 const { email } = req.body;
 const { password, confirmPassword } = req.body
 if (password !== confirmPassword) {
-    return res.status(401).json({
-      message: "password does not match"
+    return res.status(400).json({
+        message: res.__("Password")
     })
 }else{
 const user = await pool.query(
@@ -54,7 +54,7 @@ const user = await pool.query(
 if (!user.rowCount) {
     return res
         .status(400)
-        .send({ success: false, message: `No user found` });
+        .send({ success: false, message: res.__("NoUserProfile")});
 } else {
     const updates = await pool.query(
         `UPDATE public."Users" SET password=$1 WHERE email LIKE '%${email}%'`,
@@ -62,7 +62,7 @@ if (!user.rowCount) {
     );
     return res.status(200).send({
         success: true,
-        message: `Profile Updated Successfully`,
+        message: res.__("UpdatedPass"),
     });
   }
 }

@@ -2,18 +2,27 @@ import pool from "../Database/database"
 
 export const postBusInRoad = async (req, res) => {
 	const { bus_number,plate_number,time_start,route,passengers,speed } = req.body;
-	const bus = await pool.query(
-		`INSERT INTO public."BusesInRoads" (bus_number, plate_number,time_start,route,passengers,speed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,[bus_number, plate_number, time_start, route, passengers, speed]
+    const buses = await pool.query(
+		`SELECT * FROM public."BusesInRoads" where plate_number = '${plate_number}' `
 	);
-    if (!bus.rowCount) {
-        return res
-            .status(400)
-            .send({ success: false, message: `Something went wrong` });
+    if (buses.rowCount) {
+		return res
+			.status(400)
+			.send({ success: false, message: `Bus With Same Plate Number is in the road` });
     }else{
-        return res.status(200).send({
-            success: true,
-            message: `Bus in motion now`,
-        });
+        const bus = await pool.query(
+            `INSERT INTO public."BusesInRoads" (bus_number, plate_number,time_start,route,passengers,speed) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,[bus_number, plate_number, time_start, route, passengers, speed]
+        );
+        if (!bus.rowCount) {
+            return res
+                .status(400)
+                .send({ success: false, message: res.__("DenyMessage") });
+        }else{
+            return res.status(200).send({
+                success: true,
+                message: res.__("BusInMotion"),
+            });
+        }
     }
 };
 export const stopBus = async (req, res) => {
@@ -24,11 +33,11 @@ export const stopBus = async (req, res) => {
     if (!bus.rowCount) {
         return res
         .status(400)
-        .send({ success: false, message: `wrong plate_number` });
+        .send({ success: false,  message: res.__("BusPlate") });
     }else{
         return res.status(200).send({
             success: true,
-            message: `Bus have stopped`,
+            message: res.__("BusToStop") ,
         });
     }
 }
@@ -42,11 +51,11 @@ export const updateBus = async (req, res) => {
     if (!bus.rowCount) {
         return res
         .status(400)
-        .send({ success: false, message: `something went wrong` });
+        .send({ success: false, message: res.__("DenyMessage")});
     }else{
         return res.status(200).send({
             success: true,
-            message: `Bus have been updated`,
+            message: res.__("UpdateBus"),
         });
     }
 }
@@ -59,11 +68,11 @@ export const getBusInRoad = async (req, res) => {
 	if (!bus.rowCount) {
 		return res
 		.status(400)
-		.send({ success: false, message: `No user profile found` });
+		.send({ success: false, message: res.__("BusRoute")});
     }else{
         return res.status(200).send({
             success: true,
-            message: `Bus which is in the route of ${route} are:`,
+            message: res.__("BusRes"),
             data:bus.rows
         });
     }

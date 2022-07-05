@@ -4,6 +4,7 @@ import chaiHttp from "chai-http";
 import { describe } from "mocha";
 
 chai.use(chaiHttp);
+let token = "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiUmFjaGVsIiwicm9sZSI6ImRyaXZlciIsImVtYWlsIjoiYmVuQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDNUMTA6MDA6MzEuNjY1WiIsImlkIjo1fQ.3gZqo3CdzMQpI7dKAYr2OvokcrlPxkXn5b4J6qpYgMw";
 
 describe("POST API /api/v1/bus/start", () => {
     const bus = {
@@ -14,11 +15,20 @@ describe("POST API /api/v1/bus/start", () => {
         passengers: "52",
         speed: "30"
     }
+	const bus3 = {
+        bus_number: "333",
+        plate_number: "RAE034A",
+        time_start: "12:00",
+        route: "Nyamirambo",
+        passengers: "52",
+        speed: "30"
+    }
     const bus2 = "N"
 	it("Should send bus in road", (done) => {
 		chai
 			.request(index)
 			.post("/api/v1/bus/start")
+			.set('token', token)
 			.send(bus)
 			.end((err, res) => {
 				if (err) return done(err);
@@ -27,10 +37,24 @@ describe("POST API /api/v1/bus/start", () => {
 				return done();
 			});
 	});
+	it("Should send bus in road", (done) => {
+		chai
+			.request(index)
+			.post("/api/v1/bus/start")
+			.set('token', token)
+			.send(bus3)
+			.end((err, res) => {
+				if (err) return done(err);
+                expect(res).to.have.status([400]);
+				expect(res.body).to.have.property("message");
+				return done();
+		});
+	});
     it("Should fail to send bus in road", (done) => {
 		chai
 			.request(index)
 			.get("/api/v1/bus/start")
+			.set('token', token)
 			.send(bus2)
 			.end((err, res) => {
 				if (err) return done(err);
@@ -52,6 +76,7 @@ describe("DELETE API /api/v1/bus/stop", () => {
 		chai
 			.request(index)
 			.delete("/api/v1/bus/stop")
+			.set('token', token)
 			.send(plate_number)
 			.end((err, res) => {
 				if (err) return done(err);
@@ -64,6 +89,7 @@ describe("DELETE API /api/v1/bus/stop", () => {
 		chai
 			.request(index)
 			.get("/api/v1/bus/start")
+			.set('token', token)
 			.send(plate_number2)
 			.end((err, res) => {
 				if (err) return done(err);
@@ -83,6 +109,7 @@ describe('PUT API /api/v1/bus/update', () => {
 		chai
 		.request(index)
 		.put("/api/v1/bus/update")
+		.set('token', token)
 		.send(userBus)
 		.end((err, res) => {
 		if (err) return done(err);
@@ -100,6 +127,7 @@ describe('GET /api/v1/bus/businroad',() =>{
 	chai
 	.request(index)
 	.get("/api/v1/bus/businroad")
+	.set('token', token)
 	.send(route)
 	.end((err,res) => {
 		if (err) return done(err);

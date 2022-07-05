@@ -22,5 +22,16 @@
   "NoUserProfile": "Nta mwirondoro w'abakoresha wabonetse",
   "ProvideInfo": "Nyamuneka tanga uruhare rw'abakoresha na id",
   "FailedAssign": "Kugena inshingano byakunze",
-  "successAssign": "Uruhare rwatanzwe neza"
+  "successAssign": "Uruhare rwatanzwe neza",
+  "DenyMessage": "Ikintu kitagenze neza ",
+  "BusInMotion": "I bis iri kugenda",
+  "BusPlate": "numero yikinyabiziga siyo",
+  "BusToStop": "Bisi yahagazee",
+  "UpdateBus": "Bisi yavuguruwe",
+  "BusRoute": "Nta bisi muriyi nzira ya",
+  "BusRes": "Bisi ziri kugenda nizi",
+  "Email": "imeli yoherejwe",
+  "Password": "ijambo ryibanga ntabwo rihuye",
+  "UpdatedPass": "Umwirondoro wavuguruwe neza",
+  "PlateSame": "Bisi ifite pariki imeze nkiyi iri mu rugendo"
 }

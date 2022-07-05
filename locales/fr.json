@@ -21,5 +21,16 @@
   "NoUserProfile": "Aucun profil utilisateur trouvé",
   "ProvideInfo": "Veuillez fournir le rôle et l'identifiant de l'utilisateur",
   "FailedAssign": "L'attribution du rôle a échoué",
-  "successAssign": "Rôle attribué avec succès"
+  "successAssign": "Rôle attribué avec succès",
+  "DenyMessage": "Quelque chose s'est mal passé",
+  "BusInMotion": "Bus en mouvement maintenant",
+  "BusPlate": "mauvais numéro de plaque",
+  "BusToStop": "Le bus s'est arrêté",
+  "UpdateBus": "Les bus ont été mis à jour",
+  "BusRoute": "Aucun bus sur cet itinéraire de",
+  "BusRes": "Bus qui sont en route",
+  "Email": "L'e-mail a été envoyé",
+  "Password": "le mot de passe ne correspond pas",
+  "UpdatedPass": "Mise à jour du profil réussie",
+  "PlateSame": "Un bus avec le même numéro de plaque est sur la route"
 }
