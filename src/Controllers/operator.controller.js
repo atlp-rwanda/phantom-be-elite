@@ -44,7 +44,7 @@ export const createOperator = async(req, res) => {
     }
     pool.query(`INSERT INTO public."Users"  (name,email, password, id_number,permit_id,phone,role) VALUES ($1, $2, $3, $4, $5, $6, $7)  RETURNING *`, [name, email, passwordHash, id_number, permit_id, phone, role],
         (error, results) => {
-            return res.status(201).json({ success: true, message: `New operator has been created and email has been sent to: ${results.rows[0].email} for Password.` });
+            return res.status(201).json({ success: true, message: `New operator has been created and email has been sent to your email for Password.` });
         });
     transporter.sendMail({
         from: process.env.USER_EMAIL,
