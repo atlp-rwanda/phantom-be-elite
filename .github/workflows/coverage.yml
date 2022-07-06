@@ -2,7 +2,7 @@ name: Coverage
 
 on:
   push:
-    branches: ["develop,fx-setup-integration-15"]
+    branches: ["develop,ft-simulate-bus-motion-14"]
  
 jobs:
   build:
