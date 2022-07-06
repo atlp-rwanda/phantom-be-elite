@@ -4,7 +4,7 @@ on:
   push:
     branches: ["develop,ft-simulate-bus-motion-14"]
   pull_request:
-    branches: [ "develop,ft-simulate-bus-motion-14"]
+    branches: ["develop,ft-simulate-bus-motion-14"]
  
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+      node-version: [12.x, 14.x, 16.x]
 
     steps:
     - name: Checkout repository
