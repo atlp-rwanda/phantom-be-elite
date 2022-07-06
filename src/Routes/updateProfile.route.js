@@ -9,4 +9,5 @@ const router = express.Router();
 router.get("/:id", getUser);
 router.put("/update/:id", updateUser);
 
+
 export default router;
