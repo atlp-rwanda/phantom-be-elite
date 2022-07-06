@@ -36,7 +36,6 @@ export const createAssign = async (req, res) => {
 };
 
 export const deleteAssigned = async (req, res) => {
-  try {
     await pool.query(
       `SELECT * FROM Driver_buse_assign where id = ${req.params.id} `
     );
@@ -49,9 +48,4 @@ export const deleteAssigned = async (req, res) => {
       status: res.__("status4"),
       message: "Route deleted successfully",
     });
-  } catch (e) {
-    res.status(404).json({
-      status: "fail",
-    });
-  }
 };
