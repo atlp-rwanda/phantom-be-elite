@@ -39,19 +39,6 @@ describe("POST API /api/v1/bus/start", () => {
 				return done();
 			});
 	});
-	it("Should send bus in road", (done) => {
-		chai
-			.request(index)
-			.post("/api/v1/bus/start")
-			.set('token', token)
-			.send(bus3)
-			.end((err, res) => {
-				if (err) return done(err);
-                expect(res).to.have.status([400]);
-				expect(res.body).to.have.property("message");
-				return done();
-		});
-	});
     it("Should fail to send bus in road", (done) => {
 		chai
 			.request(index)
