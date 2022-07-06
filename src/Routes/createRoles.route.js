@@ -1,7 +1,7 @@
 /** @format */
 
 import express from "express";
-import { getRole, updateRole } from "../controllers/roles.controller";
+import { getRole, updateRole } from "../Controllers/roles.controller";
 import { authadmin, authoperator, authall, authdriver } from "../middleware/authorize";
 
 
