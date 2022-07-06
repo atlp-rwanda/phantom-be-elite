@@ -94,6 +94,7 @@ export const updateBus = async (req, res) => {
 			`UPDATE public."Buses" SET bus_number = $1 ,plate_number=$2,route= $3 WHERE id = $4 `,
 			[bus_number, plate_number, route, id]
 		);
+		
 		return res.status(200).send({
 			success: true,
 			message: `Bus Updated Successfully`,

@@ -54,13 +54,13 @@ export const createBusToRoute =async(req, res)=>{
                        message: `Went wrong`
                    });
         }
-        else{
+       
             return res.status(200)
                    .send({
                        success:true,
                        message: `Route saved well on bus`
                    });
-        }
+        
     };
 }
 export const updateRouteToBus = async (req, res) => {

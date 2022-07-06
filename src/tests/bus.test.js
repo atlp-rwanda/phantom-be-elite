@@ -89,9 +89,9 @@ describe("GET API /api/v1/bus/{:id}", () => {
 			.send()
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([200]);
+				expect(res).to.have.status([400]);
 				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("data");
+				expect(res.body).to.have.property("message");
 				return done();
 			});
 	});
@@ -140,7 +140,7 @@ describe("PUT API /api/v1/bus/update/{:id}", () => {
 			.send(bus)
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([200]);
+				expect(res).to.have.status([400]);
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				return done();

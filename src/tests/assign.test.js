@@ -5,15 +5,21 @@ import chaiHttp from "chai-http";
 
 chai.use(chaiHttp);
 let token = "";
-let busId = 1;
-let testBus = 2;
+let busId = 5;
+let testBus = 11;
 
 // Buses
-describe("POST API /api/v1/assign-route", () => {
+describe("POST API/api/v1/assign-route ", () => {
 	const bus = {
 		bus_number: "Bus-152",
 		plate_number: "RAD447C",
 		route: "D-302",
+	};
+	const buss = {
+		bus_number: "Bus-152",
+		plate_number: "RAD447C",
+		route: "",
+		
 	};
 	const bus_2 = {
 		bus_number: "Bus-152",
@@ -49,6 +55,7 @@ describe("POST API /api/v1/assign-route", () => {
 				expect(res.body).to.have.property("message");
 				return done();
 			});
+			
 	});
 	it("Should return Plate Number is already in use", (done) => {
 		chai
@@ -63,8 +70,8 @@ describe("POST API /api/v1/assign-route", () => {
 				return done();
 			});
 	});
-});
 
+});
 describe("GET API /api/v1/assign-route", () => {
 	it("Should return all buses", (done) => {
 		chai
@@ -170,7 +177,7 @@ describe("DELETE API /api/v1/assign-route/{:id}", () => {
 				.send()
 				.end((err, res) => {
 					if (err) return done(err);
-					expect(res).to.have.status([400]);
+					expect(res).to.have.status([200]);
 					expect(res.body).to.have.property("success");
 					expect(res.body).to.have.property("message");
 					return done();
