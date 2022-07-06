@@ -8,7 +8,7 @@ import profileRouter from "./Routes/updateProfile.route";
 import operatorRouter from './Routes/operator.route'
 import driverRouter from './Routes/driver.route';
 import signInRouter from "./Routes/signin.route";
-import logOutRouter from "./routes/logout.route"
+import logOutRouter from "./Routes/logout.route"
 import routesCrudRouter from "./Routes/routes.route"
 import busRouter from "./Routes/bus.route";
 import createRoles from "./Routes/createRoles.route"
