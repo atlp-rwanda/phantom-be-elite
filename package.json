@@ -46,7 +46,8 @@
     "seed:dev": "cross-env NODE_ENV=development npx sequelize-cli db:seed:all",
     "seed:test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:all",
     "seed:undo:dev": "cross-env NODE_ENV=development npx sequelize-cli db:seed:undo:all",
-    "seed:undo:test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:undo:all"
+    "seed:undo:test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:undo:all",
+    "coverage": "nyc npm run test --coverage"
   },
   "license": "MIT",
   "dependencies": {
