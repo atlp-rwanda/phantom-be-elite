@@ -21,8 +21,11 @@ module.exports = {
     host: process.env.HOST_FOR_ALL_DB,
     port: process.env.PORT_FOR_ALL_DB,
     dialect: process.env.DIALECT_FOR_ALL_DB,
+    logging: false,
+    protocol: "postgres",
     dialectOptions: {
       bigNumberStrings: true,
+      dialectToggle()
     },
   },
   production: {
