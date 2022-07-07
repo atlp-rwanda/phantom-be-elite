@@ -1,28 +1,32 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Driver_buse_assigns', {
+    await queryInterface.createTable("Driver_buse_assigns", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       route: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       driver_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       plate_number: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
-        type: Sequelize.DATE
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
       updatedAt: {
-        type: Sequelize.DATE
-      }
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
+      },
     });
   },
   async down(queryInterface, Sequelize) {

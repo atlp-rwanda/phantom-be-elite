@@ -3,7 +3,7 @@ import { assignValidation } from "../validations/index";
 
 export const getAllAssigned = async (req, res) => {
   const routes = await pool.query(
-    `SELECT route,driver_name,plate_number,id FROM public."Driver_buse_assigns" ORDER BY id ASC`
+    `SELECT * FROM public."Driver_buse_assigns" ORDER BY id ASC`
   );
   res.status(200).json({
     status: res.__("status0"),
