@@ -14,6 +14,17 @@ jobs:
     strategy:
       matrix:
         node-version: [ 16.x]
+     env:
+
+      USER_NAME_FOR_ALL_DB: ${{ secrets.PRIVATE_KEY }}
+
+      PASSWORD_FOR_ALL_DB: ${{ secrets.NODE_ENV }}
+
+      PORT_FOR_ALL_DB: ${{ secrets.PORT }}
+
+      DB_TEST_NAME: ${{ secrets.TEST_DB }}
+
+      HOST_FOR_ALL_DB: ${{ secrets.HOST }}
 
     steps:
     - name: Checkout repository
