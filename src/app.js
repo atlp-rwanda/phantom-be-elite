@@ -43,10 +43,10 @@ server.use("/api/v1/auth", signInRouter);
 server.use("/api/v1/roles", createRoles);
 server.use("/api/v1/auth", logOutRouter);
 server.use("/api/v1/route", routesCrudRouter);
-server.use("/api/v1/bus/start", businroad);
-server.use("/api/v1/bus/stop", businroad);
-server.use("/api/v1/bus/update", businroad);
-server.use("/api/v1/bus/businroad", businroad);
+server.use("/api/v1/bus", businroad);
+server.use("/api/v1/bus", businroad);
+server.use("/api/v1/bus", businroad);
+server.use("/api/v1/bus", businroad);
 server.use("/api/v1/bus", busRouter);
 server.use('/api/v1', authroutes)
 server.use("/api/v1/route", routesCrudRouter);

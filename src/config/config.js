@@ -9,6 +9,6 @@ export const test = {
   dialect: 'postgres',
 }
 export const production = {
-  url: process.env.DATABASE_URL,
+  url: process.env.PROD_DATABASE_URL,
   dialect: 'postgres',
 }

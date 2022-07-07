@@ -9,6 +9,7 @@ import { Pool } from "pg";
 		password: "elite",
 		database: "postgres",
  });
+ 
 const createTable = async () => {
 	await pool.query(
     "CREATE TABLE IF NOT EXISTS Routes (origin VARCHAR(40), destination VARCHAR(40), description VARCHAR(120), id SERIAL, PRIMARY KEY ( origin, destination ) )"
