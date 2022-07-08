@@ -25,7 +25,6 @@ module.exports = {
     protocol: "postgres",
     dialectOptions: {
       bigNumberStrings: true,
-      dialectToggle()
     },
   },
   production: {
