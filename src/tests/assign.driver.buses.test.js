@@ -8,11 +8,6 @@ chai.use(chaiHttp);
 
 describe("delete all before testing", () => {});
 describe("POST API /api/v1/assign/", () => {
-  const assign2 = {
-    route: "karuruma - kimironko",
-    driver_name: "Sylvain Niyonkuru",
-    plate_number: "RAD 23480 B",
-  };
 
   it("Should return Assign validation when empty data entry in entered", (done) => {
     const fakeAssign = {
@@ -27,19 +22,6 @@ describe("POST API /api/v1/assign/", () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("message");
-        return done();
-      });
-  });
-  it("Should check duplicate assigns created", (done) => {
-    chai
-      .request(index)
-      .post("/api/v1/assign/")
-      .send(assign2)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status([404]);
-        expect(res.body).to.have.property("status");
         expect(res.body).to.have.property("message");
         return done();
       });
@@ -70,7 +52,6 @@ describe("POST API /api/v1/assign/", () => {
                  expect(res.body).to.have.property("message");
                  return done();
                });
-             return done();
            });
        });
    });
@@ -102,18 +83,3 @@ describe("GET API /api/v1/assign", () => {
       });
   });
 });
-
-describe("DELETE API /api/v1/route/{:id}", () => {
-  });
-  it("Should return error message on deleting with invalid id provided", (done) => {
-    chai
-      .request(index)
-      .delete(`/api/v1/assign/${"num"}`)
-      .send()
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status(404);
-        expect(res.body).to.have.property("status");
-        return done();
-      });
-  });

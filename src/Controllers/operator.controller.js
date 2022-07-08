@@ -37,7 +37,7 @@ export const createOperator = async(req, res) => {
     const operator = await pool.query(
         `SELECT * FROM public."Users" WHERE email LIKE '%${email}%' LIMIT 1`
     );
-    if (!operator.rowCount) {
+    if (operator.rowCount) {
         return res
             .status(401)
             .json({ success: false, message: `The operator with email: ${email}, is already registered!` });
