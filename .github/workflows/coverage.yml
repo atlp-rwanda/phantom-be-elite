@@ -7,12 +7,17 @@ on:
     branches: ["develop"]
  
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
+
       matrix:
+
         node-version: [ 16.x]
+
      env:
 
       USER_NAME_FOR_ALL_DB: ${{ secrets.PRIVATE_KEY }}
