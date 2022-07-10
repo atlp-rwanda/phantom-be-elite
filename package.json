@@ -34,7 +34,7 @@
   "scripts": {
     "coverage": "nyc npm run test --coverage",
     "build": "babel src --out-dir dist",
-    "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js",
+    "start:dev": "cross-env NODE_ENV=test nodemon --exec babel-node src/index.js",
     "start:prod": "cross-env NODE_ENV=production node dist/index.js",
     "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 50000",
     "migration:dev": "cross-env NODE_ENV=development npx sequelize-cli db:migrate",
@@ -43,7 +43,7 @@
     "migration:undo:dev": "cross-env NODE_ENV=development npx sequelize-cli db:migrate:undo:all",
     "migration:undo:prod": "cross-env NODE_ENV=production npx sequelize-cli db:migrate:undo:all",
     "migration:undo:test": "cross-env NODE_ENV=test npx sequelize-cli db:migrate:undo:all",
-    "seed:dev": "cross-env NODE_ENV=development npx sequelize-cli db:seed:all",
+    "seed:dev": "cross-env NODE_ENV=production npx sequelize-cli db:seed:all",
     "seed:test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:all",
     "seed:undo:dev": "cross-env NODE_ENV=development npx sequelize-cli db:seed:undo:all",
     "seed:undo:test": "cross-env NODE_ENV=test npx sequelize-cli db:seed:undo:all"
