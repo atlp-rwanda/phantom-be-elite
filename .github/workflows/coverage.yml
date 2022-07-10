@@ -21,17 +21,17 @@ jobs:
 
     env:
 
-      USER_NAME_FOR_ALL_DB: ${{ secrets.USER_NAME_FOR_ALL_DB }}
+      USER_NAME_FOR_TEST: ${{ secrets.USER_NAME }}
 
-      PASSWORD_FOR_ALL_DB: ${{ secrets.PASSWORD_FOR_ALL_DB }}
+      PASSWORD_FOR_TEST: ${{ secrets.PASSWORD }}
 
-      PORT_FOR_ALL_DB: ${{ secrets.PORT_FOR_ALL_DB }}
+      PORT_FOR_TESTB: ${{ secrets.PORT }}
 
-      DB_TEST_NAME: ${{ secrets.DB_TEST_NAME}}
+      DB_TEST_NAME: ${{ secrets.DB_NAME }}
 
-      HOST_FOR_ALL_DB: ${{ secrets.HOST_FOR_ALL_DB }}
+      HOST_FOR_TEST: ${{ secrets.HOST }}
 
-      DIALECT_FOR_ALL_DB: ${{ secrets.DIALECT_FOR_ALL_DB }}
+      DIALECT_FOR_ALL_DB: ${{ secrets.DIALECT }}
       
     steps:
     - name: Checkout repository

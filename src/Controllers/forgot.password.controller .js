@@ -43,6 +43,7 @@ export const getUser = async (req, res) => {
 export const updateUser = async (req, res) => {
 const { email } = req.body;
 const { password, confirmPassword } = req.body
+let hashedPassword = await hash(password, 12);
 if (password !== confirmPassword) {
     return res.status(400).json({
         message: res.__("Password")
@@ -58,7 +59,7 @@ if (!user.rowCount) {
 } else {
     const updates = await pool.query(
         `UPDATE public."Users" SET password=$1 WHERE email LIKE '%${email}%'`,
-        [password]
+        [hashedPassword]
     );
     return res.status(200).send({
         success: true,

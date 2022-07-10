@@ -24,7 +24,10 @@ module.exports = {
     logging: false,
     protocol: "postgres",
     dialectOptions: {
-      bigNumberStrings: true,
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
     },
   },
   production: {
@@ -35,7 +38,10 @@ module.exports = {
     port: process.env.PORT_FOR_PRODUCTION,
     dialect: process.env.DIALECT_FOR_ALL_DB,
     dialectOptions: {
-      bigNumberStrings: true,
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
     },
   },
 };
