@@ -16,8 +16,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 16.x]
-        os: - ubuntu-latest
+        node-version: 
+          - 16.x
+        os: 
+          - ubuntu-latest
 
     env:
       USER_NAME_FOR_TEST: ${{secrets.USER_NAME_FOR_TEST}}
