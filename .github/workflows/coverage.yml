@@ -17,26 +17,18 @@ jobs:
     strategy:
       matrix:
         node-version: [ 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        os: - ubuntu-latest
 
     env:
-
-      USER_NAME_FOR_TEST: ${{ secrets.USER_NAME }}
-
-      PASSWORD_FOR_TEST: ${{ secrets.PASSWORD }}
-
-      PORT_FOR_TESTB: ${{ secrets.PORT }}
-
-      DB_TEST_NAME: ${{ secrets.DB_NAME }}
-
-      HOST_FOR_TEST: ${{ secrets.HOST }}
-
-      DIALECT_FOR_ALL_DB: ${{ secrets.DIALECT }}
-      
+      USER_NAME_FOR_TEST: ${{secrets.USER_NAME_FOR_TEST}}
+      PASSWORD_FOR_TEST: ${{secrets.PASSWORD_FOR_TEST}}
+      PORT_FOR_TEST: ${{secrets.PORT_FOR_TEST}}
+      DB_TEST_NAME: ${{secrets.DB_TEST_NAME}}
+      HOST_FOR_TEST: ${{secrets.HOST_FOR_TEST}}
+      DIALECT_FOR_ALL_DB: ${{secrets.DIALECT_FOR_ALL_DB}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -44,8 +36,8 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
     - name: Run the test
-      run: npm run test
+      run: npm run coverage
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
