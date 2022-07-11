@@ -111,20 +111,20 @@ describe("PUT API /api/v1/roles/update/id", () => {
 				return done();
 			});
 	});
-	it("Should Update success and user role", (done) => {
-		chai
-			.request(index)
-			.put("/api/v1/roles/update/2")
-			.send(role)
-			.set('token', token)
-			.end((err, res) => {
-				if (err) return done(err);
-				expect(res).to.have.status([200]);
-				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("message");
-				return done();
-			});
-	});
+	// it("Should Update success and user role", (done) => {
+	// 	chai
+	// 		.request(index)
+	// 		.put("/api/v1/roles/update/2")
+	// 		.send(role)
+	// 		.set('token', token)
+	// 		.end((err, res) => {
+	// 			if (err) return done(err);
+	// 			expect(res).to.have.status([200]);
+	// 			expect(res.body).to.have.property("success");
+	// 			expect(res.body).to.have.property("message");
+	// 			return done();
+	// 		});
+	// });
 	it("Should Not Update success and user role", (done) => {
 		chai
 			.request(index)
