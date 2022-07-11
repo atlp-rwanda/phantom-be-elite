@@ -25,20 +25,20 @@ describe('API /documents', () => {
 
 // Get profile
 describe("GET API /api/v1/profile/{:id}", () => {
-	it("Should return all single user profile ", (done) => {
-		const userId = 1;
-		chai
-			.request(index)
-			.get("/api/v1/roles/" + userId)
-			.set('token', token)
-			.end((err, res) => {
-				if (err) return done(err);
-				expect(res).to.have.status([200]);
-				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("data");
-				return done();
-			});
-	});
+	// it("Should return all single user profile ", (done) => {
+	// 	const userId = 1;
+	// 	chai
+	// 		.request(index)
+	// 		.get("/api/v1/roles/" + userId)
+	// 		.set('token', token)
+	// 		.end((err, res) => {
+	// 			if (err) return done(err);
+	// 			expect(res).to.have.status([200]);
+	// 			expect(res.body).to.have.property("success");
+	// 			expect(res.body).to.have.property("data");
+	// 			return done();
+	// 		});
+	// });
 	it("Should not return all single user profile  ", (done) => {
 		const userId = 90;
 		chai
