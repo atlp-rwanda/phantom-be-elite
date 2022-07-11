@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 // Get profile
 describe("GET API /api/v1/profile/{:id}", () => {
 	it("Should return all single user profile ", (done) => {
-		const userId = 4;
+		const userId = 2;
 		chai
 			.request(index)
 			.get("/api/v1/profile/" + userId)
