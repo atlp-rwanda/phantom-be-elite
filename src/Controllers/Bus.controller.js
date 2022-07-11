@@ -13,6 +13,7 @@ export const getAllBuses = async (req, res) => {
 	});
 };
 
+
 export const getSingleBus = async (req, res) => {
 	const { id } = req.params;
 	const bus = await pool.query(
