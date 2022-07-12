@@ -690,7 +690,159 @@
                         }
                     }
                 }
+            }  
+        },
+        "/api/v1/bus/start": {
+            "post": {
+                "tags": ["Buses In Road"],
+                "summary": "Buses will be in the road",
+                "description": "Buses will be in the road",
+                "operationId": "Buses will be in the road",
+                "parameters": [{
+                    "name": "BUSES",
+                    "in": "body",
+                    "type": "string",
+                    "description": "Email",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "driver_id": {
+                                "type": "string"
+                            },
+                            "plate_number": {
+                                "type": "string"
+                            },
+                            "origin": {
+                                "type": "string"
+                            },
+                            "destination": {
+                                "type": "string"
+                            },
+                            "passengers": {
+                                "type": "number"
+                            },
+                            "speed": {
+                                "type": "number"
+                            },
+                            "lat": {
+                                "type": "number"
+                            },
+                            "long": {
+                                "type": "number"
+                            }
+                        },
+                        "required": ["driver_id","plate_number","origin","destination","passengers","speed","lat","long"]
+                    }
+                }],
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/v1/bus/stop": {
+        "delete": {
+            "tags": ["Buses In Road"],
+            "summary": "Delete Bus in road",
+            "description": "delete bus in road",
+            "operationId": "delete bus in road",
+            "security": [{
+                "Bearer": []
+            }],
+            "produces": ["application/json"],
+            "parameters": [{
+                "plate_number": "id",
+                "in": "path",
+                "type": "string",
+                "description": "plate_number",
+                "required": true
+            }],
+            "responses": {
+                "201": {
+                    "description": "success"
+                }
+            }
+        }
+    },
+    "/api/v1/bus/update": {
+    "put": {
+        "tags": ["Buses In Road"],
+        "summary": "Update Bus details",
+        "description": "Update bus",
+        "operationId": "Update bus",
+        "security": [{
+            "Bearer": []
+        }],
+        "produces": ["application/json"],
+        "parameters": [{
+            "name": "BUSES",
+            "in": "body",
+            "type": "string",
+            "description": "Email",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "plate_number": {
+                        "type": "string"
+                    },
+                    "passengers": {
+                        "type": "number"
+                    },
+                    "speed": {
+                        "type": "number"
+                    },
+                    "lat": {
+                        "type": "number"
+                    },
+                    "long": {
+                        "type": "number"
+                    }
+                },
+                "required": ["plate_number","passengers","speed","lat","long"]
+            }
+        }],
+        "responses": {
+            "201": {
+                "description": "success"
             }
         }
     }
+},
+"api/v1/bus/businroad": {
+    "get": {
+        "tags": ["Buses In Road"],
+        "summary": "Get bus in road",
+        "description": "get bus in road",
+        "operationId": "get bus in road", 
+        "security": [{
+            "Bearer": []
+        }],
+        "produces": ["application/json"],
+        "parameters": [{
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "description": "Article Id",
+            "required": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "destination": {
+                        "type": "string"
+                    }
+                },
+                "required": ["destination"]
+            }    
+        }],
+        "responses": {
+            "201": {
+                "description": "Buses that are in road"
+            }
+        }
+    }
+}
+}
 }

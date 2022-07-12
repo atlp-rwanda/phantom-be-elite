@@ -1,33 +1,46 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Buses', {
+    await queryInterface.createTable('BusesInRoads', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      bus_number: {
-        type: Sequelize.STRING
+      driver_id: {
+        type: Sequelize.INTEGER
       },
       plate_number: {
         type: Sequelize.STRING
       },
-      route: {
+      origin: {
         type: Sequelize.STRING
       },
+      destination: {
+        type: Sequelize.STRING
+      },
+      passengers: {
+        type: Sequelize.INTEGER
+      },
+      speed: {
+        type: Sequelize.INTEGER
+      },
+      long: {
+        type: Sequelize.DECIMAL
+      },
+      lat: {
+        type: Sequelize.DECIMAL
+      },
       createdAt: {
-        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Buses');
+    await queryInterface.dropTable('BusesInRoads');
   }
 };

@@ -4,8 +4,8 @@ import { authadmin, authoperator, authall, authdriver } from "../middleware/auth
 
 const router = express.Router();
 
-router.post("/start",postBusInRoad);
-router.delete("/stop",stopBus);
-router.put("/update",updateBus);
-router.get("/businroad",getBusInRoad);
+router.post("/start", authdriver, postBusInRoad);
+router.delete("/stop", authdriver, stopBus);
+router.put("/update", authdriver, updateBus);
+router.get("/businroad", authdriver, getBusInRoad);
 export default router;

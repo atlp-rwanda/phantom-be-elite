@@ -17,7 +17,7 @@ const pool = new Pool({
   connectionString: CURRENT_DATABASE,
   ssl: {
     rejectUnauthorized: false
-    }
+  }
 });
 console.log(
   `You are running in the ===> ${process.env.NODE_ENV.toUpperCase()} ENVIRONMENT! \nYou are connected to database ===> ${CURRENT_DATABASE}`

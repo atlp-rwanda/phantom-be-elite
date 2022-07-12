@@ -11,22 +11,24 @@ let token = "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiUmFjaGVsIiwicm9sZSI6ImRyaXZlciIsIm
 
 describe("POST API /api/v1/bus/start", () => {
     const bus = {
-        bus_number: "333",
-        plate_number: "RAE034A",
-        time_start: "12:00",
-        origin: "Nyamirambo",
-		destination: "Town",
-        passengers: "52",
-        speed: "30"
+		driver_id:"222",
+		plate_number:"RAE555A",
+		origin:"Nyamirambo",
+		destination:"kicukiro",
+		passengers:"30",
+		speed:"20",
+		lat:"45.6",
+		long:"67.9"
     }
 	const bus2 = {
-        bus_number: "333",
-        plate_number: "RAE034A",
-        time_start: "12:00",
-        origin: "Nyamirambo",
-		destination: "Town",
-        passengers: "52",
-        speed: "30"
+		driver_id:"222",
+		plate_number:"RAE555A",
+		origin:"Nyamirambo",
+		destination:"kicukiro",
+		passengers:"30",
+		speed:"20",
+		lat:"45.6",
+		long:"67.9"
     }
 	it("Should send bus in road", (done) => {
 		chai
@@ -58,7 +60,7 @@ describe("POST API /api/v1/bus/start", () => {
 
 describe("DELETE API /api/v1/bus/stop", () => {
     const plate_number = {
-        plate_number: "RAE457A"
+        plate_number: "RAE555A"
     }
 	it("Should stop bus in road", (done) => {
 		chai
@@ -89,7 +91,7 @@ describe("DELETE API /api/v1/bus/stop", () => {
 });
 describe('PUT API /api/v1/bus/update', () => { 
 	const userBus = {
-        plate_number: "RAE034A",
+        plate_number: "RAE678A",
         speed: "0",
         passengers: "30"
     }
@@ -109,7 +111,7 @@ describe('PUT API /api/v1/bus/update', () => {
 })
 describe('GET /api/v1/bus/businroad',() =>{
 	const route = {
-        destination:"Town"
+        destination:"kicukiro"
     }
 	it("Should return that the bus have been found in route that have been specified", (done) => {
 	chai

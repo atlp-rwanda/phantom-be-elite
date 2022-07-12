@@ -14,13 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   BusesInRoad.init({
-    bus_number: DataTypes.STRING,
+    driver_id: DataTypes.INTEGER,
     plate_number: DataTypes.STRING,
-    time_start: DataTypes.STRING,
     origin: DataTypes.STRING,
     destination: DataTypes.STRING,
     passengers: DataTypes.INTEGER,
-    speed: DataTypes.INTEGER
+    speed: DataTypes.INTEGER,
+    long: DataTypes.DECIMAL,
+    lat: DataTypes.DECIMAL
   }, {
     sequelize,
     modelName: 'BusesInRoad',
