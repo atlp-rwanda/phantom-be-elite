@@ -37,6 +37,8 @@ server.use(
 server.get("/language-test", (req, res) => {
     res.status(200).json({ success: res.__(true), message: res.__("language") });
 });
+
+// serving the controllers according to the matched path pre-defined before hand
 server.use("/api/v1/", driverRouter);
 server.use("/api/v1/", operatorRouter);
 server.use("/api/v1/profile", profileRouter);
