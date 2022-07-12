@@ -29,6 +29,7 @@ jobs:
       HOST_FOR_TEST: ${{secrets.HOST_FOR_TEST}}
       DIALECT_FOR_ALL_DB: ${{secrets.DIALECT_FOR_ALL_DB}}
       TEST_URI_DATABASE: ${{secrets.TEST_URI_DATABASE}}
+      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
