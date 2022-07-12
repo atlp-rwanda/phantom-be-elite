@@ -7,7 +7,7 @@ const rooms = db['businroad'];
 
 chai.should();
 chai.use(chaiHttp);
-let token = "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiUmFjaGVsIiwicm9sZSI6ImRyaXZlciIsImVtYWlsIjoiYmVuQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMDNUMTA6MDA6MzEuNjY1WiIsImlkIjo1fQ.3gZqo3CdzMQpI7dKAYr2OvokcrlPxkXn5b4J6qpYgMw";
+let token = "eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoicHJpbmNlIiwicm9sZSI6ImRyaXZlciIsImVtYWlsIjoicHJpbmNlQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMTJUMDk6MDg6MjQuMjUwWiIsImlkIjoxfQ.dAT5ZwVzWwMalwjgeZFGuHA-cR8rG1l04HNcM3H_Oko";
 
 describe("POST API /api/v1/bus/start", () => {
     const bus = {
