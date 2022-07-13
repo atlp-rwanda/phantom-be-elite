@@ -89,7 +89,7 @@ describe("POST API /api/v1/auth/login", () => {
 			.end((err, res) => {
 				if (err) return done(err);
 				token = res.body.token;
-				expect(res.status).to.have.status([200]);
+				expect(res).to.have.status([200]);
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				expect(res.body).to.have.property("token");

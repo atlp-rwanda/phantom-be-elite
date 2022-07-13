@@ -47,8 +47,8 @@ describe("POST API /api/v1/drivers", () => {
             .send(userData)
             .end((err, res) => {
                 if (err) return done(err);
-                expect(res).to.have.status([401]);
-                expect(res.body).to.have.property("message");
+                expect(res).to.have.status([201]);
+                expect(res.body).to.have.property("success");
                 return done();
             });
     });

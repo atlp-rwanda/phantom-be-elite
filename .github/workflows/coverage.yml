@@ -39,7 +39,13 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm ci
+      run: npm install
+    - name: Run reseting database
+      run: npm run migration:undo:test
+    - name: Run restarting database
+      run: npm run migration:test
+    - name: Run seeders
+      run: npm run seed:test
     - name: Run the test
       run: npm run coverage
     - name: Upload coverage to Codecov

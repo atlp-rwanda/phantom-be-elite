@@ -13,6 +13,15 @@ module.exports = {
           destination: "Town",
           passengers: "52",
           speed: "30"
+        },
+        {
+					bus_number: "Bus-002",
+					plate_number: "RAE457B",
+          time_start: "12:00",
+          origin: "Nyabugogo",
+          destination: "Kimironko",
+          passengers: "52",
+          speed: "30"
 				},
 			],
 			{}

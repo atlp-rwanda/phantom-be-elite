@@ -15,7 +15,7 @@ describe("POST API /api/v1/auth/logout", () => {
 			.set({'authorization':'eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoicHJpbmNlIiwicm9sZSI6ImRyaXZlciIsImVtYWlsIjoicHJpbmNlQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDYtMjJUMTU6NDI6MzcuMzM5WiIsImlkIjoxfQ.JtqkXU-hMpLP3eVOXTcvV-0VcZ4JdgVH0Ho5fXOcTpQ'})
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res.status).to.be.equal(401);
+				expect(res).to.have.status([200]);
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				
