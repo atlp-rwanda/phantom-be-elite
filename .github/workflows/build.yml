@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "ft-simulate-bus-motion-14"]
+    branches: [ "develop, ft-simulate-bus-motion-14"]
   pull_request:
-    branches: [ "ft-simulate-bus-motion-14"]
+    branches: [ "develop, ft-simulate-bus-motion-14"]
 
 jobs:
   build:
