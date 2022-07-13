@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 
 // Get profile
 describe("GET API /api/v1/profile/{:id}", () => {
-	it("Should return Article not found", (done) => {
+	it("Should return profile not found", (done) => {
 		const fakeId = 90;
 		chai
 			.request(index)
@@ -18,7 +18,7 @@ describe("GET API /api/v1/profile/{:id}", () => {
 				if (err) return done(err);
 				expect(res).to.have.status([400]);
 				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("message");
+			
 				return done();
 			});
 	});
