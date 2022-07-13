@@ -5,9 +5,9 @@ name: Test
 
 on:
   push:
-    branches: [ "ft-simulate-bus-motion-14" ]
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "ft-simulate-bus-motion-14" ]
+    branches: [ "develop" ]
 
 jobs:
   build:
