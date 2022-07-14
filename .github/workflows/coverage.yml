@@ -5,9 +5,9 @@ name: Test
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [develop, ft-simulate-bus-motion-14]
   pull_request:
-    branches: [ "develop" ]
+    branches: [develop, ft-simulate-bus-motion-14]
 
 jobs:
   build:
@@ -20,16 +20,18 @@ jobs:
           - 16.x
         os: 
           - ubuntu-latest
-
     env:
-      USER_NAME_FOR_TEST: ${{secrets.USER_NAME_FOR_TEST}}
-      PASSWORD_FOR_TEST: ${{secrets.PASSWORD_FOR_TEST}}
-      PORT_FOR_TEST: ${{secrets.PORT_FOR_TEST}}
-      DB_TEST_NAME: ${{secrets.DB_TEST_NAME}}
-      HOST_FOR_TEST: ${{secrets.HOST_FOR_TEST}}
-      DIALECT_FOR_ALL_DB: ${{secrets.DIALECT_FOR_ALL_DB}}
-      TEST_URI_DATABASE: ${{secrets.TEST_URI_DATABASE}}
+      CI: true
+      USER_EMAIL: ${{secrets.USER_EMAIL}}
+      USER_EMAIL_PASSWORD: ${{secrets.USER_EMAIL_PASSWORD}}
+      RESET_PASSWORD_KEY: ${{secrets.RESET_PASSWORD_KEY}}
+      TRANSPORTER_HOST: ${{secrets.TRANSPORTER_HOST}}
+      TRANSPORTER_PORT: ${{secrets.TRANSPORTER_PORT}}
       PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+      SECURE: ${{secrets.SECURE }}
+      TEST_URI_DATABASE: ${{secrets.TEST_URI_DATABASE}}
+      PRODUCTION_URI_DATABASE: ${{secrets.PRODUCTION_URI_DATABASE}}
+      CLIENT_URL: ${{secrets.CLIENT_URL}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -41,6 +43,12 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+    - name: Run reseting database
+      run: npm run migration:undo:test
+    - name: Run restarting database
+      run: npm run migration:test
+    - name: Run seeders
+      run: npm run seed:test
     - name: Run the test
       run: npm run coverage
     - name: Upload coverage to Codecov

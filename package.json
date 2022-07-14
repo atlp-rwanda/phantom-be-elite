@@ -35,7 +35,7 @@
     "coverage": "nyc npm run test --coverage",
     "build": "babel src --out-dir dist",
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js",
-    "start:prod": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
     "test": "cross-env NODE_ENV=test nyc mocha './src/**/*.test.js' --require @babel/register --recursive  --exit --timeout 20000",
     "migration:dev": "cross-env NODE_ENV=development npx sequelize-cli db:migrate",
     "migration:prod": "cross-env NODE_ENV=production npx sequelize-cli db:migrate",
