@@ -42,10 +42,17 @@ export const createOperator = async(req, res) => {
             .status(401)
             .json({ success: false, message: `The operator with email: ${email}, is already registered!` });
     }else{
-        pool.query(`INSERT INTO public."Users"  (name,email, password, id_number,permit_id,phone,role) VALUES ($1, $2, $3, $4, $5, $6, $7)  RETURNING *`, [name, email, passwordHash, id_number, permit_id, phone, role],
-        (error, results) => {
-            return res.status(201).json({ success: true, message: `New operator has been created and email has been sent to your email for Password.` });
-        });
+        const operators = await pool.query(`INSERT INTO public."Users"  (name,email, password, id_number,permit_id,phone,role) VALUES ($1, $2, $3, $4, $5, $6, $7)  RETURNING *`, [name, email, passwordHash, id_number, permit_id, phone, role]);
+        if (!operators.rowCount) {
+			return res
+				.status(400)
+				.send({ success: false, message: `Something went wrong` });
+		}else{
+            return res.status(200).send({
+                success: true,
+                message: `New operator has been created and email has been sent to your email for Password.`,
+                data: operators.rows[0]
+            }),
     transporter.sendMail({
         from: process.env.USER_EMAIL,
         to: email,
@@ -115,4 +122,5 @@ export const createOperator = async(req, res) => {
             `,
     })
     }
-};
+}
+}
