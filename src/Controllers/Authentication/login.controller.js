@@ -1,6 +1,6 @@
 /** @format */
 
-import pool from "../../Database/database";
+import pool from "../../database/database";
 import { verify } from "../../middleware/hash-password";
 import { signToken } from "../../middleware/jwt";
 

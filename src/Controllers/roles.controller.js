@@ -1,4 +1,4 @@
-import pool from "../Database/database";
+import pool from "../database/database";
 
 export const getRole = async (req, res) => {
 	const { id } = req.params;
