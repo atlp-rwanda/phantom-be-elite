@@ -1,4 +1,4 @@
-import pool from "../database/database";
+import pool from "../Database/database";
 import {  busValidation } from "../validations/index";
 
 export const getAllAssigned = async (req, res)=>{

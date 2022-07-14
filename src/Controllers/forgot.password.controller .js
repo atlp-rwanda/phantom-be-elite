@@ -1,4 +1,4 @@
-import pool from "../database/database"
+import pool from "../Database/database"
 import nodemailer from "nodemailer";
 import "dotenv/config"
 

@@ -1,6 +1,6 @@
 /** @format */
 
-import pool from "../database/database";
+import pool from "../Database/database";
 import { busValidation } from "../validations/index";
 
 export const getAllBuses = async (req, res) => {

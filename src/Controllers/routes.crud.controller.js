@@ -1,4 +1,4 @@
-import pool from "../database/database";
+import pool from "../Database/database";
 import { routeValidation } from "../validations/index";
 
 export const getAllRoutes = async (req, res) => {

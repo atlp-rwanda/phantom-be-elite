@@ -1,5 +1,5 @@
 /** @format */
-import pool from "../database/database";
+import pool from "../Database/database";
 import { profileValidation } from "../validations/index";
 
 export const getUser = async(req, res) => {

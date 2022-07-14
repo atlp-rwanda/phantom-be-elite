@@ -1,4 +1,4 @@
-import pool from "../database/database"
+import pool from "../Database/database"
 
 export const postBusInRoad = async (req, res) => {
 	const { bus_number,plate_number,time_start,origin,destination,passengers,speed } = req.body;

@@ -1,6 +1,6 @@
 /** @format */
 require("dotenv").config({ path: ".env" })
-import pool from "../database/database";
+import pool from "../Database/database";
 import bcryptjs from "bcryptjs";
 const { hash } = bcryptjs;
 import nodemailer from "nodemailer";
