@@ -3,11 +3,8 @@
 
 name: Test
 
-on:
-  push:
-    branches: [develop, ft-simulate-bus-motion-14]
-  pull_request:
-    branches: [develop, ft-simulate-bus-motion-14]
+on: [push]
+    
 
 jobs:
   build:
@@ -43,12 +40,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-    - name: Run reseting database
-      run: npm run migration:undo:test
-    - name: Run restarting database
-      run: npm run migration:test
-    - name: Run seeders
-      run: npm run seed:test
     - name: Run the test
       run: npm run coverage
     - name: Upload coverage to Codecov
