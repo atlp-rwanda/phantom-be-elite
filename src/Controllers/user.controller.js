@@ -46,3 +46,23 @@ export const updateUser = async(req, res) => {
         });
     }
 };
+
+export const deleteUser = async (req, res) => {
+	const { id } = req.params;
+	const user = await pool.query(
+		`SELECT * FROM public."Users" where id = ${id} `
+	);
+	if (!user.rowCount) {
+		return res.status(400).send({ success: false, message: `No User found` });
+	} else {
+		const deletedBus = await pool.query(
+			`DELETE FROM public."Users" where id = ${id} `
+		);
+		if (deletedBus.rowCount) {
+			return res.status(200).send({
+				success: true,
+				message: `User Deleted Successfully`,
+			});
+		}
+	}
+};
