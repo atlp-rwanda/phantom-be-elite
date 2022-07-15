@@ -42,6 +42,7 @@ export const updateUser = async(req, res) => {
         return res.status(200).send({
             success: true,
             message: `Profile Updated Successfully`,
+            data: updates.rows[0]
         });
     }
 };
