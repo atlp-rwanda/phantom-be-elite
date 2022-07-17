@@ -26,6 +26,12 @@ module.exports = {
       passengers: {
         type: Sequelize.INTEGER
       },
+      lat: {
+        type: Sequelize.DECIMAL
+      },
+      long: {
+        type: Sequelize.DECIMAL
+      },
       speed: {
         type: Sequelize.INTEGER
       },

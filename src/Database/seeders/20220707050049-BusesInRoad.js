@@ -12,7 +12,9 @@ module.exports = {
           origin: "Nyamirambo",
           destination: "Town",
           passengers: "52",
-          speed: "30"
+          speed: "30",
+          lat:"45.6",
+          long:"67.9"
         },
         {
 					bus_number: "Bus-002",
@@ -21,7 +23,9 @@ module.exports = {
           origin: "Nyabugogo",
           destination: "Kimironko",
           passengers: "52",
-          speed: "30"
+          speed: "30",
+          lat:"45.6",
+          long:"67.9"
 				},
 			],
 			{}

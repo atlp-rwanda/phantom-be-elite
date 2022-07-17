@@ -1,7 +1,7 @@
 import pool from "../Database/database"
 
 export const postBusInRoad = async (req, res) => {
-	const { bus_number,plate_number,time_start,origin,destination,passengers,speed } = req.body;
+	const { bus_number,plate_number,time_start,origin,destination,passengers,speed,lat,long } = req.body;
     const buses = await pool.query(
 		`SELECT * FROM public."BusesInRoads" where plate_number = '${plate_number}' `
 	);
@@ -11,7 +11,7 @@ export const postBusInRoad = async (req, res) => {
 			.send({ success: false, message: `Bus With Same Plate Number is in the road` });
     }else{
         const bus = await pool.query(
-            `INSERT INTO public."BusesInRoads" (bus_number, plate_number,time_start,origin,destination,passengers,speed) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,[bus_number, plate_number,time_start,origin,destination,passengers,speed]
+            `INSERT INTO public."BusesInRoads" (bus_number, plate_number,time_start,origin,destination,passengers,speed,lat,long) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *`,[bus_number, plate_number,time_start,origin,destination,passengers,speed,lat,long]
         );
         if (!bus.rowCount) {
             return res
@@ -61,13 +61,13 @@ export const updateBus = async (req, res) => {
 }
 
 export const getBusInRoad = async (req, res) => {
-	const { destination } = req.body;
+	const { location,destination } = req.body;
 	const bus = await pool.query(
 		`SELECT * FROM public."BusesInRoads" WHERE destination LIKE '%${destination}%'`
 	);
 	if (!bus.rowCount) {
 		return res
-		.status(400)
+		.status(404)
 		.send({ success: false, message: res.__("BusRoute")});
     }else{
         return res.status(200).send({

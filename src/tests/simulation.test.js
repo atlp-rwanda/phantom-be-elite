@@ -17,7 +17,9 @@ describe("POST API /api/v1/busmotion/start", () => {
         origin: "Nyamirambo",
 		destination: "Town",
         passengers: "52",
-        speed: "30"
+        speed: "30",
+		lat:"45.6",
+		long:"67.9"
     }
 	const bus2 = {
         bus_number: "333",
@@ -26,7 +28,9 @@ describe("POST API /api/v1/busmotion/start", () => {
         origin: "Nyamirambo",
 		destination: "Town",
         passengers: "52",
-        speed: "30"
+        speed: "30",
+		lat:"45.6",
+		long:"67.9"
     }
 	it("Should send bus in road", (done) => {
 		chai
@@ -111,7 +115,8 @@ describe("DELETE API /api/v1/busmotion/stop", () => {
 
 describe('GET /api/v1/busmotion/businroad',() =>{
 	const route = {
-        destination:"Town"
+		location:"kabuye",
+        destination:"Kimironko"
     }
 	it("Should return that the bus have been found in route that have been specified", (done) => {
 	chai

@@ -40,7 +40,7 @@ describe("PUT API /api/v1/profile/update/{:id}", () => {
 			.send(userData)
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([400]);
+				expect(res).to.have.status([404]);
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				return done();
