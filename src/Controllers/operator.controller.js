@@ -41,11 +41,18 @@ export const createOperator = async(req, res) => {
         return res
             .status(401)
             .json({ success: false, message: `The operator with email: ${email}, is already registered!` });
-    }
-    pool.query(`INSERT INTO public."Users"  (name,email, password, id_number,permit_id,phone,role) VALUES ($1, $2, $3, $4, $5, $6, $7)  RETURNING *`, [name, email, passwordHash, id_number, permit_id, phone, role],
-        (error, results) => {
-            return res.status(201).json({ success: true, message: `New operator has been created and email has been sent to: ${results.rows[0].email} for Password.` });
-        });
+    }else{
+        const operators = await pool.query(`INSERT INTO public."Users"  (name,email, password, id_number,permit_id,phone,role) VALUES ($1, $2, $3, $4, $5, $6, $7)  RETURNING *`, [name, email, passwordHash, id_number, permit_id, phone, role]);
+        if (!operators.rowCount) {
+			return res
+				.status(400)
+				.send({ success: false, message: `Something went wrong` });
+		}else{
+            return res.status(200).send({
+                success: true,
+                message: `New operator has been created and email has been sent to your email for Password.`,
+                data: operators.rows[0]
+            }),
     transporter.sendMail({
         from: process.env.USER_EMAIL,
         to: email,
@@ -114,4 +121,6 @@ export const createOperator = async(req, res) => {
       <br><p class="left" style="margin: 0; font-family:sans-serif; font-size:1em; color:#222222; mso-line-height-rule: exactly; line-height: 1.5; text-align:center;">${req.__("operatorPasswordEmail")} : <em>https://phantom-fe-elite.vercel.app/login</em> </td></tr><tr><td valign="top"><table role="presentation" border="0" cellpadding="0" cellspacing="0" width="80%" align="center"><tr><td height="38" align="center" bgcolor="#3366CC">	<p style = "color:white;font-family:sans-serif; font-size:18px;">${randomPassword}</p></td></tr></table></td></tr><tr><td height="30" style="margin: 0;font-size:0px; mso-line-height-rule: exactly; line-height: 1px; white-space-collapse:collapse; max-height:30px;" valign="top">&nbsp;</td></tr></table></td></tr></table><div style="height: 40px;"></div></td></tr></table></div></body></html>
             `,
     })
-};
+    }
+}
+}

@@ -25,7 +25,7 @@ const nodemailerConfigMiddleware = async (req, res, next) => {
     if (method === "DELETE") {
       // Find user going to be deleted and parse his information along with the message going to be send on the email
       const wasUser = await pool.query(
-        `SELECT * FROM Driver_buse_assign where id = ${req.params.id} `
+        `SELECT route,driver_name,plate_number,id FROM public."Driver_buse_assigns" where id = ${req.params.id} `
       );
       const dataToBedeleted = wasUser.rows[0];
       const { plate_number, driver_name } = dataToBedeleted;

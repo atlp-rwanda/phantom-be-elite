@@ -3,7 +3,7 @@ import { assignValidation } from "../validations/index";
 
 export const getAllAssigned = async (req, res) => {
   const routes = await pool.query(
-    "SELECT * FROM Driver_buse_assign ORDER BY id ASC"
+    `SELECT * FROM public."Driver_buse_assigns" ORDER BY id ASC`
   );
   res.status(200).json({
     status: res.__("status0"),
@@ -20,7 +20,7 @@ export const createAssign = async (req, res) => {
     }
     const { route, driver_name, plate_number } = req.body;
     const assigned = await pool.query(
-      "INSERT INTO Driver_buse_assign (route, driver_name, plate_number) VALUES ($1, $2, $3) RETURNING *",
+      `INSERT INTO public."Driver_buse_assigns" (route, driver_name, plate_number) VALUES ($1, $2, $3) RETURNING route,driver_name,plate_number,id`,
       [route, driver_name, plate_number]
     );
     res.status(201).json({
@@ -37,10 +37,10 @@ export const createAssign = async (req, res) => {
 
 export const deleteAssigned = async (req, res) => {
     await pool.query(
-      `SELECT * FROM Driver_buse_assign where id = ${req.params.id} `
+      `SELECT route,driver_name,plate_number,id FROM public."Driver_buse_assigns" where id = ${req.params.id} `
     );
     const deleted = await pool.query(
-      "DELETE FROM Driver_buse_assign WHERE id = $1",
+      `DELETE FROM public."Driver_buse_assigns" WHERE id = $1`,
       [req.params.id]
     );
 

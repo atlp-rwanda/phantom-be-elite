@@ -1,9 +1,14 @@
-                                                                                                                                                                                                                                        name: Coverage
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Test
 
 on:
   push:
-    branches: ["develop,fx-setup-integration-15"]
- 
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
 jobs:
   build:
 
@@ -11,13 +16,26 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
-
+        node-version: 
+          - 16.x
+        os: 
+          - ubuntu-latest
+    env:
+      CI: true
+      USER_EMAIL: ${{secrets.USER_EMAIL}}
+      USER_EMAIL_PASSWORD: ${{secrets.USER_EMAIL_PASSWORD}}
+      RESET_PASSWORD_KEY: ${{secrets.RESET_PASSWORD_KEY}}
+      TRANSPORTER_HOST: ${{secrets.TRANSPORTER_HOST}}
+      TRANSPORTER_PORT: ${{secrets.TRANSPORTER_PORT}}
+      PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+      SECURE: ${{secrets.SECURE }}
+      TEST_URI_DATABASE: ${{secrets.TEST_URI_DATABASE}}
+      PRODUCTION_URI_DATABASE: ${{secrets.PRODUCTION_URI_DATABASE}}
+      CLIENT_URL: ${{secrets.CLIENT_URL}}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: Set up Node.js ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
@@ -25,10 +43,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-    - name: Run the tests
-      run: npm run test
-    - name: Run the coverage
+    - name: Run the test
       run: npm run coverage
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1

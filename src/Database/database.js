@@ -1,24 +1,26 @@
 /** @format */
+require("dotenv").config();
 
 import { Pool } from "pg";
 
-const pool = new Pool({
-  host: "localhost",
-  user: "postgres",
-  port: "5432",
-  password: "JavaScript",
-  database: "postgres",
-});
+let CURRENT_DATABASE;
 
-// function to precreate table if not exists
-const createTable = async () => {
-  await pool.query(
-    "CREATE TABLE IF NOT EXISTS Driver_buse_assign ( route VARCHAR(40), driver_name VARCHAR(40), plate_number VARCHAR(120), id SERIAL, PRIMARY KEY ( plate_number ) )"
-  );
-  await pool.query(
-    "CREATE TABLE IF NOT EXISTS Routes (origin VARCHAR(40), destination VARCHAR(40), description VARCHAR(120), id SERIAL, PRIMARY KEY ( origin, destination ) )"
-  );
-};
-createTable();
+if (process.env.NODE_ENV === "production") {
+  CURRENT_DATABASE = process.env.PRODUCTION_URI_DATABASE;
+} else if (process.env.NODE_ENV === "test") {
+  CURRENT_DATABASE = process.env.TEST_URI_DATABASE;
+} else {
+  CURRENT_DATABASE = process.env.DEVELOPMENT_URI_DATABASE;
+}
+
+const pool = new Pool({
+  connectionString: CURRENT_DATABASE,
+  ssl: {
+    rejectUnauthorized: false
+    }
+});
+console.log(
+  `You are running in the ===> ${process.env.NODE_ENV.toUpperCase()} ENVIRONMENT! \nYou are connected to database ===> ${CURRENT_DATABASE}`
+);
 
 export default pool;

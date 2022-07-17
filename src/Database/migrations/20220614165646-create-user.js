@@ -12,21 +12,27 @@ module.exports = {
             },
             name: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             email: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             id_number: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             permit_id: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             phone: {
                 type: Sequelize.INTEGER,
+                allowNull: false,
             },
             password: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             role: {
                 type: Sequelize.ENUM,

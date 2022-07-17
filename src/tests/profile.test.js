@@ -1,3 +1,4 @@
+
 /** @format */
 import index from "../app";
 import chai, { expect } from "chai";
@@ -7,30 +8,15 @@ chai.use(chaiHttp);
 
 // Get profile
 describe("GET API /api/v1/profile/{:id}", () => {
-	it("Should return all single user profile ", (done) => {
-		const userId = 4;
-		chai
-			.request(index)
-			.get("/api/v1/profile/" + userId)
-			.send()
-			.end((err, res) => {
-				if (err) return done(err);
-				expect(res).to.have.status([200]);
-				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("data");
-				return done();
-			});
-	});
-
-	it("Should return Article found", (done) => {
-		const fakeId = 7;
+	it("Should return profile not found", (done) => {
+		const fakeId = 90;
 		chai
 			.request(index)
 			.get("/api/v1/profile/" + fakeId)
 			.send()
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([200]);
+				expect(res).to.have.status([400]);
 				expect(res.body).to.have.property("success");
 			
 				return done();
@@ -47,14 +33,14 @@ describe("PUT API /api/v1/profile/update/{:id}", () => {
 		phone: "0780000001",
 	};
 	it("Should return User Profile not found", (done) => {
-		const fakeId = 7;
+		const fakeId = 90;
 		chai
 			.request(index)
 			.put("/api/v1/profile/update/" + fakeId)
 			.send(userData)
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([200]);
+				expect(res).to.have.status([404]);
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				return done();

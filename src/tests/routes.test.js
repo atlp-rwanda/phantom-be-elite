@@ -15,9 +15,9 @@ describe("POST API /api/v1/route/", () => {
     description: "welcome urwanda ruragendwa",
   };
   const route2 = {
-    origin: "kayonza",
-    destination: "ndera",
-    description: "welcome to the most futuristic place",
+    origin: "remera",
+    destination: "nyabugogo",
+    description: "The best line stress and wear from out of jokes forever",
   };
   const route_data = {
     origin: "rulindo12",
@@ -39,19 +39,6 @@ describe("POST API /api/v1/route/", () => {
       .end((err, res) => {
         if (err) return done(err);
         expect(res).to.have.status([400]);
-        expect(res.body).to.have.property("message");
-        return done();
-      });
-  });
-  it("Should check duplicate routes created", (done) => {
-    chai
-      .request(index)
-      .post("/api/v1/route/")
-      .send(route2)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res).to.have.status([404]);
-        expect(res.body).to.have.property("status");
         expect(res.body).to.have.property("message");
         return done();
       });

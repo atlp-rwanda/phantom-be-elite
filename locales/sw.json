@@ -18,5 +18,16 @@
     "NoUserProfile": "Hakuna wasifu wa mtumiaji uliopatikana",
     "ProvideInfo": "Tafadhali toa jukumu la mtumiaji na kitambulisho",
     "FailedAssign": "Jukumu la kugawa halikufaulu",
-    "successAssign": "Jukumu limetolewa kwa Mafanikio"
+    "successAssign": "Jukumu limetolewa kwa Mafanikio",
+    "DenyMessage": "Hitilafu imetokea",
+    "BusInMotion": "Basi linaendelea sasa",
+    "BusPlate": "plate_numba isiyo sahihi",
+    "BusToStop": "Basi limesimama",
+    "UpdateBus": "Basi imesasishwa",
+    "BusRoute": "Hakuna basi katika njia hii ya",
+    "BusRes": "Mabasi ambayo yapo barabarani",
+    "Email": "Barua pepe zimetumwa",
+    "Password": "nenosiri halilingani",
+    "UpdatedPass": "Wasifu Umesasishwa",
+    "PlateSame": "Basi Likiwa Na Nambari ya Sahani Moja lipo barabarani"
 }

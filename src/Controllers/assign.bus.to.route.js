@@ -33,7 +33,7 @@ export const createBusToRoute =async(req, res)=>{
     });
     const { bus_number, plate_number, route } = req.body;
 
-    const bus =await pool.query(
+    const bus = await pool.query(
         `SELECT * FROM public."Buses" where plate_number='${plate_number}'`
     );
     if(bus.rowCount){

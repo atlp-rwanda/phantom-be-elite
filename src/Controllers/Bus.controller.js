@@ -75,6 +75,7 @@ export const createBus = async (req, res) => {
 		return res.status(200).send({
 			success: true,
 			message: `Bus Saved Successfully`,
+			data: newBus.rows[0]
 		});
 	}
 };
@@ -91,13 +92,14 @@ export const updateBus = async (req, res) => {
 		return res.status(400).send({ success: false, message: `No bus found` });
 	} else {
 		const updates = await pool.query(
-			`UPDATE public."Buses" SET bus_number = $1 ,plate_number=$2,route= $3 WHERE id = $4 `,
+			`UPDATE public."Buses" SET bus_number = $1 ,plate_number=$2,route= $3 WHERE id = $4 RETURNING *`,
 			[bus_number, plate_number, route, id]
 		);
 		
 		return res.status(200).send({
 			success: true,
 			message: `Bus Updated Successfully`,
+			data: updates.rows[0]
 		});
 	}
 };

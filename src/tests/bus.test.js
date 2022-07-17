@@ -12,12 +12,12 @@ let testBus = 2;
 describe("POST API /api/v1/bus/", () => {
 	const bus = {
 		bus_number: "Bus-152",
-		plate_number: "RAD447C",
+		plate_number: "RAD506C",
 		route: "D-302",
 	};
 	const bus_2 = {
 		bus_number: "Bus-152",
-		plate_number: "RAD547C",
+		plate_number: "RAD506C",
 		route: "D-302",
 	};
 	it("Should return Bus validation", (done) => {
@@ -61,7 +61,7 @@ describe("POST API /api/v1/bus/", () => {
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				return done();
-			});
+		});
 	});
 });
 
@@ -83,15 +83,16 @@ describe("GET API /api/v1/bus", () => {
 
 describe("GET API /api/v1/bus/{:id}", () => {
 	it("Should return single bus", (done) => {
+		const busId = 1;
 		chai
 			.request(index)
 			.get("/api/v1/bus/" + busId)
 			.send()
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([400]);
+				expect(res).to.have.status([200]);
 				expect(res.body).to.have.property("success");
-				expect(res.body).to.have.property("message");
+				expect(res.body).to.have.property("data");
 				return done();
 			});
 	});
@@ -134,13 +135,14 @@ describe("PUT API /api/v1/bus/update/{:id}", () => {
 			});
 	});
 	it("Should return Bus updated successfully", (done) => {
+		const busId = 1;
 		chai
 			.request(index)
 			.put("/api/v1/bus/" + busId)
 			.send(bus)
 			.end((err, res) => {
 				if (err) return done(err);
-				expect(res).to.have.status([400]);
+				expect(res).to.have.status([200]);
 				expect(res.body).to.have.property("success");
 				expect(res.body).to.have.property("message");
 				return done();
@@ -164,13 +166,14 @@ describe("DELETE API /api/v1/bus/{:id}", () => {
 			});
     });
     it("Should return Bus Deleted Successfully", (done) => {
+		const testBus = 12;
 			chai
 				.request(index)
-				.delete("/api/v1/bus/" + testBus)
+				.delete("/api/v1/bus/" + 2)
 				.send()
 				.end((err, res) => {
 					if (err) return done(err);
-					expect(res).to.have.status([400]);
+					expect(res).to.have.status([200]);
 					expect(res.body).to.have.property("success");
 					expect(res.body).to.have.property("message");
 					return done();
