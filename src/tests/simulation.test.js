@@ -112,22 +112,3 @@ describe("DELETE API /api/v1/busmotion/stop", () => {
 			})
 	});
 });
-
-describe('GET /api/v1/busmotion/businroad',() =>{
-	const route = {
-		location:"kabuye",
-        destination:"Kimironko"
-    }
-	it("Should return that the bus have been found in route that have been specified", (done) => {
-	chai
-	.request(index)
-	.get("/api/v1/busmotion/businroad")
-	.set('token', token)
-	.send(route)
-	.end((err,res) => {
-		expect(res).to.have.status([200]);
-		expect(res.body).to.have.property("message");
-		 done();
-	})
-  })
-})
